@@ -82,6 +82,7 @@
             this.tbSearch.Properties.Appearance.Options.UseFont = true;
             this.tbSearch.Size = new System.Drawing.Size(442, 28);
             this.tbSearch.TabIndex = 6;
+            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
             // 
             // btnSearch
             // 
@@ -93,6 +94,7 @@
             this.btnSearch.Size = new System.Drawing.Size(153, 28);
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panelControl2
             // 

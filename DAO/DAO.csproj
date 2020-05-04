@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO_LichSu.cs" />
     <Compile Include="DAO_PhieuTiem.cs" />
     <Compile Include="DAO_Vaccine.cs" />
     <Compile Include="DBProvider.cs" />

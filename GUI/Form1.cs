@@ -24,7 +24,6 @@ namespace GUI
             {
                 container.Controls.Add(ThanhToanGUI.Instance);
                 ThanhToanGUI.Instance.Dock = DockStyle.Fill;
-                ThanhToanGUI.Instance.BringToFront();
             }
             ThanhToanGUI.Instance.BringToFront();
         }
@@ -35,7 +34,6 @@ namespace GUI
             {
                 container.Controls.Add(LichSuGUI.Instance);
                 LichSuGUI.Instance.Dock = DockStyle.Fill;
-                LichSuGUI.Instance.BringToFront();
             }
             LichSuGUI.Instance.BringToFront();
         }
@@ -46,7 +44,6 @@ namespace GUI
             {
                 container.Controls.Add(VaccineGUI.Instance);
                 VaccineGUI.Instance.Dock = DockStyle.Fill;
-                VaccineGUI.Instance.BringToFront();
             }
             VaccineGUI.Instance.BringToFront();
         }
@@ -62,7 +59,6 @@ namespace GUI
             {
                 container.Controls.Add(PhieuTiemGUI.Instance);
                 PhieuTiemGUI.Instance.Dock = DockStyle.Fill;
-                PhieuTiemGUI.Instance.BringToFront();
             }
             PhieuTiemGUI.Instance.BringToFront();
         }

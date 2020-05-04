@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BUS;
 using System.Diagnostics;
+using System.Reflection;
+using DTO;
 
 namespace GUI
 {
@@ -29,11 +31,11 @@ namespace GUI
         }
 
         BUS_Vaccine busVC = new BUS_Vaccine();
-        string currMAVACCINE = "";
 
         public VaccineGUI()
         {
             InitializeComponent();
+
 
             gridView1.OptionsBehavior.Editable = false;
             //gridView1.RowClick += GridView1_RowClick;
@@ -55,6 +57,7 @@ namespace GUI
         private void VaccineGUI_Load(object sender, EventArgs e)
         {
             gridVaccine.DataSource = busVC.getAllVaccine();
+            gridView1.BestFitColumns();
             tbSearch.Focus();
         }
 
@@ -63,24 +66,26 @@ namespace GUI
 
         }
 
-        private void btnCapNhatGia_Click(object sender, EventArgs e)
-        {
-            //if (MessageBoxEx.Show("Bạn có chắc chắn muốn cập nhật không? Thao tác này không thể hoàn tác.", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.No)
-            //{
-            //    return;
-            //}
-            
-            //if (busVC.updateVCPrice(currMAVACCINE, Convert.ToInt32(tbGia.Text)))
-            //{
-            //    MessageBoxEx.Show("Cập nhật thành công");
-            //}
-            //else MessageBoxEx.Show("Có lỗi xảy ra trong quá trình cập nhật", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //gridVaccine.DataSource = busVC.getAllVaccine();
-        }
-
         private void labelControl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (tbSearch.Text == "")
+            {
+                gridVaccine.DataSource = busVC.getAllVaccine();
+            }
+            else gridVaccine.DataSource = busVC.SearchAll(tbSearch.Text);
+        }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.PerformClick();
+            }
         }
     }
 }

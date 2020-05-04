@@ -49,7 +49,6 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.tbTongTien = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.tbTenNGH = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -58,6 +57,8 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -188,14 +189,14 @@
             this.groupControl2.Controls.Add(this.tbTongTien);
             this.groupControl2.Location = new System.Drawing.Point(4, 589);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(729, 173);
+            this.groupControl2.Size = new System.Drawing.Size(772, 173);
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "Chi tiết thanh toán";
             // 
             // labelControl9
             // 
             this.labelControl9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl9.Location = new System.Drawing.Point(403, 72);
+            this.labelControl9.Location = new System.Drawing.Point(418, 72);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(71, 18);
             this.labelControl9.TabIndex = 15;
@@ -204,15 +205,15 @@
             // tbTraLai
             // 
             this.tbTraLai.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbTraLai.Location = new System.Drawing.Point(488, 111);
+            this.tbTraLai.Location = new System.Drawing.Point(496, 111);
             this.tbTraLai.Name = "tbTraLai";
-            this.tbTraLai.Size = new System.Drawing.Size(222, 24);
+            this.tbTraLai.Size = new System.Drawing.Size(258, 24);
             this.tbTraLai.TabIndex = 14;
             // 
             // labelControl10
             // 
             this.labelControl10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl10.Location = new System.Drawing.Point(403, 114);
+            this.labelControl10.Location = new System.Drawing.Point(418, 114);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(40, 18);
             this.labelControl10.TabIndex = 13;
@@ -221,23 +222,23 @@
             // tbKhachDua
             // 
             this.tbKhachDua.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbKhachDua.Location = new System.Drawing.Point(488, 69);
+            this.tbKhachDua.Location = new System.Drawing.Point(496, 69);
             this.tbKhachDua.Name = "tbKhachDua";
-            this.tbKhachDua.Size = new System.Drawing.Size(222, 24);
+            this.tbKhachDua.Size = new System.Drawing.Size(258, 24);
             this.tbKhachDua.TabIndex = 12;
             // 
             // tbPhaiTra
             // 
             this.tbPhaiTra.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbPhaiTra.Location = new System.Drawing.Point(101, 135);
+            this.tbPhaiTra.Location = new System.Drawing.Point(99, 134);
             this.tbPhaiTra.Name = "tbPhaiTra";
-            this.tbPhaiTra.Size = new System.Drawing.Size(261, 24);
+            this.tbPhaiTra.Size = new System.Drawing.Size(289, 24);
             this.tbPhaiTra.TabIndex = 11;
             // 
             // labelControl8
             // 
             this.labelControl8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl8.Location = new System.Drawing.Point(16, 138);
+            this.labelControl8.Location = new System.Drawing.Point(19, 137);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(49, 18);
             this.labelControl8.TabIndex = 10;
@@ -246,7 +247,7 @@
             // labelControl7
             // 
             this.labelControl7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl7.Location = new System.Drawing.Point(16, 54);
+            this.labelControl7.Location = new System.Drawing.Point(19, 53);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(62, 18);
             this.labelControl7.TabIndex = 9;
@@ -255,15 +256,15 @@
             // tbChieuKhau
             // 
             this.tbChieuKhau.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbChieuKhau.Location = new System.Drawing.Point(101, 93);
+            this.tbChieuKhau.Location = new System.Drawing.Point(99, 92);
             this.tbChieuKhau.Name = "tbChieuKhau";
-            this.tbChieuKhau.Size = new System.Drawing.Size(261, 24);
+            this.tbChieuKhau.Size = new System.Drawing.Size(289, 24);
             this.tbChieuKhau.TabIndex = 8;
             // 
             // labelControl6
             // 
             this.labelControl6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl6.Location = new System.Drawing.Point(16, 96);
+            this.labelControl6.Location = new System.Drawing.Point(19, 95);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(71, 18);
             this.labelControl6.TabIndex = 7;
@@ -272,35 +273,28 @@
             // tbTongTien
             // 
             this.tbTongTien.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbTongTien.Location = new System.Drawing.Point(101, 51);
+            this.tbTongTien.Location = new System.Drawing.Point(99, 50);
             this.tbTongTien.Name = "tbTongTien";
-            this.tbTongTien.Size = new System.Drawing.Size(261, 24);
+            this.tbTongTien.Size = new System.Drawing.Size(289, 24);
             this.tbTongTien.TabIndex = 6;
             // 
             // simpleButton1
             // 
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Location = new System.Drawing.Point(753, 600);
+            this.simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Location = new System.Drawing.Point(782, 589);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(229, 70);
+            this.simpleButton1.Size = new System.Drawing.Size(216, 52);
             this.simpleButton1.TabIndex = 4;
             this.simpleButton1.Text = "Thanh toán";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton2.Location = new System.Drawing.Point(753, 682);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(229, 70);
-            this.simpleButton2.TabIndex = 5;
-            this.simpleButton2.Text = "Đặt lại";
             // 
             // tbTenNGH
             // 
             this.tbTenNGH.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbTenNGH.Location = new System.Drawing.Point(124, 49);
+            this.tbTenNGH.Location = new System.Drawing.Point(116, 49);
             this.tbTenNGH.Name = "tbTenNGH";
-            this.tbTenNGH.Size = new System.Drawing.Size(350, 24);
+            this.tbTenNGH.Size = new System.Drawing.Size(358, 24);
             this.tbTenNGH.TabIndex = 2;
             // 
             // labelControl4
@@ -324,17 +318,17 @@
             // tbSdtNGH
             // 
             this.tbSdtNGH.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbSdtNGH.Location = new System.Drawing.Point(124, 143);
+            this.tbSdtNGH.Location = new System.Drawing.Point(116, 143);
             this.tbSdtNGH.Name = "tbSdtNGH";
-            this.tbSdtNGH.Size = new System.Drawing.Size(350, 24);
+            this.tbSdtNGH.Size = new System.Drawing.Size(358, 24);
             this.tbSdtNGH.TabIndex = 4;
             // 
             // tbDiaChiNGH
             // 
             this.tbDiaChiNGH.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbDiaChiNGH.Location = new System.Drawing.Point(124, 96);
+            this.tbDiaChiNGH.Location = new System.Drawing.Point(116, 96);
             this.tbDiaChiNGH.Name = "tbDiaChiNGH";
-            this.tbDiaChiNGH.Size = new System.Drawing.Size(350, 24);
+            this.tbDiaChiNGH.Size = new System.Drawing.Size(358, 24);
             this.tbDiaChiNGH.TabIndex = 3;
             // 
             // labelControl5
@@ -377,12 +371,35 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 184);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton2.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            this.simpleButton2.Appearance.Options.UseBackColor = true;
+            this.simpleButton2.Location = new System.Drawing.Point(782, 709);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(216, 52);
+            this.simpleButton2.TabIndex = 7;
+            this.simpleButton2.Text = "Đặt lại";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton3.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.simpleButton3.Appearance.Options.UseBackColor = true;
+            this.simpleButton3.Location = new System.Drawing.Point(782, 649);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(216, 52);
+            this.simpleButton3.TabIndex = 8;
+            this.simpleButton3.Text = "Xem trước";
+            // 
             // ThanhToanGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.simpleButton3);
             this.Controls.Add(this.simpleButton2);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.gridControl1);
@@ -435,7 +452,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.TextEdit tbKhachDua;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.TextEdit tbTenKH;
         private DevExpress.XtraEditors.LabelControl labelControl2;
@@ -448,5 +464,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }

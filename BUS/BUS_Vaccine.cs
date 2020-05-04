@@ -1,4 +1,5 @@
 ﻿using DAO;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,9 +18,9 @@ namespace BUS
             return dao.getAllVaccine();
         }
 
-        public bool updateVCPrice(string MAVACCINE, int DONGIA)
+        public List<DTO_Vaccine> SearchAll(string value)
         {
-            return dao.updateVCPrice(MAVACCINE, DONGIA);
+            return dao.SearchAll(value);
         }
     }
 }
