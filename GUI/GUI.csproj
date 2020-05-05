@@ -146,13 +146,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\17191358_1909898345909939_7618500759231745587_n.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\free-user-login-icon-305-thumb.png" />
+    <None Include="Resources\privacy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

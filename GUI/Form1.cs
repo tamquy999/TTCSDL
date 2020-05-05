@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraBars;
+﻿using BUS;
+using DevExpress.XtraBars;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +15,18 @@ namespace GUI
     public partial class Form1 : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
         Login login = new Login();
-        public Form1()
+        BUS_ThuNgan busTN = new BUS_ThuNgan();
+        DTO_ThuNgan thungan;
+        public Form1(string maTN)
         {
             InitializeComponent();
+            thungan = new DTO_ThuNgan(maTN, busTN.getTenThuNgan(maTN));
+            barStaticItem.Caption = "Xin chào " + thungan.HOTEN;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            acePhieuTiem_Click(sender, e);
         }
 
         private void aceThanhToan_Click(object sender, EventArgs e)
@@ -46,11 +57,6 @@ namespace GUI
                 VaccineGUI.Instance.Dock = DockStyle.Fill;
             }
             VaccineGUI.Instance.BringToFront();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            acePhieuTiem_Click(sender, e);
         }
 
         private void acePhieuTiem_Click(object sender, EventArgs e)

@@ -30,8 +30,8 @@ namespace GUI
 
             if (bus.Login(user, pass))
             {
+                new Form1(user).Show();
                 this.Hide();
-                new Form1().Show();
             }
             else
             {

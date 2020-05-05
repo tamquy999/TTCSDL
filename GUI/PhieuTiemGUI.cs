@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BUS;
+using GUI.Properties;
+using DTO;
 
 namespace GUI
 {
@@ -28,6 +30,11 @@ namespace GUI
         }
 
         BUS_PhieuTiem busPhieuTiem = new BUS_PhieuTiem();
+        BUS_Vaccine busVC = new BUS_Vaccine();
+
+        List<DTO_Vaccine> listVC = new List<DTO_Vaccine>();
+
+        string selectedMaVC = "";
 
         public PhieuTiemGUI()
         {
@@ -37,6 +44,12 @@ namespace GUI
 
             gridView1.OptionsBehavior.Editable = false;
             gridView1.RowClick += GridView1_RowClick;
+            gridView2.RowClick += GridView2_RowClick;
+        }
+
+        private void GridView2_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            selectedMaVC = gridView2.GetRowCellValue(e.RowHandle, "MAVACCINE").ToString();
         }
 
         private void GridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -54,10 +67,28 @@ namespace GUI
             gridPhieuTiem.DataSource = busPhieuTiem.getAllPhieuTiem();
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnAddVC_Click(object sender, EventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn có chắc chẵn muốn thêm bản ghi này không?", "Xác nhận", MessageBoxButtons.YesNo) != DialogResult.No)
+            DTO_Vaccine vc = busVC.getVaccineFromID(tbMaVC.Text);
+            if (vc != null)
             {
+                listVC.Add(vc);
+                gridVaccine.DataSource = listVC;
+                gridView2.BestFitColumns();
+            }
+            else return;
+        }
+
+        private void btnSubVC_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listVC.Count; i++)
+            {
+                if (listVC[i].MAVACCINE == selectedMaVC)
+                {
+                    listVC.RemoveAt(i);
+                    gridVaccine.DataSource = listVC;
+                    gridView2.BestFitColumns();
+                }
             }
         }
     }

@@ -33,9 +33,9 @@
             this.tbPassword = new DevExpress.XtraEditors.TextEdit();
             this.btnDangNhap = new DevExpress.XtraEditors.SimpleButton();
             this.chbShowPass = new DevExpress.XtraEditors.CheckEdit();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.tbUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chbShowPass.Properties)).BeginInit();
@@ -92,17 +92,6 @@
             this.chbShowPass.TabIndex = 2;
             this.chbShowPass.CheckedChanged += new System.EventHandler(this.chbShowPass_CheckedChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(27, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(176, 188);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(231, 35);
@@ -118,6 +107,17 @@
             this.labelControl2.Size = new System.Drawing.Size(61, 18);
             this.labelControl2.TabIndex = 9;
             this.labelControl2.Text = "Mật khẩu";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::GUI.Properties.Resources.privacy;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(27, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(176, 188);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 

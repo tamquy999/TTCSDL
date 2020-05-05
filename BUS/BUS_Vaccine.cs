@@ -18,6 +18,11 @@ namespace BUS
             return dao.getAllVaccine();
         }
 
+        public DTO_Vaccine getVaccineFromID(string maVC)
+        {
+            return dao.getVaccineFromID(maVC);
+        }
+
         public List<DTO_Vaccine> SearchAll(string value)
         {
             return dao.SearchAll(value);

@@ -19,6 +19,41 @@ namespace DAO
             da.Fill(dt);
             return dt;
         }
+
+        public DTO_Vaccine getVaccineFromID(string maVC)
+        {
+            string query = "SELECT * FROM VACCINE WHERE	MAVACCINE = '" + maVC + "'";
+            
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand(query, _conn);
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader dataReader = cmd.ExecuteReader();
+                if (dataReader.Read())
+                {
+                    string tenVC = dataReader[1].ToString();
+                    string nhaSX = dataReader[2].ToString();
+                    string ngaySX = ((DateTime)dataReader[3]).ToString("dd/MM/yyyy");
+                    string hanSD = ((DateTime)dataReader[4]).ToString("dd/MM/yyyy");
+                    string soLo = dataReader[5].ToString();
+                    int soLuongSan = int.Parse(dataReader[6].ToString());
+                    string chiDinh = dataReader[7].ToString();
+                    int donGia = int.Parse(dataReader[8].ToString());
+
+                    return new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, chiDinh, donGia);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return null;
+        }
         
         public List<DTO_Vaccine> SearchAll(string value)
         {

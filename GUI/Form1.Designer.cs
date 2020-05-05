@@ -33,12 +33,12 @@
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem = new DevExpress.XtraBars.BarStaticItem();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.acePhieuTiem = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.aceLichSu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.aceThanhToan = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceVaccine = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceLichSu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.acePhieuTiem = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceThanhToan = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
@@ -62,14 +62,14 @@
             this.fluentDesignFormControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnDangXuat,
             this.barStaticItem1,
-            this.barStaticItem2});
+            this.barStaticItem});
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
             this.fluentDesignFormControl1.Size = new System.Drawing.Size(1300, 37);
             this.fluentDesignFormControl1.TabIndex = 4;
             this.fluentDesignFormControl1.TabStop = false;
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.btnDangXuat);
-            this.fluentDesignFormControl1.TitleItemLinks.Add(this.barStaticItem2);
+            this.fluentDesignFormControl1.TitleItemLinks.Add(this.barStaticItem);
             // 
             // btnDangXuat
             // 
@@ -86,15 +86,16 @@
             this.barStaticItem1.Id = 0;
             this.barStaticItem1.Name = "barStaticItem1";
             // 
-            // barStaticItem2
+            // barStaticItem
             // 
-            this.barStaticItem2.Caption = "Xin chào Hưng";
-            this.barStaticItem2.Id = 3;
-            this.barStaticItem2.Name = "barStaticItem2";
+            this.barStaticItem.Caption = "Xin chào Hưng";
+            this.barStaticItem.Id = 3;
+            this.barStaticItem.Name = "barStaticItem";
             // 
             // accordionControl1
             // 
             this.accordionControl1.Appearance.AccordionControl.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControl1.Appearance.AccordionControl.Options.UseFont = true;
             this.accordionControl1.Appearance.Item.Disabled.Options.UseFont = true;
             this.accordionControl1.Appearance.Item.Hovered.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accordionControl1.Appearance.Item.Hovered.Options.UseFont = true;
@@ -114,15 +115,14 @@
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
-            // acePhieuTiem
+            // aceVaccine
             // 
-            this.acePhieuTiem.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.acePhieuTiem.Appearance.Normal.Options.UseFont = true;
-            this.acePhieuTiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("acePhieuTiem.ImageOptions.Image")));
-            this.acePhieuTiem.Name = "acePhieuTiem";
-            this.acePhieuTiem.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.acePhieuTiem.Text = " Tạo phiếu tiêm";
-            this.acePhieuTiem.Click += new System.EventHandler(this.acePhieuTiem_Click);
+            this.aceVaccine.Height = 10;
+            this.aceVaccine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceVaccine.ImageOptions.Image")));
+            this.aceVaccine.Name = "aceVaccine";
+            this.aceVaccine.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceVaccine.Text = " Quản lý vaccine";
+            this.aceVaccine.Click += new System.EventHandler(this.aceVaccine_Click);
             // 
             // aceLichSu
             // 
@@ -133,6 +133,16 @@
             this.aceLichSu.Text = " Lịch sử tiêm";
             this.aceLichSu.Click += new System.EventHandler(this.aceLichSu_Click);
             // 
+            // acePhieuTiem
+            // 
+            this.acePhieuTiem.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acePhieuTiem.Appearance.Normal.Options.UseFont = true;
+            this.acePhieuTiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("acePhieuTiem.ImageOptions.Image")));
+            this.acePhieuTiem.Name = "acePhieuTiem";
+            this.acePhieuTiem.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acePhieuTiem.Text = " Tạo phiếu tiêm";
+            this.acePhieuTiem.Click += new System.EventHandler(this.acePhieuTiem_Click);
+            // 
             // aceThanhToan
             // 
             this.aceThanhToan.Height = 10;
@@ -141,15 +151,6 @@
             this.aceThanhToan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aceThanhToan.Text = " Thanh toán";
             this.aceThanhToan.Click += new System.EventHandler(this.aceThanhToan_Click);
-            // 
-            // aceVaccine
-            // 
-            this.aceVaccine.Height = 10;
-            this.aceVaccine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceVaccine.ImageOptions.Image")));
-            this.aceVaccine.Name = "aceVaccine";
-            this.aceVaccine.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.aceVaccine.Text = " Quản lý vaccine";
-            this.aceVaccine.Click += new System.EventHandler(this.aceVaccine_Click);
             // 
             // accordionControlElement1
             // 
@@ -210,7 +211,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement acePhieuTiem;
         private DevExpress.XtraBars.BarButtonItem btnDangXuat;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem2;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;

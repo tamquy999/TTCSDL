@@ -33,7 +33,17 @@ namespace GUI
         {
             InitializeComponent();
             gridLichSu.DataSource = busLS.getAllLichSu("");
-            gridView1.BestFitColumns();
+            gridView1.OptionsBehavior.Editable = false;
+            gridView1.RowClick += GridView1_RowClick;
+        }
+
+        private void GridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            dtpNgayTiem.Text = gridView1.GetRowCellValue(e.RowHandle, "NGAYTIEM").ToString().Substring(0, 10);
+            tbTenVC.Text = gridView1.GetRowCellValue(e.RowHandle, "TENVACCINE").ToString();
+            tbLieuLuong.Text = gridView1.GetRowCellValue(e.RowHandle, "LIEULUONG").ToString();
+            tbDonGia.Text = gridView1.GetRowCellValue(e.RowHandle, "DONGIA").ToString();
+            tbChiDinh.Text = gridView1.GetRowCellValue(e.RowHandle, "CHIDINH").ToString();
         }
 
         private void btnTraCuu_Click(object sender, EventArgs e)

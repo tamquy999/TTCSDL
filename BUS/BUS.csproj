@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS_KhachHang.cs" />
     <Compile Include="BUS_LichSu.cs" />
     <Compile Include="BUS_Login.cs" />
     <Compile Include="BUS_PhieuTiem.cs" />
+    <Compile Include="BUS_ThuNgan.cs" />
     <Compile Include="BUS_Vaccine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
