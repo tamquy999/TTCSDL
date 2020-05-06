@@ -45,6 +45,13 @@ namespace GUI
             gridView2.RowClick += GridView2_RowClick;
 
             // tang ma phieu tiem cuoi cung trong sql table len 1 don vi
+            InitMAPHIEUTIEM();
+
+            InitAutoCompeteTextBox();
+        }
+
+        private void InitMAPHIEUTIEM()
+        {
             MAPHIEUTIEM = busPhieuTiem.GetLastestMAPHIEUTIEM();
             int count = MAPHIEUTIEM.Length - 4;
             int ptIndex = Convert.ToInt32(MAPHIEUTIEM.Substring(2));
@@ -52,6 +59,22 @@ namespace GUI
             for (int i = 0; i < count - ptIndex.ToString().Length; i++)
                 MAPHIEUTIEM += "0";
             MAPHIEUTIEM += (ptIndex + 1).ToString();
+        }
+
+        private void InitAutoCompeteTextBox()
+        {
+            //tbMaVC autocomplete test
+            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+            collection.Add("VC0000");
+            collection.Add("VC0001");
+            collection.Add("VC0002");
+            collection.Add("VC0003");
+            collection.Add("VC0004");
+            collection.Add("VC0005");
+            collection.Add("VC0006");
+            tbMaVC.MaskBox.AutoCompleteCustomSource = collection;
+            tbMaVC.MaskBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            tbMaVC.MaskBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
 
         private void tbMaVC_KeyDown(object sender, KeyEventArgs e)
