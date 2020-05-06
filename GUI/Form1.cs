@@ -79,5 +79,21 @@ namespace GUI
             login.Show();
             this.Hide();
         }
+
+        private void accordionControl1_ElementClick(object sender, DevExpress.XtraBars.Navigation.ElementClickEventArgs e)
+        {
+            accordionControl1.Elements[0].Appearance.Normal.FontStyleDelta = FontStyle.Regular;
+            accordionControl1.Elements[1].Appearance.Normal.FontStyleDelta = FontStyle.Regular;
+            accordionControl1.Elements[2].Appearance.Normal.FontStyleDelta = FontStyle.Regular;
+            accordionControl1.Elements[3].Appearance.Normal.FontStyleDelta = FontStyle.Regular;
+            accordionControl1.Elements[0].Appearance.Hovered.FontStyleDelta = FontStyle.Regular;
+            accordionControl1.Elements[1].Appearance.Hovered.FontStyleDelta = FontStyle.Regular;
+            accordionControl1.Elements[2].Appearance.Hovered.FontStyleDelta = FontStyle.Regular;
+            accordionControl1.Elements[3].Appearance.Hovered.FontStyleDelta = FontStyle.Regular;
+
+            e.Element.Appearance.Normal.FontStyleDelta = FontStyle.Italic;
+            e.Element.Appearance.Hovered.FontStyleDelta = FontStyle.Italic;
+            
+        }
     }
 }

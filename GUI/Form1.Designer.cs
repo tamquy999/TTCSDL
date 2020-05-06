@@ -114,6 +114,7 @@
             this.accordionControl1.Size = new System.Drawing.Size(231, 863);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
+            this.accordionControl1.ElementClick += new DevExpress.XtraBars.Navigation.ElementClickEventHandler(this.accordionControl1_ElementClick);
             // 
             // aceVaccine
             // 
@@ -121,7 +122,7 @@
             this.aceVaccine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceVaccine.ImageOptions.Image")));
             this.aceVaccine.Name = "aceVaccine";
             this.aceVaccine.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.aceVaccine.Text = " Quản lý vaccine";
+            this.aceVaccine.Text = "Quản lý vaccine";
             this.aceVaccine.Click += new System.EventHandler(this.aceVaccine_Click);
             // 
             // aceLichSu
@@ -130,7 +131,7 @@
             this.aceLichSu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceLichSu.ImageOptions.Image")));
             this.aceLichSu.Name = "aceLichSu";
             this.aceLichSu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.aceLichSu.Text = " Lịch sử tiêm";
+            this.aceLichSu.Text = "Lịch sử tiêm";
             this.aceLichSu.Click += new System.EventHandler(this.aceLichSu_Click);
             // 
             // acePhieuTiem
@@ -140,7 +141,7 @@
             this.acePhieuTiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("acePhieuTiem.ImageOptions.Image")));
             this.acePhieuTiem.Name = "acePhieuTiem";
             this.acePhieuTiem.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.acePhieuTiem.Text = " Tạo phiếu tiêm";
+            this.acePhieuTiem.Text = "Tạo phiếu tiêm";
             this.acePhieuTiem.Click += new System.EventHandler(this.acePhieuTiem_Click);
             // 
             // aceThanhToan
@@ -149,7 +150,7 @@
             this.aceThanhToan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceThanhToan.ImageOptions.Image")));
             this.aceThanhToan.Name = "aceThanhToan";
             this.aceThanhToan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.aceThanhToan.Text = " Thanh toán";
+            this.aceThanhToan.Text = "Thanh toán";
             this.aceThanhToan.Click += new System.EventHandler(this.aceThanhToan_Click);
             // 
             // accordionControlElement1
