@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    class BUS_KhachHang
+    public class BUS_KhachHang
     {
     }
 }

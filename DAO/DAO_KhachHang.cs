@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    class DAO_KhachHang
+    public class DAO_KhachHang : DBProvider
     {
     }
 }

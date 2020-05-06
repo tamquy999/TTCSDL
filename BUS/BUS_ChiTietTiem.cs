@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO
+namespace BUS
 {
-    public class DTO_KhachHang
+    public class BUS_ChiTietTiem
     {
-        private string maKH;
+
     }
 }

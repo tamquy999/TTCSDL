@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO
+namespace DAO
 {
-    public class DTO_KhachHang
+    public class DAO_ChiTietTiem
     {
-        private string maKH;
     }
 }

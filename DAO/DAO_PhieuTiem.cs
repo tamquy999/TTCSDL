@@ -20,9 +20,26 @@ namespace DAO
             return dt;
         }
 
-        //public DTO_PhieuTiem getAPhieuTiem(string MAPHIEUTIEM)
-        //{
+        public string GetLastestMAPHIEUTIEM()
+        {
+            string query = "SELECT TOP(1) MAPHIEUTIEM FROM PHIEUTIEM ORDER BY MAPHIEUTIEM DESC";
+            SqlDataAdapter da = new SqlDataAdapter(query, _conn);
 
-        //}
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return dt.Rows[0][0].ToString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return null;
+        }
     }
 }

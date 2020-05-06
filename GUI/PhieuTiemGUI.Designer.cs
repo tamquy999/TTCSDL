@@ -37,7 +37,7 @@
             this.lbTienSu = new DevExpress.XtraEditors.LabelControl();
             this.lbGioiTinh = new DevExpress.XtraEditors.LabelControl();
             this.tbTenKH = new DevExpress.XtraEditors.TextEdit();
-            this.deNgayTiem = new DevExpress.XtraEditors.DateEdit();
+            this.dtpNgayTiem = new DevExpress.XtraEditors.DateEdit();
             this.tbMaBS = new DevExpress.XtraEditors.TextEdit();
             this.lbMaBS = new DevExpress.XtraEditors.LabelControl();
             this.lbTenKH = new DevExpress.XtraEditors.LabelControl();
@@ -58,6 +58,8 @@
             this.btnSubVC = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.tbLieuLuong = new DevExpress.XtraEditors.TextEdit();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.gridVaccine = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -69,8 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTenKH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayTiem.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayTiem.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMaBS.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -83,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbLoaiTiem.Properties)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbLieuLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVaccine)).BeginInit();
@@ -114,7 +117,7 @@
             // 
             this.cbGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbGioiTinh.EditValue = "";
-            this.cbGioiTinh.Location = new System.Drawing.Point(159, 109);
+            this.cbGioiTinh.Location = new System.Drawing.Point(160, 109);
             this.cbGioiTinh.Name = "cbGioiTinh";
             this.cbGioiTinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -129,7 +132,7 @@
             // 
             this.dtpNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpNgaySinh.EditValue = null;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(159, 60);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(160, 60);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -142,7 +145,7 @@
             // lbNgaySinh
             // 
             this.lbNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbNgaySinh.Location = new System.Drawing.Point(40, 63);
+            this.lbNgaySinh.Location = new System.Drawing.Point(41, 63);
             this.lbNgaySinh.Name = "lbNgaySinh";
             this.lbNgaySinh.Size = new System.Drawing.Size(64, 18);
             this.lbNgaySinh.TabIndex = 24;
@@ -151,7 +154,7 @@
             // textEdit3
             // 
             this.textEdit3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textEdit3.Location = new System.Drawing.Point(538, 11);
+            this.textEdit3.Location = new System.Drawing.Point(539, 11);
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Size = new System.Drawing.Size(230, 24);
             this.textEdit3.TabIndex = 3;
@@ -159,7 +162,7 @@
             // lbTienSu
             // 
             this.lbTienSu.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbTienSu.Location = new System.Drawing.Point(434, 14);
+            this.lbTienSu.Location = new System.Drawing.Point(435, 14);
             this.lbTienSu.Name = "lbTienSu";
             this.lbTienSu.Size = new System.Drawing.Size(86, 18);
             this.lbTienSu.TabIndex = 22;
@@ -168,7 +171,7 @@
             // lbGioiTinh
             // 
             this.lbGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbGioiTinh.Location = new System.Drawing.Point(40, 112);
+            this.lbGioiTinh.Location = new System.Drawing.Point(41, 112);
             this.lbGioiTinh.Name = "lbGioiTinh";
             this.lbGioiTinh.Size = new System.Drawing.Size(50, 18);
             this.lbGioiTinh.TabIndex = 20;
@@ -177,29 +180,29 @@
             // tbTenKH
             // 
             this.tbTenKH.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbTenKH.Location = new System.Drawing.Point(159, 11);
+            this.tbTenKH.Location = new System.Drawing.Point(160, 11);
             this.tbTenKH.Name = "tbTenKH";
             this.tbTenKH.Size = new System.Drawing.Size(226, 24);
             this.tbTenKH.TabIndex = 0;
             // 
-            // deNgayTiem
+            // dtpNgayTiem
             // 
-            this.deNgayTiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.deNgayTiem.EditValue = null;
-            this.deNgayTiem.Location = new System.Drawing.Point(538, 60);
-            this.deNgayTiem.Name = "deNgayTiem";
-            this.deNgayTiem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpNgayTiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dtpNgayTiem.EditValue = null;
+            this.dtpNgayTiem.Location = new System.Drawing.Point(539, 60);
+            this.dtpNgayTiem.Name = "dtpNgayTiem";
+            this.dtpNgayTiem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNgayTiem.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpNgayTiem.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deNgayTiem.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.deNgayTiem.Size = new System.Drawing.Size(230, 24);
-            this.deNgayTiem.TabIndex = 2;
+            this.dtpNgayTiem.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dtpNgayTiem.Size = new System.Drawing.Size(230, 24);
+            this.dtpNgayTiem.TabIndex = 2;
             // 
             // tbMaBS
             // 
             this.tbMaBS.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbMaBS.Location = new System.Drawing.Point(538, 109);
+            this.tbMaBS.Location = new System.Drawing.Point(539, 109);
             this.tbMaBS.Name = "tbMaBS";
             this.tbMaBS.Size = new System.Drawing.Size(230, 24);
             this.tbMaBS.TabIndex = 3;
@@ -207,7 +210,7 @@
             // lbMaBS
             // 
             this.lbMaBS.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbMaBS.Location = new System.Drawing.Point(433, 112);
+            this.lbMaBS.Location = new System.Drawing.Point(434, 112);
             this.lbMaBS.Name = "lbMaBS";
             this.lbMaBS.Size = new System.Drawing.Size(68, 18);
             this.lbMaBS.TabIndex = 10;
@@ -216,7 +219,7 @@
             // lbTenKH
             // 
             this.lbTenKH.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbTenKH.Location = new System.Drawing.Point(40, 14);
+            this.lbTenKH.Location = new System.Drawing.Point(41, 14);
             this.lbTenKH.Name = "lbTenKH";
             this.lbTenKH.Size = new System.Drawing.Size(106, 18);
             this.lbTenKH.TabIndex = 8;
@@ -225,7 +228,7 @@
             // lbNgayTiem
             // 
             this.lbNgayTiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbNgayTiem.Location = new System.Drawing.Point(434, 64);
+            this.lbNgayTiem.Location = new System.Drawing.Point(435, 64);
             this.lbNgayTiem.Name = "lbNgayTiem";
             this.lbNgayTiem.Size = new System.Drawing.Size(67, 18);
             this.lbNgayTiem.TabIndex = 2;
@@ -236,8 +239,9 @@
             this.groupControl1.Controls.Add(this.tableLayoutPanel1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(3, 3);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 3, 1, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(819, 184);
+            this.groupControl1.Size = new System.Drawing.Size(821, 184);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "Thông tin phiếu tiêm";
             // 
@@ -251,12 +255,12 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(815, 149);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(817, 149);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.deNgayTiem);
+            this.panel1.Controls.Add(this.dtpNgayTiem);
             this.panel1.Controls.Add(this.cbGioiTinh);
             this.panel1.Controls.Add(this.lbMaBS);
             this.panel1.Controls.Add(this.tbTenKH);
@@ -271,7 +275,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(809, 143);
+            this.panel1.Size = new System.Drawing.Size(811, 143);
             this.panel1.TabIndex = 6;
             // 
             // tableLayoutPanel2
@@ -323,6 +327,7 @@
             this.btnThem.Size = new System.Drawing.Size(154, 35);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -352,23 +357,25 @@
             // tbMaVC
             // 
             this.tbMaVC.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbMaVC.Location = new System.Drawing.Point(157, 5);
+            this.tbMaVC.Location = new System.Drawing.Point(111, 3);
             this.tbMaVC.Name = "tbMaVC";
-            this.tbMaVC.Size = new System.Drawing.Size(226, 24);
+            this.tbMaVC.Size = new System.Drawing.Size(138, 24);
             this.tbMaVC.TabIndex = 19;
+            this.tbMaVC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMaVC_KeyDown);
             // 
             // tbLoaiTiem
             // 
             this.tbLoaiTiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbLoaiTiem.Location = new System.Drawing.Point(536, 5);
+            this.tbLoaiTiem.Location = new System.Drawing.Point(384, 3);
             this.tbLoaiTiem.Name = "tbLoaiTiem";
-            this.tbLoaiTiem.Size = new System.Drawing.Size(230, 24);
+            this.tbLoaiTiem.Size = new System.Drawing.Size(202, 24);
             this.tbLoaiTiem.TabIndex = 21;
+            this.tbLoaiTiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbLoaiTiem_KeyDown);
             // 
             // lbLoaiTiem
             // 
             this.lbLoaiTiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbLoaiTiem.Location = new System.Drawing.Point(421, 8);
+            this.lbLoaiTiem.Location = new System.Drawing.Point(276, 6);
             this.lbLoaiTiem.Name = "lbLoaiTiem";
             this.lbLoaiTiem.Size = new System.Drawing.Size(102, 18);
             this.lbLoaiTiem.TabIndex = 20;
@@ -377,7 +384,7 @@
             // lbMaVC
             // 
             this.lbMaVC.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbMaVC.Location = new System.Drawing.Point(38, 8);
+            this.lbMaVC.Location = new System.Drawing.Point(32, 6);
             this.lbMaVC.Name = "lbMaVC";
             this.lbMaVC.Size = new System.Drawing.Size(73, 18);
             this.lbMaVC.TabIndex = 22;
@@ -409,6 +416,8 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.labelControl1);
+            this.panel4.Controls.Add(this.tbLieuLuong);
             this.panel4.Controls.Add(this.lbMaVC);
             this.panel4.Controls.Add(this.tbMaVC);
             this.panel4.Controls.Add(this.lbLoaiTiem);
@@ -418,6 +427,24 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(812, 33);
             this.panel4.TabIndex = 7;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl1.Location = new System.Drawing.Point(611, 6);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(65, 18);
+            this.labelControl1.TabIndex = 24;
+            this.labelControl1.Text = "Liều lượng";
+            // 
+            // tbLieuLuong
+            // 
+            this.tbLieuLuong.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbLieuLuong.Location = new System.Drawing.Point(690, 3);
+            this.tbLieuLuong.Name = "tbLieuLuong";
+            this.tbLieuLuong.Size = new System.Drawing.Size(97, 24);
+            this.tbLieuLuong.TabIndex = 23;
+            this.tbLieuLuong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbLieuLuong_KeyDown);
             // 
             // groupControl4
             // 
@@ -439,7 +466,7 @@
             this.gridVaccine.Location = new System.Drawing.Point(8, 77);
             this.gridVaccine.MainView = this.gridView2;
             this.gridVaccine.Name = "gridVaccine";
-            this.gridVaccine.Size = new System.Drawing.Size(1033, 192);
+            this.gridVaccine.Size = new System.Drawing.Size(1033, 188);
             this.gridVaccine.TabIndex = 1;
             this.gridVaccine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -484,8 +511,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTenKH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayTiem.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayTiem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMaBS.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -500,6 +527,7 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbLieuLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridVaccine)).EndInit();
@@ -516,7 +544,7 @@
         private DevExpress.XtraEditors.TextEdit tbMaBS;
         private DevExpress.XtraEditors.LabelControl lbMaBS;
         private DevExpress.XtraEditors.LabelControl lbTenKH;
-        private DevExpress.XtraEditors.DateEdit deNgayTiem;
+        private DevExpress.XtraEditors.DateEdit dtpNgayTiem;
         private DevExpress.XtraEditors.TextEdit tbTenKH;
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.LabelControl lbTienSu;
@@ -544,5 +572,7 @@
         private DevExpress.XtraGrid.GridControl gridVaccine;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.TextEdit tbLieuLuong;
     }
 }

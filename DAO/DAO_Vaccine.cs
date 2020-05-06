@@ -92,24 +92,68 @@ namespace DAO
             return list;
         }
 
-        public bool updateVCPrice(string MAVACCINE, int DONGIA)
+        public int getVCPrice(string maVC)
         {
+            string query = "SELECT DONGIA FROM VACCINE WHERE MAVACCINE = '" + maVC + "'";
+            SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+
+            DataTable dt = new DataTable();
+
             try
             {
-                _conn.Open();
-                string query = "UPDATE dbo.VACCINE SET DONGIA = " + DONGIA + " WHERE MAVACCINE = '" + MAVACCINE + "'";
-                SqlCommand command = new SqlCommand(query, _conn);
-                if (command.ExecuteNonQuery() > 0)
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return Convert.ToInt32(dt.Rows[0][0].ToString());
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return -1;
+        }
+
+        public string getVCName(string maVC)
+        {
+            string query = "SELECT TENVACCINE FROM VACCINE WHERE MAVACCINE = '" + maVC + "'";
+            SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return dt.Rows[0][0].ToString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return null;
+        }
+
+        public bool IsVCInStock(string maVC)
+        {
+            string query = "SELECT MAVACCINE FROM VACCINE WHERE MAVACCINE = '" + maVC + "'";
+            SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
                 {
                     return true;
                 }
             }
             catch (Exception)
             {
-            }
-            finally
-            {
-                _conn.Close();
+                throw;
             }
             return false;
         }

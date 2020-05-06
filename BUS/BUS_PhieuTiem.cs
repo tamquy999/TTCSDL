@@ -10,11 +10,16 @@ namespace BUS
 {
     public class BUS_PhieuTiem
     {
-        DAO_PhieuTiem daoPhieuTiem = new DAO_PhieuTiem();
+        DAO_PhieuTiem dao = new DAO_PhieuTiem();
 
         public DataTable getAllPhieuTiem()
         {
-            return daoPhieuTiem.getAllPhieuTiem();
+            return dao.getAllPhieuTiem();
+        }
+
+        public string GetLastestMAPHIEUTIEM()
+        {
+            return dao.GetLastestMAPHIEUTIEM();
         }
     }
 }

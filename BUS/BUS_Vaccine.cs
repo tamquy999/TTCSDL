@@ -27,5 +27,20 @@ namespace BUS
         {
             return dao.SearchAll(value);
         }
+
+        public int getVCPrice(string maVC)
+        {
+            return dao.getVCPrice(maVC);
+        }
+
+        public string getVCName(string maVC)
+        {
+            return dao.getVCName(maVC);
+        }
+
+        public bool IsVCInStock(string maVC)
+        {
+            return dao.IsVCInStock(maVC);
+        }
     }
 }
