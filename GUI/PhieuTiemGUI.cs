@@ -31,6 +31,7 @@ namespace GUI
 
         BUS_PhieuTiem busPhieuTiem = new BUS_PhieuTiem();
         BUS_Vaccine busVC = new BUS_Vaccine();
+        BUS_KhachHang busKH = new BUS_KhachHang();
 
         List<DTO_ChiTietTiem> listCTT = new List<DTO_ChiTietTiem>();
         string MAPHIEUTIEM;
@@ -40,14 +41,21 @@ namespace GUI
 
             dtpNgayTiem.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
-            gridView1.OptionsBehavior.Editable = false;
-            gridView1.RowClick += GridView1_RowClick;
             gridView2.RowClick += GridView2_RowClick;
+            gridView1.FocusedRowChanged += GridView1_FocusedRowChanged;
 
             // tang ma phieu tiem cuoi cung trong sql table len 1 don vi
             InitMAPHIEUTIEM();
 
             InitAutoCompeteTextBox();
+        }
+
+        private void GridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            tbTenKH.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "TENKH").ToString();
+            dtpNgaySinh.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "NGAYSINH").ToString().Substring(0, 10);
+            cbGioiTinh.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "GIOITINH").ToString();
+            tbTienSu.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "TIEUSUBENHAN").ToString();
         }
 
         private void InitMAPHIEUTIEM()
@@ -65,13 +73,13 @@ namespace GUI
         {
             //tbMaVC autocomplete test
             AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
-            collection.Add("VC0000");
-            collection.Add("VC0001");
-            collection.Add("VC0002");
-            collection.Add("VC0003");
-            collection.Add("VC0004");
-            collection.Add("VC0005");
-            collection.Add("VC0006");
+            DataTable dt = busVC.getAllVaccine();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                collection.Add(dt.Rows[i][0].ToString().Trim());
+            }
+
             tbMaVC.MaskBox.AutoCompleteCustomSource = collection;
             tbMaVC.MaskBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
             tbMaVC.MaskBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -79,17 +87,26 @@ namespace GUI
 
         private void tbMaVC_KeyDown(object sender, KeyEventArgs e)
         {
-            btnAddVC.PerformClick();
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAddVC.PerformClick();
+            }
         }
 
         private void tbLoaiTiem_KeyDown(object sender, KeyEventArgs e)
         {
-            btnAddVC.PerformClick();
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAddVC.PerformClick();
+            }
         }
 
         private void tbLieuLuong_KeyDown(object sender, KeyEventArgs e)
         {
-            btnAddVC.PerformClick();
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAddVC.PerformClick();
+            }
         }
 
         private void GridView2_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -109,7 +126,7 @@ namespace GUI
 
         private void PhieuTiemGUI_Load(object sender, EventArgs e)
         {
-            gridPhieuTiem.DataSource = busPhieuTiem.getAllPhieuTiem();
+            gridKH.DataSource = busKH.getAllKH();
         }
 
         private void btnAddVC_Click(object sender, EventArgs e)
@@ -119,9 +136,38 @@ namespace GUI
                 if (busVC.IsVCInStock(tbMaVC.Text))
                 {
                     DTO_ChiTietTiem ctt = new DTO_ChiTietTiem("", tbMaVC.Text, busVC.getVCPrice(tbMaVC.Text), tbLoaiTiem.Text, dtpNgayTiem.Text, Convert.ToDouble(tbLieuLuong.Text));
-                    listCTT.Add(ctt);
-                    //gridVaccine.DataSource = listCTT;
 
+                    for (int i = 0; i < listCTT.Count; i++)
+                    {
+                        if (ctt.MAVACCINE == listCTT[i].MAVACCINE)
+                        {
+                            listCTT[i].LIEULUONG += ctt.LIEULUONG; 
+                            DataTable dtb = new DataTable();
+                            dtb.Columns.Add("MAVACCINE");
+                            dtb.Columns.Add("TENVACCINE");
+                            dtb.Columns.Add("GIABAN");
+                            dtb.Columns.Add("LOAITIEMCHUNG");
+                            dtb.Columns.Add("LIEULUONG");
+
+                            for (int j = 0; j < listCTT.Count; j++)
+                            {
+                                DataRow dr = dtb.NewRow();
+                                dr["MAVACCINE"] = listCTT[j].MAVACCINE;
+                                dr["TENVACCINE"] = busVC.getVCName(listCTT[j].MAVACCINE);
+                                dr["GIABAN"] = listCTT[j].GIABAN;
+                                dr["LOAITIEMCHUNG"] = listCTT[j].LOAITIEMCHUNG;
+                                dr["LIEULUONG"] = listCTT[j].LIEULUONG;
+                                dtb.Rows.Add(dr);
+                            }
+
+                            gridVaccine.DataSource = dtb;
+                            gridView2.BestFitColumns();
+
+                            return;
+                        }
+                    }
+                    
+                    listCTT.Add(ctt);
 
                     DataTable dt = new DataTable();
                     dt.Columns.Add("MAVACCINE");
@@ -134,8 +180,7 @@ namespace GUI
                     {
                         DataRow dr = dt.NewRow();
                         dr["MAVACCINE"] = listCTT[i].MAVACCINE;
-                        //dr["TENVACCINE"] = busVC.getVCName(listCTT[i].MAVACCINE);
-                        dr["TENVACCINE"] = null;
+                        dr["TENVACCINE"] = busVC.getVCName(listCTT[i].MAVACCINE);
                         dr["GIABAN"] = listCTT[i].GIABAN;
                         dr["LOAITIEMCHUNG"] = listCTT[i].LOAITIEMCHUNG;
                         dr["LIEULUONG"] = listCTT[i].LIEULUONG;
@@ -156,6 +201,7 @@ namespace GUI
                 if (listCTT[i].MAVACCINE == tbMaVC.Text)
                 {
                     listCTT.RemoveAt(i);
+                    break;
                 }
             }
             DataTable dt = new DataTable();

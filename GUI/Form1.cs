@@ -22,6 +22,15 @@ namespace GUI
             InitializeComponent();
             thungan = new DTO_ThuNgan(maTN, busTN.getTenThuNgan(maTN));
             barStaticItem.Caption = "Xin chào " + thungan.HOTEN;
+
+            container.Controls.Add(ThanhToanGUI.Instance);
+            ThanhToanGUI.Instance.Dock = DockStyle.Fill;
+            container.Controls.Add(LichSuGUI.Instance);
+            LichSuGUI.Instance.Dock = DockStyle.Fill;
+            container.Controls.Add(VaccineGUI.Instance);
+            VaccineGUI.Instance.Dock = DockStyle.Fill;
+            container.Controls.Add(PhieuTiemGUI.Instance);
+            PhieuTiemGUI.Instance.Dock = DockStyle.Fill;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,41 +40,21 @@ namespace GUI
 
         private void aceThanhToan_Click(object sender, EventArgs e)
         {
-            if (!container.Controls.Contains(ThanhToanGUI.Instance))
-            {
-                container.Controls.Add(ThanhToanGUI.Instance);
-                ThanhToanGUI.Instance.Dock = DockStyle.Fill;
-            }
             ThanhToanGUI.Instance.BringToFront();
         }
 
         private void aceLichSu_Click(object sender, EventArgs e)
         {
-            if (!container.Controls.Contains(LichSuGUI.Instance))
-            {
-                container.Controls.Add(LichSuGUI.Instance);
-                LichSuGUI.Instance.Dock = DockStyle.Fill;
-            }
             LichSuGUI.Instance.BringToFront();
         }
 
         private void aceVaccine_Click(object sender, EventArgs e)
         {
-            if (!container.Controls.Contains(VaccineGUI.Instance))
-            {
-                container.Controls.Add(VaccineGUI.Instance);
-                VaccineGUI.Instance.Dock = DockStyle.Fill;
-            }
             VaccineGUI.Instance.BringToFront();
         }
 
         private void acePhieuTiem_Click(object sender, EventArgs e)
         {
-            if (!container.Controls.Contains(PhieuTiemGUI.Instance))
-            {
-                container.Controls.Add(PhieuTiemGUI.Instance);
-                PhieuTiemGUI.Instance.Dock = DockStyle.Fill;
-            }
             PhieuTiemGUI.Instance.BringToFront();
         }
 
@@ -82,18 +71,26 @@ namespace GUI
 
         private void accordionControl1_ElementClick(object sender, DevExpress.XtraBars.Navigation.ElementClickEventArgs e)
         {
-            accordionControl1.Elements[0].Appearance.Normal.FontStyleDelta = FontStyle.Regular;
-            accordionControl1.Elements[1].Appearance.Normal.FontStyleDelta = FontStyle.Regular;
-            accordionControl1.Elements[2].Appearance.Normal.FontStyleDelta = FontStyle.Regular;
-            accordionControl1.Elements[3].Appearance.Normal.FontStyleDelta = FontStyle.Regular;
-            accordionControl1.Elements[0].Appearance.Hovered.FontStyleDelta = FontStyle.Regular;
-            accordionControl1.Elements[1].Appearance.Hovered.FontStyleDelta = FontStyle.Regular;
-            accordionControl1.Elements[2].Appearance.Hovered.FontStyleDelta = FontStyle.Regular;
-            accordionControl1.Elements[3].Appearance.Hovered.FontStyleDelta = FontStyle.Regular;
+            accordionControl1.Elements[0].Text = " Quản lý vaccine";
+            accordionControl1.Elements[1].Text = " Lịch sử tiêm";
+            accordionControl1.Elements[2].Text = " Tạo phiếu tiêm";
+            accordionControl1.Elements[3].Text = " Thanh toán";
 
-            e.Element.Appearance.Normal.FontStyleDelta = FontStyle.Italic;
-            e.Element.Appearance.Hovered.FontStyleDelta = FontStyle.Italic;
-            
+            switch (e.Element.Text)
+            {
+                case " Quản lý vaccine":
+                    e.Element.Text = " 🠞   Quản lý vaccine";
+                    break;
+                case " Lịch sử tiêm":
+                    e.Element.Text = " 🠞   Lịch sử tiêm";
+                    break;
+                case " Tạo phiếu tiêm":
+                    e.Element.Text = " 🠞   Tạo phiếu tiêm";
+                    break;
+                case " Thanh toán":
+                    e.Element.Text = " 🠞   Thanh toán";
+                    break;
+            }
         }
     }
 }

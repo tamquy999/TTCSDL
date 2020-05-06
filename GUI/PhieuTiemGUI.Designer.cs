@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridPhieuTiem = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cbGioiTinh = new DevExpress.XtraEditors.ComboBoxEdit();
             this.dtpNgaySinh = new DevExpress.XtraEditors.DateEdit();
             this.lbNgaySinh = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.tbTienSu = new DevExpress.XtraEditors.TextEdit();
             this.lbTienSu = new DevExpress.XtraEditors.LabelControl();
             this.lbGioiTinh = new DevExpress.XtraEditors.LabelControl();
             this.tbTenKH = new DevExpress.XtraEditors.TextEdit();
@@ -64,12 +62,12 @@
             this.gridVaccine = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPhieuTiem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.gridKH = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.cbGioiTinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbTienSu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTenKH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties)).BeginInit();
@@ -91,27 +89,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridVaccine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridKH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gridPhieuTiem
-            // 
-            this.gridPhieuTiem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridPhieuTiem.Location = new System.Drawing.Point(3, 469);
-            this.gridPhieuTiem.MainView = this.gridView1;
-            this.gridPhieuTiem.Name = "gridPhieuTiem";
-            this.gridPhieuTiem.Size = new System.Drawing.Size(1049, 293);
-            this.gridPhieuTiem.TabIndex = 2;
-            this.gridPhieuTiem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.DetailHeight = 394;
-            this.gridView1.GridControl = this.gridPhieuTiem;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // cbGioiTinh
             // 
@@ -151,13 +131,13 @@
             this.lbNgaySinh.TabIndex = 24;
             this.lbNgaySinh.Text = "Ngày sinh";
             // 
-            // textEdit3
+            // tbTienSu
             // 
-            this.textEdit3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textEdit3.Location = new System.Drawing.Point(539, 11);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(230, 24);
-            this.textEdit3.TabIndex = 3;
+            this.tbTienSu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbTienSu.Location = new System.Drawing.Point(539, 11);
+            this.tbTienSu.Name = "tbTienSu";
+            this.tbTienSu.Size = new System.Drawing.Size(230, 24);
+            this.tbTienSu.TabIndex = 3;
             // 
             // lbTienSu
             // 
@@ -267,7 +247,7 @@
             this.panel1.Controls.Add(this.lbTienSu);
             this.panel1.Controls.Add(this.dtpNgaySinh);
             this.panel1.Controls.Add(this.tbMaBS);
-            this.panel1.Controls.Add(this.textEdit3);
+            this.panel1.Controls.Add(this.tbTienSu);
             this.panel1.Controls.Add(this.lbTenKH);
             this.panel1.Controls.Add(this.lbNgayTiem);
             this.panel1.Controls.Add(this.lbNgaySinh);
@@ -287,7 +267,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.77822F));
             this.tableLayoutPanel2.Controls.Add(this.groupControl1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupControl2, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 278);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -448,11 +428,11 @@
             // 
             // groupControl4
             // 
-            this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl4.Controls.Add(this.gridVaccine);
             this.groupControl4.Controls.Add(this.tableLayoutPanel3);
-            this.groupControl4.Location = new System.Drawing.Point(3, 3);
+            this.groupControl4.Location = new System.Drawing.Point(3, 488);
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.Size = new System.Drawing.Size(1049, 274);
             this.groupControl4.TabIndex = 8;
@@ -460,8 +440,7 @@
             // 
             // gridVaccine
             // 
-            this.gridVaccine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gridVaccine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridVaccine.Location = new System.Drawing.Point(8, 77);
             this.gridVaccine.MainView = this.gridView2;
@@ -494,22 +473,40 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1039, 39);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
+            // gridKH
+            // 
+            this.gridKH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridKH.Location = new System.Drawing.Point(3, 190);
+            this.gridKH.MainView = this.gridView1;
+            this.gridKH.Name = "gridKH";
+            this.gridKH.Size = new System.Drawing.Size(1049, 294);
+            this.gridKH.TabIndex = 9;
+            this.gridKH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridKH;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
             // PhieuTiemGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gridKH);
             this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.gridPhieuTiem);
             this.Name = "PhieuTiemGUI";
             this.Size = new System.Drawing.Size(1055, 765);
             this.Load += new System.EventHandler(this.PhieuTiemGUI_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gridPhieuTiem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbGioiTinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbTienSu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTenKH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties)).EndInit();
@@ -533,20 +530,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridVaccine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridKH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private DevExpress.XtraGrid.GridControl gridPhieuTiem;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.LabelControl lbNgayTiem;
         private DevExpress.XtraEditors.TextEdit tbMaBS;
         private DevExpress.XtraEditors.LabelControl lbMaBS;
         private DevExpress.XtraEditors.LabelControl lbTenKH;
         private DevExpress.XtraEditors.DateEdit dtpNgayTiem;
         private DevExpress.XtraEditors.TextEdit tbTenKH;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit tbTienSu;
         private DevExpress.XtraEditors.LabelControl lbTienSu;
         private DevExpress.XtraEditors.LabelControl lbGioiTinh;
         private DevExpress.XtraEditors.DateEdit dtpNgaySinh;
@@ -574,5 +571,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit tbLieuLuong;
+        private DevExpress.XtraGrid.GridControl gridKH;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

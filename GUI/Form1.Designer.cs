@@ -50,10 +50,10 @@
             // container
             // 
             this.container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.container.Location = new System.Drawing.Point(231, 37);
+            this.container.Location = new System.Drawing.Point(227, 37);
             this.container.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(1069, 863);
+            this.container.Size = new System.Drawing.Size(1073, 863);
             this.container.TabIndex = 0;
             // 
             // fluentDesignFormControl1
@@ -111,7 +111,7 @@
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
             this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
-            this.accordionControl1.Size = new System.Drawing.Size(231, 863);
+            this.accordionControl1.Size = new System.Drawing.Size(227, 863);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             this.accordionControl1.ElementClick += new DevExpress.XtraBars.Navigation.ElementClickEventHandler(this.accordionControl1_ElementClick);
@@ -122,7 +122,7 @@
             this.aceVaccine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceVaccine.ImageOptions.Image")));
             this.aceVaccine.Name = "aceVaccine";
             this.aceVaccine.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.aceVaccine.Text = "Quản lý vaccine";
+            this.aceVaccine.Text = " Quản lý vaccine";
             this.aceVaccine.Click += new System.EventHandler(this.aceVaccine_Click);
             // 
             // aceLichSu
@@ -131,7 +131,7 @@
             this.aceLichSu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceLichSu.ImageOptions.Image")));
             this.aceLichSu.Name = "aceLichSu";
             this.aceLichSu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.aceLichSu.Text = "Lịch sử tiêm";
+            this.aceLichSu.Text = " Lịch sử tiêm";
             this.aceLichSu.Click += new System.EventHandler(this.aceLichSu_Click);
             // 
             // acePhieuTiem
@@ -141,7 +141,7 @@
             this.acePhieuTiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("acePhieuTiem.ImageOptions.Image")));
             this.acePhieuTiem.Name = "acePhieuTiem";
             this.acePhieuTiem.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.acePhieuTiem.Text = "Tạo phiếu tiêm";
+            this.acePhieuTiem.Text = " Tạo phiếu tiêm";
             this.acePhieuTiem.Click += new System.EventHandler(this.acePhieuTiem_Click);
             // 
             // aceThanhToan
@@ -150,7 +150,7 @@
             this.aceThanhToan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceThanhToan.ImageOptions.Image")));
             this.aceThanhToan.Name = "aceThanhToan";
             this.aceThanhToan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.aceThanhToan.Text = "Thanh toán";
+            this.aceThanhToan.Text = " Thanh toán";
             this.aceThanhToan.Click += new System.EventHandler(this.aceThanhToan_Click);
             // 
             // accordionControlElement1
