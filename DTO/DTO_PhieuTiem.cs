@@ -12,9 +12,11 @@ namespace DTO
         private string maKH;
         private string maBS;
 
-        public DTO_PhieuTiem()
+        public DTO_PhieuTiem(string maPhieuTiem, string maKH, string maBS)
         {
-
+            this.maPhieuTiem = maPhieuTiem;
+            this.MAKH = maKH;
+            this.maBS = maBS;
         }
 
         public string MAPHIEUTIEM { get => maPhieuTiem; set => maPhieuTiem = value; }

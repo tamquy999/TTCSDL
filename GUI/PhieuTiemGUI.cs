@@ -34,7 +34,7 @@ namespace GUI
         BUS_KhachHang busKH = new BUS_KhachHang();
 
         List<DTO_ChiTietTiem> listCTT = new List<DTO_ChiTietTiem>();
-        string MAPHIEUTIEM;
+
         public PhieuTiemGUI()
         {
             InitializeComponent();
@@ -42,31 +42,9 @@ namespace GUI
             dtpNgayTiem.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
             gridView2.RowClick += GridView2_RowClick;
-            gridView1.FocusedRowChanged += GridView1_FocusedRowChanged;
-
-            // tang ma phieu tiem cuoi cung trong sql table len 1 don vi
-            InitMAPHIEUTIEM();
+            gridView1.RowClick += GridView1_RowClick;
 
             InitAutoCompeteTextBox();
-        }
-
-        private void GridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            tbTenKH.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "TENKH").ToString();
-            dtpNgaySinh.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "NGAYSINH").ToString().Substring(0, 10);
-            cbGioiTinh.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "GIOITINH").ToString();
-            tbTienSu.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "TIEUSUBENHAN").ToString();
-        }
-
-        private void InitMAPHIEUTIEM()
-        {
-            MAPHIEUTIEM = busPhieuTiem.GetLastestMAPHIEUTIEM();
-            int count = MAPHIEUTIEM.Length - 4;
-            int ptIndex = Convert.ToInt32(MAPHIEUTIEM.Substring(2));
-            MAPHIEUTIEM = "PT";
-            for (int i = 0; i < count - ptIndex.ToString().Length; i++)
-                MAPHIEUTIEM += "0";
-            MAPHIEUTIEM += (ptIndex + 1).ToString();
         }
 
         private void InitAutoCompeteTextBox()
@@ -111,22 +89,22 @@ namespace GUI
 
         private void GridView2_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            tbMaVC.Text = gridView2.GetRowCellValue(e.RowHandle, "MAVACCINE").ToString();
+            tbMaVC.Text = gridView2.GetRowCellValue(e.RowHandle, "MAVACCINE").ToString().Trim();
         }
 
         private void GridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            //tbLoaiTiem.Text = gridView1.GetRowCellValue(e.RowHandle, "LOAITIEMCHUNG").ToString();
-            ////deNgayTiem.Text = gridView1.GetRowCellValue(e.RowHandle, "NGAYTIEM").ToString();
-            //tbGhiChu.Text = gridView1.GetRowCellValue(e.RowHandle, "GHICHU").ToString();
-            //tbMaKH.Text = gridView1.GetRowCellValue(e.RowHandle, "MAKH").ToString();
-            //tbMaBS.Text = gridView1.GetRowCellValue(e.RowHandle, "MABS").ToString();
-            //tbMaVC.Text = gridView1.GetRowCellValue(e.RowHandle, "MAVACCINE").ToString();
+            tbMaKH.Text = gridView1.GetRowCellValue(e.RowHandle, "MAKH").ToString().Trim();
+            tbTenKH.Text = gridView1.GetRowCellValue(e.RowHandle, "TENKH").ToString().Trim();
+            dtpNgaySinh.Text = gridView1.GetRowCellValue(e.RowHandle, "NGAYSINH").ToString().Substring(0, 10);
+            cbGioiTinh.Text = gridView1.GetRowCellValue(e.RowHandle, "GIOITINH").ToString();
+            tbTienSu.Text = gridView1.GetRowCellValue(e.RowHandle, "TIEUSUBENHAN").ToString().Trim();
         }
 
         private void PhieuTiemGUI_Load(object sender, EventArgs e)
         {
             gridKH.DataSource = busKH.getAllKH();
+            gridView1.Columns["MAKH"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
         }
 
         private void btnAddVC_Click(object sender, EventArgs e)
@@ -228,7 +206,20 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            
+            if (tbMaKH.Text == "")
+            {
+                tbMaKH.Text = busKH.NextMaKH();
+                busKH.InsertKHWithoutNGH(new DTO_KhachHang(tbMaKH.Text, tbTenKH.Text, dtpNgaySinh.DateTime.ToString("yyyy-MM-dd"), cbGioiTinh.Text, tbTienSu.Text, null));
+            }
+            else if (!busKH.IsMaKHExists(tbMaKH.Text))
+            {
+                busKH.InsertKHWithoutNGH(new DTO_KhachHang(tbMaKH.Text, tbTenKH.Text, dtpNgaySinh.DateTime.ToString("yyyy-MM-dd"), cbGioiTinh.Text, tbTienSu.Text, null));
+            }
+            if (busPhieuTiem.InsertPhieuTiem(new DTO_PhieuTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaKH.Text, tbMaBS.Text)))
+            {
+                MessageBoxEx.Show("Thêm thành công");
+            }
+            gridKH.DataSource = busKH.getAllKH();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -17,6 +18,85 @@ namespace DAO
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
+        }
+
+        public bool IsMaKHExists(string maKH)
+        {
+            string query = "SELECT MAKH FROM KHACHHANG WHERE MAKH = '" + maKH + "'";
+            SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return false;
+        }
+
+        public string GetLastestMaKH()
+        {
+            string query = "SELECT TOP(1) MAKH FROM KHACHHANG ORDER BY MAKH DESC";
+            SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return dt.Rows[0][0].ToString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return null;
+        }
+
+        public bool InsertKHWithoutNGH(DTO_KhachHang kh)
+        {
+            try
+            {
+                _conn.Open();
+
+                string SQL = @"INSERT INTO KHACHHANG (
+                                    MAKH,
+                                    TENKH,
+                                    NGAYSINH,
+                                    GIOITINH,
+                                    TIEUSUBENHAN,
+                                    MAGH
+                                )
+                                VALUES
+                                (   '" + kh.MAKH + "', N'" + kh.TENKH + "', '" + kh.NGAYSINH + "',  N'" + kh.GIOITINH + "', N'" + kh.TIEUSU + "', null )";
+
+                SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return false;
         }
     }
 }

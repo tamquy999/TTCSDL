@@ -41,5 +41,30 @@ namespace DAO
             }
             return null;
         }
+
+        public bool InsertPhieuTiem(DTO_PhieuTiem pt)
+        {
+            try
+            {
+                _conn.Open();
+
+                string SQL = "INSERT INTO PHIEUTIEM (MAPHIEUTIEM, MAKH, MABS) VALUES ('" + pt.MAPHIEUTIEM + "', '" + pt.MAKH + "', '" + pt.MABS + "')";
+
+                SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return false;
+        }
     }
 }

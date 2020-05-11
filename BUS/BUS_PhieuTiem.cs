@@ -1,4 +1,5 @@
 ﻿using DAO;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,9 +18,21 @@ namespace BUS
             return dao.getAllPhieuTiem();
         }
 
-        public string GetLastestMAPHIEUTIEM()
+        public string NextMAPHIEUTIEM()
         {
-            return dao.GetLastestMAPHIEUTIEM();
+            string MAPHIEUTIEM = dao.GetLastestMAPHIEUTIEM().Trim();
+            int count = MAPHIEUTIEM.Length - 2;
+            int ptIndex = Convert.ToInt32(MAPHIEUTIEM.Substring(2)) + 1;
+            MAPHIEUTIEM = "PT";
+            for (int i = 0; i < count - ptIndex.ToString().Length; i++)
+                MAPHIEUTIEM += "0";
+            MAPHIEUTIEM += (ptIndex).ToString();
+            return MAPHIEUTIEM;
+        }
+
+        public bool InsertPhieuTiem(DTO_PhieuTiem pt)
+        {
+            return dao.InsertPhieuTiem(pt);
         }
     }
 }
