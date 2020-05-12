@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
@@ -17,6 +18,8 @@ namespace DAO
 
         public bool Login(string user, string pass)
         {
+            string hashedPass = HashPass(pass);
+
             string query = "SELECT * FROM THUNGAN WHERE MATHUNGAN = '" + user + "' AND PASSWORD = '" + pass + "'";
             SqlDataAdapter da = new SqlDataAdapter(query, _conn);
             
@@ -35,6 +38,28 @@ namespace DAO
             }
             return false;
 
-        }
-    }
+          }
+          #region Hashing Pass
+          public string HashPass(string pass)
+          {
+               SHA1 shaH = new SHA1CryptoServiceProvider();
+               MD5 md5H = new MD5CryptoServiceProvider();
+
+               byte[] step1 = md5H.ComputeHash(Encoding.ASCII.GetBytes(pass));
+               string strs1 = ByteArrayToString(step1);
+               byte[] step2 = shaH.ComputeHash(Encoding.ASCII.GetBytes(strs1));
+
+               string hashedPass = ByteArrayToString(step2);
+               return hashedPass;
+          }
+
+          public static string ByteArrayToString(byte[] ba)
+          {
+               StringBuilder hex = new StringBuilder(ba.Length * 2);
+               foreach (byte b in ba)
+                    hex.AppendFormat("{0:x2}", b);
+               return hex.ToString();
+          }
+          #endregion
+     }
 }
