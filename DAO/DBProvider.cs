@@ -20,7 +20,7 @@ namespace DAO
         {
             string hashedPass = HashPass(pass);
 
-            string query = "SELECT * FROM THUNGAN WHERE MATHUNGAN = '" + user + "' AND PASSWORD = '" + pass + "'";
+            string query = "SELECT * FROM THUNGAN WHERE MATHUNGAN = '" + user + "' AND PASSWORD = '" + hashedPass + "'";
             SqlDataAdapter da = new SqlDataAdapter(query, _conn);
             
             DataTable dt = new DataTable();

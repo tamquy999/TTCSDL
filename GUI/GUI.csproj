@@ -90,6 +90,12 @@
     <Compile Include="ThanhToanGUI.Designer.cs">
       <DependentUpon>ThanhToanGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThongKeGUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThongKeGUI.Designer.cs">
+      <DependentUpon>ThongKeGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="VaccineGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </Compile>
     <EmbeddedResource Include="ThanhToanGUI.resx">
       <DependentUpon>ThanhToanGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeGUI.resx">
+      <DependentUpon>ThongKeGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VaccineGUI.resx">
       <DependentUpon>VaccineGUI.cs</DependentUpon>

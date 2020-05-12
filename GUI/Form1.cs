@@ -12,94 +12,108 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Form1 : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
-    {
-        Login login = new Login();
-        BUS_ThuNgan busTN = new BUS_ThuNgan();
-        public DTO_ThuNgan thungan;
+     public partial class Form1 : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
+     {
+          Login login = new Login();
+          BUS_ThuNgan busTN = new BUS_ThuNgan();
+          public DTO_ThuNgan thungan;
 
-        ThanhToanGUI ttGUI;
+          ThanhToanGUI ttGUI;
 
-        public Form1(string maTN)
-        {
-            InitializeComponent();
-            thungan = new DTO_ThuNgan(maTN, busTN.getTenThuNgan(maTN));
-            barStaticItem.Caption = "Xin chào " + thungan.HOTEN;
+          public Form1(string maTN)
+          {
+               InitializeComponent();
+               thungan = new DTO_ThuNgan(maTN, busTN.getTenThuNgan(maTN));
+               barStaticItem.Caption = "Xin chào " + thungan.HOTEN;
 
-            //container.Controls.Add(ThanhToanGUI.Instance);
-            //ThanhToanGUI.Instance.Dock = DockStyle.Fill;
+               //container.Controls.Add(ThanhToanGUI.Instance);
+               //ThanhToanGUI.Instance.Dock = DockStyle.Fill;
 
-            ttGUI = new ThanhToanGUI(thungan);
-            container.Controls.Add(ttGUI);
-            ttGUI.Dock = DockStyle.Fill;
+               ttGUI = new ThanhToanGUI(thungan);
+               container.Controls.Add(ttGUI);
+               ttGUI.Dock = DockStyle.Fill;
 
-            container.Controls.Add(LichSuGUI.Instance);
-            LichSuGUI.Instance.Dock = DockStyle.Fill;
-            container.Controls.Add(VaccineGUI.Instance);
-            VaccineGUI.Instance.Dock = DockStyle.Fill;
-            container.Controls.Add(PhieuTiemGUI.Instance);
-            PhieuTiemGUI.Instance.Dock = DockStyle.Fill;
-        }
+               container.Controls.Add(LichSuGUI.Instance);
+               LichSuGUI.Instance.Dock = DockStyle.Fill;
+               container.Controls.Add(VaccineGUI.Instance);
+               VaccineGUI.Instance.Dock = DockStyle.Fill;
+               container.Controls.Add(PhieuTiemGUI.Instance);
+               PhieuTiemGUI.Instance.Dock = DockStyle.Fill;
+               container.Controls.Add(ThongKeGUI.Instance);
+               ThongKeGUI.Instance.Dock = DockStyle.Fill;
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            acePhieuTiem_Click(sender, e);
-        }
+          }
 
-        private void aceThanhToan_Click(object sender, EventArgs e)
-        {
-            //ThanhToanGUI.Instance.BringToFront();
-            ttGUI.BringToFront();
-        }
+          private void Form1_Load(object sender, EventArgs e)
+          {
+               acePhieuTiem_Click(sender, e);
+          }
 
-        private void aceLichSu_Click(object sender, EventArgs e)
-        {
-            LichSuGUI.Instance.BringToFront();
-        }
+          private void aceThanhToan_Click(object sender, EventArgs e)
+          {
+               //ThanhToanGUI.Instance.BringToFront();
+               ttGUI.BringToFront();
+          }
 
-        private void aceVaccine_Click(object sender, EventArgs e)
-        {
-            VaccineGUI.Instance.BringToFront();
-        }
+          private void aceLichSu_Click(object sender, EventArgs e)
+          {
+               LichSuGUI.Instance.BringToFront();
+          }
 
-        private void acePhieuTiem_Click(object sender, EventArgs e)
-        {
-            PhieuTiemGUI.Instance.BringToFront();
-        }
+          private void aceVaccine_Click(object sender, EventArgs e)
+          {
+               VaccineGUI.Instance.BringToFront();
+          }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
+          private void acePhieuTiem_Click(object sender, EventArgs e)
+          {
+               PhieuTiemGUI.Instance.BringToFront();
+          }
 
-        private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            login.Show();
-            this.Hide();
-        }
+          private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+          {
+               Application.Exit();
+          }
 
-        private void accordionControl1_ElementClick(object sender, DevExpress.XtraBars.Navigation.ElementClickEventArgs e)
-        {
-            accordionControl1.Elements[0].Text = " Quản lý vaccine";
-            accordionControl1.Elements[1].Text = " Lịch sử tiêm";
-            accordionControl1.Elements[2].Text = " Tạo phiếu tiêm";
-            accordionControl1.Elements[3].Text = " Thanh toán";
+          private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
+          {
+               login.Show();
+               this.Hide();
+          }
 
-            switch (e.Element.Text)
-            {
-                case " Quản lý vaccine":
-                    e.Element.Text = " 🠞   Quản lý vaccine";
-                    break;
-                case " Lịch sử tiêm":
-                    e.Element.Text = " 🠞   Lịch sử tiêm";
-                    break;
-                case " Tạo phiếu tiêm":
-                    e.Element.Text = " 🠞   Tạo phiếu tiêm";
-                    break;
-                case " Thanh toán":
-                    e.Element.Text = " 🠞   Thanh toán";
-                    break;
-            }
-        }
-    }
+          private void accordionControl1_ElementClick(object sender, DevExpress.XtraBars.Navigation.ElementClickEventArgs e)
+          {
+               accordionControl1.Elements[0].Text = " Quản lý vaccine";
+               accordionControl1.Elements[1].Text = " Lịch sử tiêm";
+               accordionControl1.Elements[2].Text = " Tạo phiếu tiêm";
+               accordionControl1.Elements[3].Text = " Thanh toán";
+               accordionControl1.Elements[4].Text = " Thống kê";
+
+               switch (e.Element.Text)
+               {
+                    case " Quản lý vaccine":
+                         e.Element.Text = " 🠞   Quản lý vaccine";
+                         break;
+                    case " Lịch sử tiêm":
+                         e.Element.Text = " 🠞   Lịch sử tiêm";
+                         break;
+                    case " Tạo phiếu tiêm":
+                         e.Element.Text = " 🠞   Tạo phiếu tiêm";
+                         break;
+                    case " Thanh toán":
+                         e.Element.Text = " 🠞   Thanh toán";
+                         break;
+                    case " Thống kê":
+                         {
+                              e.Element.Text = " 🠞   Thống kê";
+                              break;
+                         }
+               }
+          }
+
+          private void aceThongKe_Click(object sender, EventArgs e)
+          {
+               ThongKeGUI.Instance.BringToFront();
+          }
+     }
 }
