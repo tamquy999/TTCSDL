@@ -6,13 +6,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Windows.Forms;
 
 namespace DAO
 {
     public class DBProvider
     {
-        protected SqlConnection _conn = new SqlConnection(@"Data Source=DESKTOP-NATE\SQLEXPRESS;Initial Catalog=TTCSDL;Integrated Security=True");
-     
+        protected SqlConnection _conn = new SqlConnection(ConfigurationManager.ConnectionStrings["GUI.Properties.Settings.Setting"].ConnectionString);
+
         public bool Login(string user, string pass)
         {
             string query = "SELECT * FROM THUNGAN WHERE MATHUNGAN = '" + user + "' AND PASSWORD = '" + pass + "'";
