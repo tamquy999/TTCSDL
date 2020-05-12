@@ -22,8 +22,10 @@ namespace DAO
 
         public bool IsMaKHExists(string maKH)
         {
-            string query = "SELECT MAKH FROM KHACHHANG WHERE MAKH = '" + maKH + "'";
+            string query = "SELECT MAKH FROM KHACHHANG WHERE MAKH = @MAKH";
             SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+
+            da.SelectCommand.Parameters.AddWithValue("@MAKH", maKH);
 
             DataTable dt = new DataTable();
 
@@ -70,24 +72,25 @@ namespace DAO
             {
                 _conn.Open();
 
-                string SQL = @"INSERT INTO KHACHHANG (
-                                    MAKH,
-                                    TENKH,
-                                    NGAYSINH,
-                                    GIOITINH,
-                                    TIEUSUBENHAN,
-                                    MAGH
-                                )
+                string SQL = @"INSERT INTO KHACHHANG 
+                                ( MAKH, TENKH, NGAYSINH, GIOITINH, TIEUSUBENHAN, MAGH )
                                 VALUES
-                                (   '" + kh.MAKH + "', N'" + kh.TENKH + "', '" + kh.NGAYSINH + "',  N'" + kh.GIOITINH + "', N'" + kh.TIEUSU + "', null )";
+                                ( @MAKH, @TENKH, @NGAYSINH, @GIOITINH, @TIEUSUBENHAN, @MAGH )";
 
                 SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                cmd.Parameters.AddWithValue("@MAKH", kh.MAKH);
+                cmd.Parameters.AddWithValue("@TENKH", kh.TENKH);
+                cmd.Parameters.AddWithValue("@NGAYSINH", kh.NGAYSINH);
+                cmd.Parameters.AddWithValue("@GIOITINH", kh.GIOITINH);
+                cmd.Parameters.AddWithValue("@TIEUSUBENHAN", kh.TIEUSU);
+                cmd.Parameters.AddWithValue("@MAGH", DBNull.Value);
 
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }

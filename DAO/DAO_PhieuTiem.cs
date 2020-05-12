@@ -48,15 +48,22 @@ namespace DAO
             {
                 _conn.Open();
 
-                string SQL = "INSERT INTO PHIEUTIEM (MAPHIEUTIEM, MAKH, MABS) VALUES ('" + pt.MAPHIEUTIEM + "', '" + pt.MAKH + "', '" + pt.MABS + "')";
+                string SQL = "INSERT INTO PHIEUTIEM " +
+                    "(MAPHIEUTIEM, MAKH, MABS) " +
+                    "VALUES " +
+                    "(@MAPHIEUTIEM, @MAKH, @MABS)";
 
                 SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                cmd.Parameters.AddWithValue("@MAPHIEUTIEM", pt.MAPHIEUTIEM);
+                cmd.Parameters.AddWithValue("@MAKH", pt.MAKH);
+                cmd.Parameters.AddWithValue("@MABS", pt.MABS);
 
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
             finally
@@ -68,29 +75,20 @@ namespace DAO
         }
 
         public List<DTO_Vaccine> GetVCFromPHIEUTIEM(string maPT)
-        {
-            //string query = @"SELECT vc.MAVACCINE, vc.TENVACCINE, vc.NHASX, vc. DONGIA 
-            //                FROM dbo.PHIEUTIEM pt INNER JOIN dbo.CHITIETTIEM ctt INNER JOIN dbo.VACCINE vc
-            //                ON vc.MAVACCINE = ctt.MAVACCINE
-            //                ON ctt.MAPHIEUTIEM = pt.MAPHIEUTIEM
-            //                WHERE ctt.MAPHIEUTIEM = '" + maPT + "'";
-            //SqlDataAdapter da = new SqlDataAdapter(query, _conn);
-            //DataTable dt = new DataTable();
-            //da.Fill(dt);
-            //return dt;
-
-            string query = @"SELECT vc.*
-                            FROM dbo.PHIEUTIEM pt INNER JOIN dbo.CHITIETTIEM ctt INNER JOIN dbo.VACCINE vc
-                            ON vc.MAVACCINE = ctt.MAVACCINE
-                            ON ctt.MAPHIEUTIEM = pt.MAPHIEUTIEM
-                            WHERE ctt.MAPHIEUTIEM = '" + maPT + "'";
-
+        { 
             List<DTO_Vaccine> list = new List<DTO_Vaccine>();
             try
             {
                 _conn.Open();
+                string query = @"SELECT vc.*
+                            FROM dbo.PHIEUTIEM pt INNER JOIN dbo.CHITIETTIEM ctt INNER JOIN dbo.VACCINE vc
+                            ON vc.MAVACCINE = ctt.MAVACCINE
+                            ON ctt.MAPHIEUTIEM = pt.MAPHIEUTIEM
+                            WHERE ctt.MAPHIEUTIEM = @MAPHIEUTIEM";
                 SqlCommand cmd = new SqlCommand(query, _conn);
-                cmd.CommandType = CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@MAPHIEUTIEM", maPT);
+
                 SqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -124,8 +122,10 @@ namespace DAO
             string query = @"SELECT kh.TENKH 
                             FROM KHACHHANG kh INNER JOIN PHIEUTIEM pt
                             ON pt.MAKH = kh.MAKH
-                            WHERE pt.MAPHIEUTIEM = '" + maPT + "'";
+                            WHERE pt.MAPHIEUTIEM = @MAPHIEUTIEM";
             SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+
+            da.SelectCommand.Parameters.AddWithValue("@MAPHIEUTIEM", maPT);
 
             DataTable dt = new DataTable();
 

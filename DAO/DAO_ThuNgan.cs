@@ -12,8 +12,9 @@ namespace DAO
     {
         public string getTenThuNgan(string maTN)
         {
-            string query = "SELECT HOTEN FROM THUNGAN WHERE MATHUNGAN = '" + maTN + "'";
+            string query = "SELECT HOTEN FROM THUNGAN WHERE MATHUNGAN = @MATHUNGAN";
             SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+            da.SelectCommand.Parameters.AddWithValue("@MATHUNGAN", maTN);
 
             DataTable dt = new DataTable();
 

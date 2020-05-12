@@ -28,23 +28,23 @@ namespace DAO
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = @"INSERT INTO HOADON
-                            ( MAHOADON, CHIETKHAU, NGAYTHU, TONGTIEN, MAGH, MATHUNGAN, MAPHIEUTIEM )
-                            VALUES
-                            ( @MAHOADON, @CHIETKHAU, @NGAYTHU, @TONGTIEN, @MAGH, @MATHUNGAN, @MAPHIEUTIEM )";
-                cmd.Parameters.Add(new SqlParameter("MAHOADON", hd.MaHD));
-                cmd.Parameters.Add(new SqlParameter("CHIETKHAU", hd.ChietKhau));
-                cmd.Parameters.Add(new SqlParameter("NGAYTHU", hd.NgayThu));
-                cmd.Parameters.Add(new SqlParameter("TONGTIEN", hd.TongTien));
-                cmd.Parameters.Add(new SqlParameter("MAGH", hd.MaGH));
-                cmd.Parameters.Add(new SqlParameter("MATHUNGAN", hd.MaTN));
-                cmd.Parameters.Add(new SqlParameter("MAPHIEUTIEM", hd.MaPT));
+                                ( MAHOADON, CHIETKHAU, NGAYTHU, TONGTIEN, MAGH, MATHUNGAN, MAPHIEUTIEM )
+                                VALUES
+                                ( @MAHOADON, @CHIETKHAU, @NGAYTHU, @TONGTIEN, @MAGH, @MATHUNGAN, @MAPHIEUTIEM )";
+                cmd.Parameters.AddWithValue("@MAHOADON", hd.MaHD);
+                cmd.Parameters.AddWithValue("@CHIETKHAU", hd.ChietKhau);
+                cmd.Parameters.AddWithValue("@NGAYTHU", hd.NgayThu);
+                cmd.Parameters.AddWithValue("@TONGTIEN", hd.TongTien);
+                cmd.Parameters.AddWithValue("@MAGH", hd.MaGH);
+                cmd.Parameters.AddWithValue("@MATHUNGAN", hd.MaTN);
+                cmd.Parameters.AddWithValue("@MAPHIEUTIEM", hd.MaPT);
                 cmd.Connection = _conn;
 
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }

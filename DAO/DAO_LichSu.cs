@@ -17,9 +17,12 @@ namespace DAO
                         ON vc.MAVACCINE = ctt.MAVACCINE
                         ON ctt.MAPHIEUTIEM = pt.MAPHIEUTIEM
                         ON pt.MAKH = kh.MAKH
-                        WHERE kh.MAKH = '" + maKH + "'";
+                        WHERE kh.MAKH = @MAKH";
 
             SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+
+            da.SelectCommand.Parameters.AddWithValue("@MAKH", maKH);
+
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;

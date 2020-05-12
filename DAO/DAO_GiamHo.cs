@@ -49,22 +49,22 @@ namespace DAO
                 _conn.Open();
 
                 string SQL = @"INSERT INTO NGUOIGIAMHO
-                            (
-                                MAGH,
-                                HOTEN,
-                                DIACHI,
-                                SDT
-                            )
+                            ( MAGH, HOTEN, DIACHI, SDT )
                             VALUES
-                            (   '" + gh.MaGH + "',  N'" + gh.HoTen + "', N'" + gh.DiaChi + "', '" + gh.Sdt + "' )";
+                            ( @MAGH, @HOTEN, @DIACHI, @SDT )";
 
                 SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                cmd.Parameters.AddWithValue("@MAGH", gh.MaGH);
+                cmd.Parameters.AddWithValue("@HOTEN", gh.HoTen);
+                cmd.Parameters.AddWithValue("@DIACHI", gh.DiaChi);
+                cmd.Parameters.AddWithValue("@SDT", gh.Sdt);
 
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -78,8 +78,10 @@ namespace DAO
 
         public bool IsMaGHExists(string maGH)
         {
-            string query = "SELECT MAGH FROM NGUOIGIAMHO WHERE MAGH = '" + maGH + "'";
+            string query = "SELECT MAGH FROM NGUOIGIAMHO WHERE MAGH = @MAGH";
             SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+
+            da.SelectCommand.Parameters.AddWithValue("@MAGH", maGH);
 
             DataTable dt = new DataTable();
 
@@ -104,18 +106,18 @@ namespace DAO
             {
                 _conn.Open();
 
-                string query = string.Format(@"UPDATE KHACHHANG SET MAGH = '{0}' WHERE MAKH IN (
+                string query = @"UPDATE KHACHHANG SET MAGH = @MAGH WHERE MAKH IN (
 	                            SELECT kh.MAKH
 	                            FROM NGUOIGIAMHO gh INNER JOIN HOADON hd INNER JOIN PHIEUTIEM pt INNER JOIN KHACHHANG kh
 	                            ON kh.MAKH = pt.MAKH ON pt.MAPHIEUTIEM = hd.MAPHIEUTIEM ON hd.MAGH = gh.MAGH
-	                            WHERE gh.MAGH = '{0}'
-                            )", maGH);
+	                            WHERE gh.MAGH = @MAGH )";
 
                 SqlCommand cmd = new SqlCommand(query, _conn);
 
+                cmd.Parameters.AddWithValue("@MAGH", maGH);
+
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
-
             }
             catch (Exception)
             {
