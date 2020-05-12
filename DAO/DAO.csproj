@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO_ChiTietTiem.cs" />
+    <Compile Include="DAO_GiamHo.cs" />
+    <Compile Include="DAO_HoaDon.cs" />
     <Compile Include="DAO_KhachHang.cs" />
     <Compile Include="DAO_LichSu.cs" />
     <Compile Include="DAO_PhieuTiem.cs" />

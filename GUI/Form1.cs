@@ -16,15 +16,23 @@ namespace GUI
     {
         Login login = new Login();
         BUS_ThuNgan busTN = new BUS_ThuNgan();
-        DTO_ThuNgan thungan;
+        public DTO_ThuNgan thungan;
+
+        ThanhToanGUI ttGUI;
+
         public Form1(string maTN)
         {
             InitializeComponent();
             thungan = new DTO_ThuNgan(maTN, busTN.getTenThuNgan(maTN));
             barStaticItem.Caption = "Xin chào " + thungan.HOTEN;
 
-            container.Controls.Add(ThanhToanGUI.Instance);
-            ThanhToanGUI.Instance.Dock = DockStyle.Fill;
+            //container.Controls.Add(ThanhToanGUI.Instance);
+            //ThanhToanGUI.Instance.Dock = DockStyle.Fill;
+
+            ttGUI = new ThanhToanGUI(thungan);
+            container.Controls.Add(ttGUI);
+            ttGUI.Dock = DockStyle.Fill;
+
             container.Controls.Add(LichSuGUI.Instance);
             LichSuGUI.Instance.Dock = DockStyle.Fill;
             container.Controls.Add(VaccineGUI.Instance);
@@ -40,7 +48,8 @@ namespace GUI
 
         private void aceThanhToan_Click(object sender, EventArgs e)
         {
-            ThanhToanGUI.Instance.BringToFront();
+            //ThanhToanGUI.Instance.BringToFront();
+            ttGUI.BringToFront();
         }
 
         private void aceLichSu_Click(object sender, EventArgs e)

@@ -55,6 +55,7 @@
             this.tbUser.EditValueChanged += new System.EventHandler(this.tbUser_EditValueChanged);
             this.tbUser.Paint += new System.Windows.Forms.PaintEventHandler(this.tbUser_Paint);
             this.tbUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbUser_KeyDown);
+            this.tbUser.Leave += new System.EventHandler(this.tbUser_Leave);
             // 
             // tbPassword
             // 

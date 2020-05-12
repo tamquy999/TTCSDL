@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    public class DAO_ThuNgan :DBProvider
+    public class DAO_ThuNgan : DBProvider
     {
         public string getTenThuNgan(string maTN)
         {

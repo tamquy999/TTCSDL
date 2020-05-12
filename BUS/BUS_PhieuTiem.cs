@@ -34,5 +34,15 @@ namespace BUS
         {
             return dao.InsertPhieuTiem(pt);
         }
+
+        public List<DTO_Vaccine> GetVCFromPHIEUTIEM(string maPT)
+        {
+            return dao.GetVCFromPHIEUTIEM(maPT);
+        }
+
+        public string GetTenKHFromPHIEUTIEM(string maPT)
+        {
+            return dao.GetTenKHFromPHIEUTIEM(maPT);
+        }
     }
 }

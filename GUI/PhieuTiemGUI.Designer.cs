@@ -45,9 +45,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
+            this.btnReset = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
+            this.btnIn = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddVC = new DevExpress.XtraEditors.SimpleButton();
             this.tbMaVC = new DevExpress.XtraEditors.TextEdit();
             this.tbLoaiTiem = new DevExpress.XtraEditors.TextEdit();
@@ -66,7 +66,6 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tbMaKH = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.cbGioiTinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties)).BeginInit();
@@ -190,6 +189,7 @@
             this.tbMaBS.Name = "tbMaBS";
             this.tbMaBS.Size = new System.Drawing.Size(230, 24);
             this.tbMaBS.TabIndex = 3;
+            this.tbMaBS.Leave += new System.EventHandler(this.tbMaBS_Leave);
             // 
             // lbMaBS
             // 
@@ -280,9 +280,9 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.btnXoa);
+            this.groupControl2.Controls.Add(this.btnReset);
             this.groupControl2.Controls.Add(this.btnThem);
-            this.groupControl2.Controls.Add(this.btnSua);
+            this.groupControl2.Controls.Add(this.btnIn);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(828, 3);
             this.groupControl2.Name = "groupControl2";
@@ -290,16 +290,17 @@
             this.groupControl2.TabIndex = 5;
             this.groupControl2.Text = "Thao tác";
             // 
-            // btnXoa
+            // btnReset
             // 
-            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnXoa.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
-            this.btnXoa.Appearance.Options.UseBackColor = true;
-            this.btnXoa.Location = new System.Drawing.Point(37, 136);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(154, 35);
-            this.btnXoa.TabIndex = 2;
-            this.btnXoa.Text = "Xoá";
+            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnReset.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            this.btnReset.Appearance.Options.UseBackColor = true;
+            this.btnReset.Location = new System.Drawing.Point(37, 136);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(154, 35);
+            this.btnReset.TabIndex = 2;
+            this.btnReset.Text = "Đặt lại";
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnThem
             // 
@@ -310,19 +311,19 @@
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(154, 35);
             this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "Tạo phiếu tiêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // btnSua
+            // btnIn
             // 
-            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSua.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
-            this.btnSua.Appearance.Options.UseBackColor = true;
-            this.btnSua.Location = new System.Drawing.Point(37, 92);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(154, 35);
-            this.btnSua.TabIndex = 1;
-            this.btnSua.Text = "Cập nhật";
+            this.btnIn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnIn.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.btnIn.Appearance.Options.UseBackColor = true;
+            this.btnIn.Location = new System.Drawing.Point(37, 92);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(154, 35);
+            this.btnIn.TabIndex = 1;
+            this.btnIn.Text = "In phiếu tiêm";
             // 
             // btnAddVC
             // 
@@ -346,6 +347,7 @@
             this.tbMaVC.Size = new System.Drawing.Size(138, 24);
             this.tbMaVC.TabIndex = 19;
             this.tbMaVC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMaVC_KeyDown);
+            this.tbMaVC.Leave += new System.EventHandler(this.tbMaVC_Leave);
             // 
             // tbLoaiTiem
             // 
@@ -507,33 +509,25 @@
             this.tbMaKH.Name = "tbMaKH";
             this.tbMaKH.Size = new System.Drawing.Size(154, 24);
             this.tbMaKH.TabIndex = 25;
+            this.tbMaKH.ToolTip = "Để trống nếu đăng ký mới";
+            this.tbMaKH.ToolTipTitle = "Lưu ý";
             // 
             // labelControl2
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl2.Location = new System.Drawing.Point(759, 212);
+            this.labelControl2.Location = new System.Drawing.Point(753, 212);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(100, 18);
             this.labelControl2.TabIndex = 26;
             this.labelControl2.Text = "Mã khách hàng";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(865, 233);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(126, 12);
-            this.labelControl3.TabIndex = 26;
-            this.labelControl3.Text = "*Để trống nếu đăng ký mới";
+            this.labelControl2.ToolTip = "Để trống nếu đăng ký mới";
+            this.labelControl2.ToolTipTitle = "Lưu ý";
             // 
             // PhieuTiemGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tbMaKH);
-            this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.gridKH);
             this.Controls.Add(this.groupControl4);
@@ -602,9 +596,9 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraEditors.SimpleButton btnXoa;
+        private DevExpress.XtraEditors.SimpleButton btnReset;
         private DevExpress.XtraEditors.SimpleButton btnThem;
-        private DevExpress.XtraEditors.SimpleButton btnSua;
+        private DevExpress.XtraEditors.SimpleButton btnIn;
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraGrid.GridControl gridVaccine;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
@@ -615,6 +609,5 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.TextEdit tbMaKH;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

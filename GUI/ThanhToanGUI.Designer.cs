@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.tbTenKH = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.dtpNgayTao = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.tbMaPT = new DevExpress.XtraEditors.TextEdit();
+            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.gridVC = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.btnIn = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThanhToan = new DevExpress.XtraEditors.SimpleButton();
+            this.btnReset = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.tbTraLai = new DevExpress.XtraEditors.TextEdit();
@@ -44,10 +43,22 @@
             this.tbKhachDua = new DevExpress.XtraEditors.TextEdit();
             this.tbPhaiTra = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.tbChieuKhau = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.tbTongTien = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.tbTenKH = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.dtpNgayTao = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.tbMaPT = new DevExpress.XtraEditors.TextEdit();
             this.tbTenNGH = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -55,18 +66,19 @@
             this.tbDiaChiNGH = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.gridNGH = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.tbMaGH = new DevExpress.XtraEditors.TextEdit();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbTenKH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTao.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTao.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbMaPT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
+            this.groupControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridVC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
+            this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbTraLai.Properties)).BeginInit();
@@ -74,37 +86,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbPhaiTra.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbChieuKhau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTongTien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbTenKH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTao.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTao.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMaPT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTenNGH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSdtNGH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDiaChiNGH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridNGH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMaGH.Properties)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
-            this.groupControl4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.Location = new System.Drawing.Point(4, 191);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(994, 392);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.groupControl5);
+            this.groupControl1.Controls.Add(this.groupControl4);
+            this.groupControl1.Controls.Add(this.groupControl2);
             this.groupControl1.Controls.Add(this.labelControl11);
             this.groupControl1.Controls.Add(this.tbTenKH);
             this.groupControl1.Controls.Add(this.labelControl2);
@@ -112,16 +113,276 @@
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.tbMaPT);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(3, 3);
+            this.groupControl1.Location = new System.Drawing.Point(502, 3);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(2, 3, 3, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(491, 178);
+            this.groupControl1.Size = new System.Drawing.Size(496, 759);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Thông tin hoá đơn";
+            // 
+            // groupControl5
+            // 
+            this.groupControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl5.Controls.Add(this.gridVC);
+            this.groupControl5.Location = new System.Drawing.Point(0, 186);
+            this.groupControl5.Name = "groupControl5";
+            this.groupControl5.Size = new System.Drawing.Size(496, 316);
+            this.groupControl5.TabIndex = 10;
+            this.groupControl5.Text = "Danh sách vaccine sử dụng";
+            // 
+            // gridVC
+            // 
+            this.gridVC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridVC.Location = new System.Drawing.Point(2, 33);
+            this.gridVC.MainView = this.gridView1;
+            this.gridVC.Name = "gridVC";
+            this.gridVC.Size = new System.Drawing.Size(492, 281);
+            this.gridVC.TabIndex = 11;
+            this.gridVC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridVC;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // groupControl4
+            // 
+            this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl4.Controls.Add(this.btnIn);
+            this.groupControl4.Controls.Add(this.btnThanhToan);
+            this.groupControl4.Controls.Add(this.btnReset);
+            this.groupControl4.Location = new System.Drawing.Point(317, 506);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(179, 253);
+            this.groupControl4.TabIndex = 9;
+            this.groupControl4.Text = "Thao tác";
+            // 
+            // btnIn
+            // 
+            this.btnIn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIn.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.btnIn.Appearance.Options.UseBackColor = true;
+            this.btnIn.Location = new System.Drawing.Point(17, 120);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(145, 48);
+            this.btnIn.TabIndex = 8;
+            this.btnIn.Text = "In hoá đơn";
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThanhToan.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.btnThanhToan.Appearance.Options.UseBackColor = true;
+            this.btnThanhToan.Location = new System.Drawing.Point(17, 52);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(145, 48);
+            this.btnThanhToan.TabIndex = 4;
+            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReset.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
+            this.btnReset.Appearance.Options.UseBackColor = true;
+            this.btnReset.Location = new System.Drawing.Point(17, 188);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(145, 48);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "Đặt lại";
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl2.Controls.Add(this.labelControl9);
+            this.groupControl2.Controls.Add(this.tbTraLai);
+            this.groupControl2.Controls.Add(this.labelControl10);
+            this.groupControl2.Controls.Add(this.tbKhachDua);
+            this.groupControl2.Controls.Add(this.tbPhaiTra);
+            this.groupControl2.Controls.Add(this.labelControl8);
+            this.groupControl2.Controls.Add(this.labelControl18);
+            this.groupControl2.Controls.Add(this.labelControl17);
+            this.groupControl2.Controls.Add(this.labelControl13);
+            this.groupControl2.Controls.Add(this.labelControl16);
+            this.groupControl2.Controls.Add(this.labelControl15);
+            this.groupControl2.Controls.Add(this.labelControl12);
+            this.groupControl2.Controls.Add(this.labelControl7);
+            this.groupControl2.Controls.Add(this.tbChieuKhau);
+            this.groupControl2.Controls.Add(this.labelControl6);
+            this.groupControl2.Controls.Add(this.tbTongTien);
+            this.groupControl2.Location = new System.Drawing.Point(0, 506);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(313, 253);
+            this.groupControl2.TabIndex = 2;
+            this.groupControl2.Text = "Chi tiết thanh toán";
+            this.groupControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl2_Paint);
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(23, 175);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(63, 18);
+            this.labelControl9.TabIndex = 15;
+            this.labelControl9.Text = "Khách trả";
+            // 
+            // tbTraLai
+            // 
+            this.tbTraLai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbTraLai.Location = new System.Drawing.Point(102, 214);
+            this.tbTraLai.Name = "tbTraLai";
+            this.tbTraLai.Properties.Appearance.Options.UseTextOptions = true;
+            this.tbTraLai.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tbTraLai.Size = new System.Drawing.Size(153, 24);
+            this.tbTraLai.TabIndex = 14;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(23, 217);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(40, 18);
+            this.labelControl10.TabIndex = 13;
+            this.labelControl10.Text = "Trả lại";
+            // 
+            // tbKhachDua
+            // 
+            this.tbKhachDua.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbKhachDua.Location = new System.Drawing.Point(102, 172);
+            this.tbKhachDua.Name = "tbKhachDua";
+            this.tbKhachDua.Properties.Appearance.Options.UseTextOptions = true;
+            this.tbKhachDua.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tbKhachDua.Size = new System.Drawing.Size(153, 24);
+            this.tbKhachDua.TabIndex = 12;
+            this.tbKhachDua.Leave += new System.EventHandler(this.tbKhachDua_Leave);
+            // 
+            // tbPhaiTra
+            // 
+            this.tbPhaiTra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbPhaiTra.Location = new System.Drawing.Point(102, 131);
+            this.tbPhaiTra.Name = "tbPhaiTra";
+            this.tbPhaiTra.Properties.Appearance.Options.UseTextOptions = true;
+            this.tbPhaiTra.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tbPhaiTra.Size = new System.Drawing.Size(153, 24);
+            this.tbPhaiTra.TabIndex = 11;
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(23, 134);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(49, 18);
+            this.labelControl8.TabIndex = 10;
+            this.labelControl8.Text = "Phải trả";
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl18.Location = new System.Drawing.Point(265, 217);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(29, 18);
+            this.labelControl18.TabIndex = 9;
+            this.labelControl18.Text = "VNĐ";
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl17.Location = new System.Drawing.Point(265, 175);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(29, 18);
+            this.labelControl17.TabIndex = 9;
+            this.labelControl17.Text = "VNĐ";
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl13.Location = new System.Drawing.Point(265, 134);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(29, 18);
+            this.labelControl13.TabIndex = 9;
+            this.labelControl13.Text = "VNĐ";
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl16.Location = new System.Drawing.Point(487, 114);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(29, 18);
+            this.labelControl16.TabIndex = 9;
+            this.labelControl16.Text = "VNĐ";
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl15.Location = new System.Drawing.Point(487, 72);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(29, 18);
+            this.labelControl15.TabIndex = 9;
+            this.labelControl15.Text = "VNĐ";
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl12.Location = new System.Drawing.Point(265, 50);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(29, 18);
+            this.labelControl12.TabIndex = 9;
+            this.labelControl12.Text = "VNĐ";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(23, 50);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(62, 18);
+            this.labelControl7.TabIndex = 9;
+            this.labelControl7.Text = "Tổng tiền";
+            // 
+            // tbChieuKhau
+            // 
+            this.tbChieuKhau.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbChieuKhau.Location = new System.Drawing.Point(102, 89);
+            this.tbChieuKhau.Name = "tbChieuKhau";
+            this.tbChieuKhau.Properties.Appearance.Options.UseTextOptions = true;
+            this.tbChieuKhau.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tbChieuKhau.Size = new System.Drawing.Size(153, 24);
+            this.tbChieuKhau.TabIndex = 8;
+            this.tbChieuKhau.Leave += new System.EventHandler(this.tbChieuKhau_Leave);
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(23, 92);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(68, 18);
+            this.labelControl6.TabIndex = 7;
+            this.labelControl6.Text = "Chiết khấu";
+            // 
+            // tbTongTien
+            // 
+            this.tbTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbTongTien.Location = new System.Drawing.Point(102, 47);
+            this.tbTongTien.Name = "tbTongTien";
+            this.tbTongTien.Properties.Appearance.Options.UseTextOptions = true;
+            this.tbTongTien.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.tbTongTien.Size = new System.Drawing.Size(153, 24);
+            this.tbTongTien.TabIndex = 6;
             // 
             // labelControl11
             // 
             this.labelControl11.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl11.Location = new System.Drawing.Point(16, 146);
+            this.labelControl11.Location = new System.Drawing.Point(19, 146);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(106, 18);
             this.labelControl11.TabIndex = 9;
@@ -130,7 +391,7 @@
             // tbTenKH
             // 
             this.tbTenKH.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbTenKH.Location = new System.Drawing.Point(140, 143);
+            this.tbTenKH.Location = new System.Drawing.Point(143, 143);
             this.tbTenKH.Name = "tbTenKH";
             this.tbTenKH.Size = new System.Drawing.Size(334, 24);
             this.tbTenKH.TabIndex = 8;
@@ -138,7 +399,7 @@
             // labelControl2
             // 
             this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl2.Location = new System.Drawing.Point(16, 99);
+            this.labelControl2.Location = new System.Drawing.Point(19, 99);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(110, 18);
             this.labelControl2.TabIndex = 7;
@@ -148,7 +409,7 @@
             // 
             this.dtpNgayTao.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpNgayTao.EditValue = null;
-            this.dtpNgayTao.Location = new System.Drawing.Point(140, 97);
+            this.dtpNgayTao.Location = new System.Drawing.Point(143, 97);
             this.dtpNgayTao.Name = "dtpNgayTao";
             this.dtpNgayTao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -161,7 +422,7 @@
             // labelControl1
             // 
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl1.Location = new System.Drawing.Point(16, 54);
+            this.labelControl1.Location = new System.Drawing.Point(19, 54);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(92, 18);
             this.labelControl1.TabIndex = 5;
@@ -170,121 +431,16 @@
             // tbMaPT
             // 
             this.tbMaPT.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbMaPT.Location = new System.Drawing.Point(140, 51);
+            this.tbMaPT.Location = new System.Drawing.Point(143, 51);
             this.tbMaPT.Name = "tbMaPT";
             this.tbMaPT.Size = new System.Drawing.Size(334, 24);
             this.tbMaPT.TabIndex = 0;
             this.tbMaPT.Leave += new System.EventHandler(this.tbMaPT_Leave);
             // 
-            // groupControl2
-            // 
-            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl2.Controls.Add(this.labelControl9);
-            this.groupControl2.Controls.Add(this.tbTraLai);
-            this.groupControl2.Controls.Add(this.labelControl10);
-            this.groupControl2.Controls.Add(this.tbKhachDua);
-            this.groupControl2.Controls.Add(this.tbPhaiTra);
-            this.groupControl2.Controls.Add(this.labelControl8);
-            this.groupControl2.Controls.Add(this.labelControl7);
-            this.groupControl2.Controls.Add(this.tbChieuKhau);
-            this.groupControl2.Controls.Add(this.labelControl6);
-            this.groupControl2.Controls.Add(this.tbTongTien);
-            this.groupControl2.Location = new System.Drawing.Point(4, 589);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(772, 173);
-            this.groupControl2.TabIndex = 2;
-            this.groupControl2.Text = "Chi tiết thanh toán";
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl9.Location = new System.Drawing.Point(418, 72);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(71, 18);
-            this.labelControl9.TabIndex = 15;
-            this.labelControl9.Text = "Khách đưa";
-            // 
-            // tbTraLai
-            // 
-            this.tbTraLai.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbTraLai.Location = new System.Drawing.Point(496, 111);
-            this.tbTraLai.Name = "tbTraLai";
-            this.tbTraLai.Size = new System.Drawing.Size(258, 24);
-            this.tbTraLai.TabIndex = 14;
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl10.Location = new System.Drawing.Point(418, 114);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(40, 18);
-            this.labelControl10.TabIndex = 13;
-            this.labelControl10.Text = "Trả lại";
-            // 
-            // tbKhachDua
-            // 
-            this.tbKhachDua.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbKhachDua.Location = new System.Drawing.Point(496, 69);
-            this.tbKhachDua.Name = "tbKhachDua";
-            this.tbKhachDua.Size = new System.Drawing.Size(258, 24);
-            this.tbKhachDua.TabIndex = 12;
-            // 
-            // tbPhaiTra
-            // 
-            this.tbPhaiTra.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbPhaiTra.Location = new System.Drawing.Point(99, 134);
-            this.tbPhaiTra.Name = "tbPhaiTra";
-            this.tbPhaiTra.Size = new System.Drawing.Size(289, 24);
-            this.tbPhaiTra.TabIndex = 11;
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl8.Location = new System.Drawing.Point(19, 137);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(49, 18);
-            this.labelControl8.TabIndex = 10;
-            this.labelControl8.Text = "Phải trả";
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl7.Location = new System.Drawing.Point(19, 53);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(62, 18);
-            this.labelControl7.TabIndex = 9;
-            this.labelControl7.Text = "Tổng tiền";
-            // 
-            // tbChieuKhau
-            // 
-            this.tbChieuKhau.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbChieuKhau.Location = new System.Drawing.Point(99, 92);
-            this.tbChieuKhau.Name = "tbChieuKhau";
-            this.tbChieuKhau.Size = new System.Drawing.Size(289, 24);
-            this.tbChieuKhau.TabIndex = 8;
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl6.Location = new System.Drawing.Point(19, 95);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(71, 18);
-            this.labelControl6.TabIndex = 7;
-            this.labelControl6.Text = "Chiếu khấu";
-            // 
-            // tbTongTien
-            // 
-            this.tbTongTien.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbTongTien.Location = new System.Drawing.Point(99, 50);
-            this.tbTongTien.Name = "tbTongTien";
-            this.tbTongTien.Size = new System.Drawing.Size(289, 24);
-            this.tbTongTien.TabIndex = 6;
-            // 
             // tbTenNGH
             // 
             this.tbTenNGH.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbTenNGH.Location = new System.Drawing.Point(116, 49);
+            this.tbTenNGH.Location = new System.Drawing.Point(119, 97);
             this.tbTenNGH.Name = "tbTenNGH";
             this.tbTenNGH.Size = new System.Drawing.Size(358, 24);
             this.tbTenNGH.TabIndex = 2;
@@ -292,7 +448,7 @@
             // labelControl4
             // 
             this.labelControl4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl4.Location = new System.Drawing.Point(16, 99);
+            this.labelControl4.Location = new System.Drawing.Point(19, 146);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(42, 18);
             this.labelControl4.TabIndex = 8;
@@ -301,7 +457,7 @@
             // labelControl3
             // 
             this.labelControl3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl3.Location = new System.Drawing.Point(16, 52);
+            this.labelControl3.Location = new System.Drawing.Point(19, 100);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(65, 18);
             this.labelControl3.TabIndex = 7;
@@ -310,7 +466,7 @@
             // tbSdtNGH
             // 
             this.tbSdtNGH.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbSdtNGH.Location = new System.Drawing.Point(116, 143);
+            this.tbSdtNGH.Location = new System.Drawing.Point(119, 192);
             this.tbSdtNGH.Name = "tbSdtNGH";
             this.tbSdtNGH.Size = new System.Drawing.Size(358, 24);
             this.tbSdtNGH.TabIndex = 4;
@@ -318,7 +474,7 @@
             // tbDiaChiNGH
             // 
             this.tbDiaChiNGH.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbDiaChiNGH.Location = new System.Drawing.Point(116, 96);
+            this.tbDiaChiNGH.Location = new System.Drawing.Point(119, 143);
             this.tbDiaChiNGH.Name = "tbDiaChiNGH";
             this.tbDiaChiNGH.Size = new System.Drawing.Size(358, 24);
             this.tbDiaChiNGH.TabIndex = 3;
@@ -326,7 +482,7 @@
             // labelControl5
             // 
             this.labelControl5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl5.Location = new System.Drawing.Point(16, 146);
+            this.labelControl5.Location = new System.Drawing.Point(19, 195);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(84, 18);
             this.labelControl5.TabIndex = 9;
@@ -334,87 +490,99 @@
             // 
             // groupControl3
             // 
+            this.groupControl3.Controls.Add(this.gridNGH);
             this.groupControl3.Controls.Add(this.labelControl5);
             this.groupControl3.Controls.Add(this.tbDiaChiNGH);
             this.groupControl3.Controls.Add(this.tbSdtNGH);
+            this.groupControl3.Controls.Add(this.labelControl19);
             this.groupControl3.Controls.Add(this.labelControl3);
             this.groupControl3.Controls.Add(this.labelControl4);
+            this.groupControl3.Controls.Add(this.tbMaGH);
             this.groupControl3.Controls.Add(this.tbTenNGH);
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl3.Location = new System.Drawing.Point(500, 3);
+            this.groupControl3.Location = new System.Drawing.Point(3, 3);
+            this.groupControl3.Margin = new System.Windows.Forms.Padding(3, 3, 2, 3);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(491, 178);
+            this.groupControl3.Size = new System.Drawing.Size(495, 759);
             this.groupControl3.TabIndex = 3;
             this.groupControl3.Text = "Thông tin người thanh toán";
             // 
+            // gridNGH
+            // 
+            this.gridNGH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridNGH.Location = new System.Drawing.Point(0, 244);
+            this.gridNGH.MainView = this.gridView2;
+            this.gridNGH.Name = "gridNGH";
+            this.gridNGH.Size = new System.Drawing.Size(495, 515);
+            this.gridNGH.TabIndex = 10;
+            this.gridNGH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.gridNGH;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.Editable = false;
+            this.gridView2.OptionsFind.AlwaysVisible = true;
+            this.gridView2.OptionsFind.FindDelay = 100;
+            this.gridView2.OptionsFind.FindNullPrompt = "Nhập để tìm kiếm...";
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // labelControl19
+            // 
+            this.labelControl19.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl19.Location = new System.Drawing.Point(19, 54);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(77, 18);
+            this.labelControl19.TabIndex = 7;
+            this.labelControl19.Text = "Mã giám hộ";
+            this.labelControl19.ToolTip = "Bỏ trống nếu đăng ký mới";
+            this.labelControl19.ToolTipTitle = "Lưu ý";
+            // 
+            // tbMaGH
+            // 
+            this.tbMaGH.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbMaGH.Location = new System.Drawing.Point(119, 51);
+            this.tbMaGH.Name = "tbMaGH";
+            this.tbMaGH.Size = new System.Drawing.Size(358, 24);
+            this.tbMaGH.TabIndex = 2;
+            this.tbMaGH.ToolTip = "Bỏ trống nếu đăng ký mới";
+            this.tbMaGH.ToolTipTitle = "Lưu ý";
+            // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.groupControl1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupControl3, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel1.Controls.Add(this.groupControl1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupControl3, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 184);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1001, 765);
             this.tableLayoutPanel1.TabIndex = 6;
-            // 
-            // groupControl4
-            // 
-            this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl4.Controls.Add(this.simpleButton1);
-            this.groupControl4.Controls.Add(this.simpleButton2);
-            this.groupControl4.Location = new System.Drawing.Point(782, 589);
-            this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(216, 173);
-            this.groupControl4.TabIndex = 9;
-            this.groupControl4.Text = "Thao tác";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Location = new System.Drawing.Point(23, 45);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(173, 48);
-            this.simpleButton1.TabIndex = 4;
-            this.simpleButton1.Text = "Thanh toán";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton2.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Location = new System.Drawing.Point(23, 110);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(173, 48);
-            this.simpleButton2.TabIndex = 7;
-            this.simpleButton2.Text = "Đặt lại";
             // 
             // ThanhToanGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.groupControl2);
-            this.Controls.Add(this.gridControl1);
             this.Name = "ThanhToanGUI";
             this.Size = new System.Drawing.Size(1001, 765);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ThanhToanGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbTenKH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTao.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTao.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbMaPT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
+            this.groupControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridVC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
+            this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
@@ -423,23 +591,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbPhaiTra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbChieuKhau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTongTien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbTenKH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTao.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTao.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMaPT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTenNGH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSdtNGH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDiaChiNGH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridNGH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMaGH.Properties)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
-            this.groupControl4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit tbMaPT;
@@ -467,7 +637,21 @@
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevExpress.XtraEditors.GroupControl groupControl4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton btnThanhToan;
+        private DevExpress.XtraEditors.SimpleButton btnReset;
+        private DevExpress.XtraGrid.GridControl gridNGH;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.GridControl gridVC;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.SimpleButton btnIn;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.TextEdit tbMaGH;
+        private DevExpress.XtraEditors.GroupControl groupControl5;
     }
 }

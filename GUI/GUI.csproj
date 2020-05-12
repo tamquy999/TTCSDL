@@ -62,6 +62,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyGridLocalizer.cs" />
     <Compile Include="LichSuGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using BUS;
 using GUI.Properties;
 using DTO;
+using DevExpress.XtraGrid.Localization;
 
 namespace GUI
 {
@@ -32,8 +33,10 @@ namespace GUI
         BUS_PhieuTiem busPhieuTiem = new BUS_PhieuTiem();
         BUS_Vaccine busVC = new BUS_Vaccine();
         BUS_KhachHang busKH = new BUS_KhachHang();
+        BUS_ChiTietTiem busCTT = new BUS_ChiTietTiem();
 
         List<DTO_ChiTietTiem> listCTT = new List<DTO_ChiTietTiem>();
+
 
         public PhieuTiemGUI()
         {
@@ -43,6 +46,8 @@ namespace GUI
 
             gridView2.RowClick += GridView2_RowClick;
             gridView1.RowClick += GridView1_RowClick;
+
+            GridLocalizer.Active = new MyGridLocalizer();
 
             InitAutoCompeteTextBox();
         }
@@ -113,7 +118,7 @@ namespace GUI
             {
                 if (busVC.IsVCInStock(tbMaVC.Text))
                 {
-                    DTO_ChiTietTiem ctt = new DTO_ChiTietTiem("", tbMaVC.Text, busVC.getVCPrice(tbMaVC.Text), tbLoaiTiem.Text, dtpNgayTiem.Text, Convert.ToDouble(tbLieuLuong.Text));
+                    DTO_ChiTietTiem ctt = new DTO_ChiTietTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaVC.Text, busVC.getVCPrice(tbMaVC.Text), tbLoaiTiem.Text, dtpNgayTiem.Text, Convert.ToDouble(tbLieuLuong.Text));
 
                     for (int i = 0; i < listCTT.Count; i++)
                     {
@@ -206,20 +211,56 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (tbMaKH.Text == "")
+            if (tbTenKH.Text != "" && dtpNgaySinh.Text != "" && tbTienSu.Text != "" && tbMaBS.Text != "" && cbGioiTinh.Text != "")
             {
-                tbMaKH.Text = busKH.NextMaKH();
-                busKH.InsertKHWithoutNGH(new DTO_KhachHang(tbMaKH.Text, tbTenKH.Text, dtpNgaySinh.DateTime.ToString("yyyy-MM-dd"), cbGioiTinh.Text, tbTienSu.Text, null));
-            }
-            else if (!busKH.IsMaKHExists(tbMaKH.Text))
-            {
-                busKH.InsertKHWithoutNGH(new DTO_KhachHang(tbMaKH.Text, tbTenKH.Text, dtpNgaySinh.DateTime.ToString("yyyy-MM-dd"), cbGioiTinh.Text, tbTienSu.Text, null));
+                if (tbMaKH.Text == "")
+                {
+                    tbMaKH.Text = busKH.NextMaKH();
+                    busKH.InsertKHWithoutNGH(new DTO_KhachHang(tbMaKH.Text, tbTenKH.Text, dtpNgaySinh.DateTime.ToString("yyyy-MM-dd"), cbGioiTinh.Text, tbTienSu.Text, null));
+                }
+                else if (!busKH.IsMaKHExists(tbMaKH.Text))
+                {
+                    busKH.InsertKHWithoutNGH(new DTO_KhachHang(tbMaKH.Text, tbTenKH.Text, dtpNgaySinh.DateTime.ToString("yyyy-MM-dd"), cbGioiTinh.Text, tbTienSu.Text, null));
+                }
             }
             if (busPhieuTiem.InsertPhieuTiem(new DTO_PhieuTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaKH.Text, tbMaBS.Text)))
             {
-                MessageBoxEx.Show("Thêm thành công");
+                for (int i = 0; i < listCTT.Count; i++)
+                {
+                    if (busCTT.InsertCTT(listCTT[i]))
+                    {
+                    }
+                }
+                MessageBox.Show("Thêm thành công");
             }
             gridKH.DataSource = busKH.getAllKH();
+        }
+
+        private void tbMaVC_Leave(object sender, EventArgs e)
+        {
+            tbMaVC.Text = tbMaVC.Text.ToUpper();
+        }
+
+        private void tbMaBS_Leave(object sender, EventArgs e)
+        {
+            tbMaBS.Text = tbMaBS.Text.ToUpper();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            gridKH.DataSource = busKH.getAllKH();
+            gridVaccine.DataSource = null;
+            listCTT.Clear();
+            tbTenKH.Text = "";
+            tbTienSu.Text = "";
+            dtpNgaySinh.Text = "";
+            dtpNgayTiem.Text = "";
+            cbGioiTinh.Text = "";
+            tbMaBS.Text = "";
+            tbMaKH.Text = "";
+            tbMaVC.Text = "";
+            tbLoaiTiem.Text = "";
+            tbLieuLuong.Text = "";
         }
     }
 }

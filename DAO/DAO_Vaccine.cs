@@ -22,13 +22,15 @@ namespace DAO
 
         public DTO_Vaccine getVaccineFromID(string maVC)
         {
-            string query = "SELECT * FROM VACCINE WHERE	MAVACCINE = '" + maVC + "'";
             
             try
             {
                 _conn.Open();
+                string query = "SELECT * FROM VACCINE WHERE	MAVACCINE = @MAVACCINE";
                 SqlCommand cmd = new SqlCommand(query, _conn);
-                cmd.CommandType = CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@MAVACCINE", maVC);
+
                 SqlDataReader dataReader = cmd.ExecuteReader();
                 if (dataReader.Read())
                 {
@@ -57,14 +59,35 @@ namespace DAO
         
         public List<DTO_Vaccine> SearchAll(string value)
         {
-            string query = "SELECT * FROM VACCINE WHERE MAVACCINE LIKE N'%" + value + "%' OR TENVACCINE LIKE N'%" + value + "%' OR NHASX LIKE N'%" + value + "%' OR NGAYSX LIKE N'%" + value + "%'  OR HANSD  LIKE N'%" + value + "%'  OR SOLO LIKE N'%" + value + "%' OR SOLUONGCOSAN LIKE N'%" + value + "%' OR CHIDINH LIKE N'%" + value + "%'  OR DONGIA LIKE N'%" + value + "%' ";
+
             List<DTO_Vaccine> list = new List<DTO_Vaccine>();
             try
             {
-                _conn.Open();
+                _conn.Open(); 
+                string query = "SELECT * FROM VACCINE " +
+                             "WHERE MAVACCINE LIKE @MAVACCINE " +
+                             "OR TENVACCINE LIKE @TENVACCINE " +
+                             "OR NHASX LIKE @NHASX " +
+                             "OR NGAYSX LIKE @NGAYSX " +
+                             "OR HANSD  LIKE @HANSD " +
+                             "OR SOLO LIKE @SOLO " +
+                             "OR SOLUONGCOSAN LIKE @SOLUONGCOSAN " +
+                             "OR CHIDINH LIKE @CHIDINH " +
+                             "OR DONGIA LIKE @DONGIA";
                 SqlCommand cmd = new SqlCommand(query, _conn);
-                cmd.CommandType = CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@MAVACCINE", "%" + value + "%");
+                cmd.Parameters.AddWithValue("@TENVACCINE", "%" + value + "%");
+                cmd.Parameters.AddWithValue("@NHASX", "%" + value + "%");
+                cmd.Parameters.AddWithValue("@NGAYSX", "%" + value + "%");
+                cmd.Parameters.AddWithValue("@HANSD", "%" + value + "%");
+                cmd.Parameters.AddWithValue("@SOLO", "%" + value + "%");
+                cmd.Parameters.AddWithValue("@SOLUONGCOSAN", "%" + value + "%");
+                cmd.Parameters.AddWithValue("@CHIDINH", "%" + value + "%");
+                cmd.Parameters.AddWithValue("@DONGIA", "%" + value + "%");
+
                 SqlDataReader dataReader = cmd.ExecuteReader();
+
                 while (dataReader.Read())
                 {
                     string maVC = dataReader[0].ToString();
@@ -94,8 +117,9 @@ namespace DAO
 
         public int getVCPrice(string maVC)
         {
-            string query = "SELECT DONGIA FROM VACCINE WHERE MAVACCINE = '" + maVC + "'";
+            string query = "SELECT DONGIA FROM VACCINE WHERE MAVACCINE = @MAVACCINE";
             SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+            da.SelectCommand.Parameters.AddWithValue("@MAVACCINE", maVC);
 
             DataTable dt = new DataTable();
 
@@ -116,8 +140,9 @@ namespace DAO
 
         public string getVCName(string maVC)
         {
-            string query = "SELECT TENVACCINE FROM VACCINE WHERE MAVACCINE = '" + maVC + "'";
+            string query = "SELECT TENVACCINE FROM VACCINE WHERE MAVACCINE = @MAVACCINE";
             SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+            da.SelectCommand.Parameters.AddWithValue("@MAVACCINE", maVC);
 
             DataTable dt = new DataTable();
 
@@ -138,8 +163,9 @@ namespace DAO
 
         public bool IsVCInStock(string maVC)
         {
-            string query = "SELECT MAVACCINE FROM VACCINE WHERE MAVACCINE = '" + maVC + "'";
+            string query = "SELECT MAVACCINE FROM VACCINE WHERE MAVACCINE = @MAVACCINE";
             SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+            da.SelectCommand.Parameters.AddWithValue("@MAVACCINE", maVC);
 
             DataTable dt = new DataTable();
 
@@ -157,5 +183,7 @@ namespace DAO
             }
             return false;
         }
+
+
     }
 }

@@ -129,5 +129,10 @@ namespace GUI
                 btnDangNhap.PerformClick();
             }
         }
+
+        private void tbUser_Leave(object sender, EventArgs e)
+        {
+            tbUser.Text = tbUser.Text.ToUpper();
+        }
     }
 }

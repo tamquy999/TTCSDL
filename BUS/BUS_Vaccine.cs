@@ -42,5 +42,6 @@ namespace BUS
         {
             return dao.IsVCInStock(maVC);
         }
+
     }
 }
