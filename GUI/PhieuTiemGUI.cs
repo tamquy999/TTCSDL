@@ -262,5 +262,46 @@ namespace GUI
             tbLoaiTiem.Text = "";
             tbLieuLuong.Text = "";
         }
+
+        private void tbTienSu_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpNgaySinh_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbTenKH_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbMaKH_Click(object sender, EventArgs e)
+        {
+            labelTooltipMaKH.Visible = true;
+        }
+
+        private void tbTenKH_Click(object sender, EventArgs e)
+        {
+            if(tbTenKH.Text == "Họ và Tên")
+            {
+                tbTenKH.Text = "";
+            }
+        }
+
+        private void tbMaKH_Leave(object sender, EventArgs e)
+        {
+            labelTooltipMaKH.Visible = false;
+        }
+
+        private void tbTenKH_Leave(object sender, EventArgs e)
+        {
+            if(tbTenKH.Text == "")
+            {
+                tbTenKH.Text = "Họ và Tên";
+            }
+        }
     }
 }

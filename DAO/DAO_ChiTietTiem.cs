@@ -1,6 +1,7 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -16,22 +17,31 @@ namespace DAO
             {
                 _conn.Open();
 
-                string SQL = @"INSERT INTO CHITIETTIEM
-                            ( MAPHIEUTIEM, MAVACCINE, GIABAN, LOAITIEMCHUNG, NGAYTIEM, LIEULUONG )
-                            VALUES
-                            ( @MAPHIEUTIEM, @MAVACCINE, @GIABAN, @LOAITIEMCHUNG, @NGAYTIEM, @LIEULUONG )";
-
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
-
-                cmd.Parameters.Add(new SqlParameter("MAPHIEUTIEM", ctt.MAPHIEUTIEM));
-                cmd.Parameters.Add(new SqlParameter("MAVACCINE", ctt.MAVACCINE));
-                cmd.Parameters.Add(new SqlParameter("GIABAN", ctt.GIABAN));
-                cmd.Parameters.Add(new SqlParameter("LOAITIEMCHUNG", ctt.LOAITIEMCHUNG));
-                cmd.Parameters.Add(new SqlParameter("NGAYTIEM", ctt.NGAYTIEM));
-                cmd.Parameters.Add(new SqlParameter("LIEULUONG", ctt.LIEULUONG));
-
-                if (cmd.ExecuteNonQuery() > 0)
+                SqlCommand cmd = new SqlCommand("sp_InsertCTT", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                if(cmd.ExecuteNonQuery() > 0)
+                {
                     return true;
+                }
+
+                //string SQL = @"INSERT INTO CHITIETTIEM
+                //            ( MAPHIEUTIEM, MAVACCINE, GIABAN, LOAITIEMCHUNG, NGAYTIEM, LIEULUONG )
+                //            VALUES
+                //            ( @MAPHIEUTIEM, @MAVACCINE, @GIABAN, @LOAITIEMCHUNG, @NGAYTIEM, @LIEULUONG )";
+
+                //SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                //cmd.Parameters.Add(new SqlParameter("MAPHIEUTIEM", ctt.MAPHIEUTIEM));
+                //cmd.Parameters.Add(new SqlParameter("MAVACCINE", ctt.MAVACCINE));
+                //cmd.Parameters.Add(new SqlParameter("GIABAN", ctt.GIABAN));
+                //cmd.Parameters.Add(new SqlParameter("LOAITIEMCHUNG", ctt.LOAITIEMCHUNG));
+                //cmd.Parameters.Add(new SqlParameter("NGAYTIEM", ctt.NGAYTIEM));
+                //cmd.Parameters.Add(new SqlParameter("LIEULUONG", ctt.LIEULUONG));
+
+                //if (cmd.ExecuteNonQuery() > 0)
+                //    return true;
+
+
 
             }
             catch (Exception)
