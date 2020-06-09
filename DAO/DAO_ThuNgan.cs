@@ -12,23 +12,38 @@ namespace DAO
     {
         public string getTenThuNgan(string maTN)
         {
-            string query = "SELECT HOTEN FROM THUNGAN WHERE MATHUNGAN = @MATHUNGAN";
-            SqlDataAdapter da = new SqlDataAdapter(query, _conn);
-            da.SelectCommand.Parameters.AddWithValue("@MATHUNGAN", maTN);
+            //string query = "SELECT HOTEN FROM THUNGAN WHERE MATHUNGAN = @MATHUNGAN";
+            //SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+            //da.SelectCommand.Parameters.AddWithValue("@MATHUNGAN", maTN);
 
+            //DataTable dt = new DataTable();
+
+            //try
+            //{
+            //    da.Fill(dt);
+            //    if (dt.Rows.Count > 0)
+            //    {
+            //        return dt.Rows[0][0].ToString();
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    throw;
+            //}
+
+            SqlDataReader rd;
             DataTable dt = new DataTable();
 
-            try
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand("sp_GetTenThuNgan", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@MATHUNGAN", maTN);
+            rd = cmd.ExecuteReader();
+            dt.Load(rd);
+            _conn.Close();
+            if (dt.Rows.Count > 0)
             {
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-                    return dt.Rows[0][0].ToString();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
+                return dt.Rows[0][0].ToString();
             }
             return "";
         }

@@ -13,10 +13,21 @@ namespace DAO
     {
         public DataTable getAllVaccine()
         {
-            string query = "SELECT * FROM VACCINE";
-            SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+            //string query = "SELECT * FROM VACCINE";
+            //SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+
+            SqlDataReader rd;
             DataTable dt = new DataTable();
-            da.Fill(dt);
+
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand("sp_GetAllVaccine", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            rd = cmd.ExecuteReader();
+            dt.Load(rd);
+            _conn.Close();
+
             return dt;
         }
 
@@ -26,9 +37,11 @@ namespace DAO
             try
             {
                 _conn.Open();
-                string query = "SELECT * FROM VACCINE WHERE	MAVACCINE = @MAVACCINE";
-                SqlCommand cmd = new SqlCommand(query, _conn);
+                //string query = "SELECT * FROM VACCINE WHERE	MAVACCINE = @MAVACCINE";
+                //SqlCommand cmd = new SqlCommand(query, _conn);
 
+                SqlCommand cmd = new SqlCommand("sp_GetAllVaccine", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@MAVACCINE", maVC);
 
                 SqlDataReader dataReader = cmd.ExecuteReader();
@@ -63,18 +76,21 @@ namespace DAO
             List<DTO_Vaccine> list = new List<DTO_Vaccine>();
             try
             {
-                _conn.Open(); 
-                string query = "SELECT * FROM VACCINE " +
-                             "WHERE MAVACCINE LIKE @MAVACCINE " +
-                             "OR TENVACCINE LIKE @TENVACCINE " +
-                             "OR NHASX LIKE @NHASX " +
-                             "OR NGAYSX LIKE @NGAYSX " +
-                             "OR HANSD  LIKE @HANSD " +
-                             "OR SOLO LIKE @SOLO " +
-                             "OR SOLUONGCOSAN LIKE @SOLUONGCOSAN " +
-                             "OR CHIDINH LIKE @CHIDINH " +
-                             "OR DONGIA LIKE @DONGIA";
-                SqlCommand cmd = new SqlCommand(query, _conn);
+                _conn.Open();
+                //string query = "SELECT * FROM VACCINE " +
+                //             "WHERE MAVACCINE LIKE @MAVACCINE " +
+                //             "OR TENVACCINE LIKE @TENVACCINE " +
+                //             "OR NHASX LIKE @NHASX " +
+                //             "OR NGAYSX LIKE @NGAYSX " +
+                //             "OR HANSD  LIKE @HANSD " +
+                //             "OR SOLO LIKE @SOLO " +
+                //             "OR SOLUONGCOSAN LIKE @SOLUONGCOSAN " +
+                //             "OR CHIDINH LIKE @CHIDINH " +
+                //             "OR DONGIA LIKE @DONGIA";
+                //SqlCommand cmd = new SqlCommand(query, _conn);
+
+                SqlCommand cmd = new SqlCommand("sp_SearchAllVaccine", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@MAVACCINE", "%" + value + "%");
                 cmd.Parameters.AddWithValue("@TENVACCINE", "%" + value + "%");
@@ -163,23 +179,28 @@ namespace DAO
 
         public bool IsVCInStock(string maVC)
         {
-            string query = "SELECT MAVACCINE FROM VACCINE WHERE MAVACCINE = @MAVACCINE";
-            SqlDataAdapter da = new SqlDataAdapter(query, _conn);
-            da.SelectCommand.Parameters.AddWithValue("@MAVACCINE", maVC);
+            //string query = "SELECT MAVACCINE FROM VACCINE WHERE MAVACCINE = @MAVACCINE";
+            //SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+            //da.SelectCommand.Parameters.AddWithValue("@MAVACCINE", maVC);
 
-            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
 
-            try
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand("sp_IsVCInStock", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@MAVACCINE", maVC);
+
+            SqlParameter retParam = cmd.Parameters.Add("@ReturnVal", SqlDbType.Int);
+            retParam.Direction = ParameterDirection.ReturnValue;
+
+            cmd.ExecuteNonQuery();
+            _conn.Close();
+
+            int retVal = Convert.ToInt32(retParam.Value);
+
+            if (retVal == 1)
             {
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-                    return true;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
+                return true;
             }
             return false;
         }
