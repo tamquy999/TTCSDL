@@ -178,6 +178,21 @@
         5RfkKz4AAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="aceThongKe.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAgCAYAAAAIXrg4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAOwAAADsAXkocb0AAAHvSURBVEhL7dW/S1tRGMbxtLa6qRgILdLiIFUs1Eyu/YV/
+        QDeXOggOLnbU0UnqJHRpEQIZRAIOFSfbQluKHSqliCj+QEEUdHApRUuXGr/P4b3tvZdDkOQ46QMfyXnf
+        954Tk5skUy6XL5S3GJK3GJK3GFLNYZMnOMEh1vAFcyjguY1VHzap10Z4gTG8wk8o6zYWJmzYiLf4i10s
+        WisZGk34gB/osHLFMHcfmzhCL6YxZ+3/oZjFd+xhCb/wzNre0O/DMb7hjtXeoeAGolC4hVXsoA0NmMIp
+        xnHdRl1Y38AklNeot5Z6+u8nbOkKd7GFDbRa2YX1IP7gPbJW05PRHfMb/W4wFmrrGI4W7dCbsoKcK6ZC
+        vQf7NjeAA2yj20YSoa496/SgCxrW695ifW/o5/AZyjyaraXePTyKeYibasziK5pstmKY0+v+ANespNpt
+        6MOWzsvoWf17c6oJ13dqN/IUem/kI4o2UlvYKDogbyXVFnBZDmBwRlenMmPtIAfo3tch+koQPd61drAD
+        Rm2p9ahqtqx8AH8e4xP0AYroxyL+vVLTAUXom/ON0QdP6bTZIAcsWF3rPJSrAxIHLCO6BUegpA84z22q
+        a6MZ7ekOGEI6+kWLfxWXXDWZkrXVb4auSWdIzQvlLYbkLYbkLYZTzpwB6TUtl2vf/5UAAAAASUVORK5C
+        YII=
+</value>
+  </data>
   <assembly alias="DevExpress.Data.v19.2" name="DevExpress.Data.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="Form1.IconOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v19.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
