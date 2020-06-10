@@ -46,21 +46,25 @@ namespace DAO
         {
             try
             {
+                //_conn.Open();
+
+                //string SQL = "INSERT INTO PHIEUTIEM " +
+                //    "(MAPHIEUTIEM, MAKH, MABS) " +
+                //    "VALUES " +
+                //    "(@MAPHIEUTIEM, @MAKH, @MABS)";
+
+                //SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                //cmd.Parameters.AddWithValue("@MAPHIEUTIEM", pt.MAPHIEUTIEM);
+                //cmd.Parameters.AddWithValue("@MAKH", pt.MAKH);
+                //cmd.Parameters.AddWithValue("@MABS", pt.MABS);
+
+                //if (cmd.ExecuteNonQuery() > 0)
+                //    return true;
+
+
                 _conn.Open();
 
-                string SQL = "INSERT INTO PHIEUTIEM " +
-                    "(MAPHIEUTIEM, MAKH, MABS) " +
-                    "VALUES " +
-                    "(@MAPHIEUTIEM, @MAKH, @MABS)";
-
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
-
-                cmd.Parameters.AddWithValue("@MAPHIEUTIEM", pt.MAPHIEUTIEM);
-                cmd.Parameters.AddWithValue("@MAKH", pt.MAKH);
-                cmd.Parameters.AddWithValue("@MABS", pt.MABS);
-
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
 
             }
             catch (Exception)

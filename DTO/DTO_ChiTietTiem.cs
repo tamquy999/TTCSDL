@@ -11,24 +11,21 @@ namespace DTO
         private string maPT;
         private string maVC;
         private int giaBan;
-        private string loaiTiem;
-        private string ngayTiem;
+        private int muiThu;
         private double lieuLuong;
 
         public string MAPHIEUTIEM { get => maPT; set => maPT = value; }
         public string MAVACCINE { get => maVC; set => maVC = value; }
         public int GIABAN { get => giaBan; set => giaBan = value; }
-        public string LOAITIEMCHUNG { get => loaiTiem; set => loaiTiem = value; }
-        public string NGAYTIEM { get => ngayTiem; set => ngayTiem = value; }
+        public int MUITHU { get => muiThu; set => muiThu = value; }
         public double LIEULUONG { get => lieuLuong; set => lieuLuong = value; }
 
-        public DTO_ChiTietTiem(string maPT, string maVC, int giaBan, string loaiTiem, string ngayTiem, double lieuLuong)
+        public DTO_ChiTietTiem(string maPT, string maVC, int giaBan, int muiThu, double lieuLuong, int tiemNhacLai)
         {
             this.maPT = maPT;
             this.maVC = maVC;
             this.giaBan = giaBan;
-            this.loaiTiem = loaiTiem;
-            this.ngayTiem = ngayTiem;
+            this.muiThu = muiThu;
             this.lieuLuong = lieuLuong;
         }
     }
