@@ -49,6 +49,7 @@
     <Compile Include="DAO_KhachHang.cs" />
     <Compile Include="DAO_LichSu.cs" />
     <Compile Include="DAO_PhieuTiem.cs" />
+    <Compile Include="DAO_ThongKe.cs" />
     <Compile Include="DAO_ThuNgan.cs" />
     <Compile Include="DAO_Vaccine.cs" />
     <Compile Include="DBProvider.cs" />
