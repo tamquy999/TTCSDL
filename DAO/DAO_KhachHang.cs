@@ -73,9 +73,9 @@ namespace DAO
                 _conn.Open();
 
                 string SQL = @"INSERT INTO KHACHHANG 
-                                ( MAKH, TENKH, NGAYSINH, GIOITINH, TIEUSUBENHAN, MAGH )
+                                ( MAKH, TENKH, NGAYSINH, GIOITINH, TIEUSU, MAGH )
                                 VALUES
-                                ( @MAKH, @TENKH, @NGAYSINH, @GIOITINH, @TIEUSUBENHAN, @MAGH )";
+                                ( @MAKH, @TENKH, @NGAYSINH, @GIOITINH, @TIEUSU, @MAGH )";
 
                 SqlCommand cmd = new SqlCommand(SQL, _conn);
 
@@ -83,7 +83,7 @@ namespace DAO
                 cmd.Parameters.AddWithValue("@TENKH", kh.TENKH);
                 cmd.Parameters.AddWithValue("@NGAYSINH", kh.NGAYSINH);
                 cmd.Parameters.AddWithValue("@GIOITINH", kh.GIOITINH);
-                cmd.Parameters.AddWithValue("@TIEUSUBENHAN", kh.TIEUSU);
+                cmd.Parameters.AddWithValue("@TIEUSU", kh.TIEUSU);
                 cmd.Parameters.AddWithValue("@MAGH", DBNull.Value);
 
                 if (cmd.ExecuteNonQuery() > 0)

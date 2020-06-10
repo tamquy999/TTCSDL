@@ -65,6 +65,16 @@ namespace DAO
 
                 _conn.Open();
 
+                SqlCommand cmd = new SqlCommand("sp_InsertPhieuTiem", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MAPHIEUTIEM", pt.MAPHIEUTIEM);
+                cmd.Parameters.AddWithValue("@NGAYTIEM", pt.NGAYTIEM);
+                cmd.Parameters.AddWithValue("@MAKH", pt.MAKH);
+                cmd.Parameters.AddWithValue("@MABS", pt.MABS);
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
 
             }
             catch (Exception)
@@ -103,10 +113,10 @@ namespace DAO
                     string hanSD = ((DateTime)dataReader[4]).ToString("dd/MM/yyyy");
                     string soLo = dataReader[5].ToString();
                     int soLuongSan = int.Parse(dataReader[6].ToString());
-                    string chiDinh = dataReader[7].ToString();
-                    int donGia = int.Parse(dataReader[8].ToString());
+                    int donGia = int.Parse(dataReader[7].ToString());
+                    string loaiVC = dataReader[8].ToString();
 
-                    DTO_Vaccine vaccine = new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, chiDinh, donGia);
+                    DTO_Vaccine vaccine = new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, donGia, loaiVC);
                     list.Add(vaccine);
                 }
             }

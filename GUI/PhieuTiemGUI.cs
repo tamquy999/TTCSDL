@@ -103,7 +103,7 @@ namespace GUI
             tbTenKH.Text = gridView1.GetRowCellValue(e.RowHandle, "TENKH").ToString().Trim();
             dtpNgaySinh.Text = gridView1.GetRowCellValue(e.RowHandle, "NGAYSINH").ToString().Substring(0, 10);
             cbGioiTinh.Text = gridView1.GetRowCellValue(e.RowHandle, "GIOITINH").ToString();
-            tbTienSu.Text = gridView1.GetRowCellValue(e.RowHandle, "TIEUSUBENHAN").ToString().Trim();
+            tbTienSu.Text = gridView1.GetRowCellValue(e.RowHandle, "TIEUSU").ToString().Trim();
         }
 
         private void PhieuTiemGUI_Load(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace GUI
             {
                 if (busVC.IsVCInStock(tbMaVC.Text))
                 {
-                    DTO_ChiTietTiem ctt = new DTO_ChiTietTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaVC.Text, busVC.getVCPrice(tbMaVC.Text),int.Parse(tbMuiThu.Text), dtpNgayTiem.Text, Convert.ToDouble(tbLieuLuong.Text), int.Parse(tbNhacLai.Text));
+                    DTO_ChiTietTiem ctt = new DTO_ChiTietTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaVC.Text, busVC.getVCPrice(tbMaVC.Text), int.Parse(tbMuiThu.Text), dtpNgayTiem.DateTime.AddMonths(Convert.ToInt32(tbNhacLai.Text)).ToString("dd/MM/yyyy"), Convert.ToDouble(tbLieuLuong.Text));
 
                     for (int i = 0; i < listCTT.Count; i++)
                     {
@@ -131,7 +131,7 @@ namespace GUI
                             dtb.Columns.Add("GIABAN");
                             dtb.Columns.Add("MUITHU");
                             dtb.Columns.Add("LIEULUONG");
-                            dtb.Columns.Add("NHACLAI"); //số tháng tiêm nhắc lại 
+                            dtb.Columns.Add("NGAYNHACLAI");
 
                             for (int j = 0; j < listCTT.Count; j++)
                             {
@@ -141,7 +141,7 @@ namespace GUI
                                 dr["GIABAN"] = listCTT[j].GIABAN;
                                 dr["MUITHU"] = listCTT[j].MUITHU;
                                 dr["LIEULUONG"] = listCTT[j].LIEULUONG;
-                                dr["NHACLAI"] = listCTT[j].TIEMNHACLAI;
+                                dr["NGAYNHACLAI"] = listCTT[j].NGAYNHACLAI;
                                 dtb.Rows.Add(dr);
                             }
 
@@ -160,7 +160,7 @@ namespace GUI
                     dt.Columns.Add("GIABAN");
                     dt.Columns.Add("MUITHU");
                     dt.Columns.Add("LIEULUONG");
-                    dt.Columns.Add("NHACLAI");
+                    dt.Columns.Add("NGAYNHACLAI");
 
                     for (int i = 0; i < listCTT.Count; i++)
                     {
@@ -170,7 +170,7 @@ namespace GUI
                         dr["GIABAN"] = listCTT[i].GIABAN;
                         dr["MUITHU"] = listCTT[i].MUITHU;
                         dr["LIEULUONG"] = listCTT[i].LIEULUONG;
-                        dr["NHACLAI"] = listCTT[i].TIEMNHACLAI;
+                        dr["NGAYNHACLAI"] = listCTT[i].NGAYNHACLAI;
                         dt.Rows.Add(dr);
                     }
 
@@ -197,7 +197,7 @@ namespace GUI
             dt.Columns.Add("GIABAN");
             dt.Columns.Add("MUITHU");
             dt.Columns.Add("LIEULUONG");
-            dt.Columns.Add("NHACLAI");
+            dt.Columns.Add("NGAYNHACLAI");
 
             for (int i = 0; i < listCTT.Count; i++)
             {
@@ -207,7 +207,7 @@ namespace GUI
                 dr["GIABAN"] = listCTT[i].GIABAN;
                 dr["MUITHU"] = listCTT[i].MUITHU;
                 dr["LIEULUONG"] = listCTT[i].LIEULUONG;
-                dr["NHACLAI"] = listCTT[i].TIEMNHACLAI;
+                dr["NGAYNHACLAI"] = listCTT[i].NGAYNHACLAI;
                 dt.Rows.Add(dr); 
             }
 
@@ -217,7 +217,7 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (tbTenKH.Text != "" && dtpNgaySinh.Text != "" && tbTienSu.Text != "" && tbMaBS.Text != "" && cbGioiTinh.Text != "")
+            if (listCTT.Count > 0 && tbTenKH.Text != "" && dtpNgaySinh.Text != "" && tbTienSu.Text != "" && tbMaBS.Text != "" && cbGioiTinh.Text != "")
             {
                 if (tbMaKH.Text == "")
                 {
@@ -228,18 +228,45 @@ namespace GUI
                 {
                     busKH.InsertKHWithoutNGH(new DTO_KhachHang(tbMaKH.Text, tbTenKH.Text, dtpNgaySinh.DateTime.ToString("yyyy-MM-dd"), cbGioiTinh.Text, tbTienSu.Text, null));
                 }
-            }
-            if (busPhieuTiem.InsertPhieuTiem(new DTO_PhieuTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaKH.Text, tbMaBS.Text)))
-            {
-                for (int i = 0; i < listCTT.Count; i++)
+
+                gridKH.DataSource = busKH.getAllKH();
+
+                if (busPhieuTiem.InsertPhieuTiem(new DTO_PhieuTiem(busPhieuTiem.NextMAPHIEUTIEM(), dtpNgayTiem.DateTime.ToString("yyyy-MM-dd"), tbMaKH.Text, tbMaBS.Text)))
                 {
-                    if (busCTT.InsertCTT(listCTT[i]))
+                    for (int i = 0; i < listCTT.Count; i++)
                     {
+                        if (busCTT.InsertCTT(listCTT[i]))
+                        {
+                        }
                     }
+                    MessageBox.Show("Thêm thành công");
                 }
-                MessageBox.Show("Thêm thành công");
+
+                btnReset.PerformClick();
             }
-            gridKH.DataSource = busKH.getAllKH();
+            else
+            {
+                MessageBoxEx.Show("Ban chưa nhập đầy đủ thông tin");
+                return;
+            }
+
+            //if (listCTT.Count > 0)
+            //{
+            //    if (busPhieuTiem.InsertPhieuTiem(new DTO_PhieuTiem(busPhieuTiem.NextMAPHIEUTIEM(), dtpNgayTiem.DateTime.ToString("yyyy-MM-dd"), tbMaKH.Text, tbMaBS.Text)))
+            //    {
+            //        for (int i = 0; i < listCTT.Count; i++)
+            //        {
+            //            if (busCTT.InsertCTT(listCTT[i]))
+            //            {
+            //            }
+            //        }
+            //        MessageBox.Show("Thêm thành công");
+            //    }
+            //}
+            //else MessageBoxEx.Show("Ban chưa nhập danh sách vaccine");
+
+
+            //gridKH.DataSource = busKH.getAllKH();
         }
 
         private void tbMaVC_Leave(object sender, EventArgs e)
@@ -311,6 +338,12 @@ namespace GUI
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnList_Click(object sender, EventArgs e)
+        {
+            PhieuTiemLIST pt = new PhieuTiemLIST();
+            pt.ShowDialog();
         }
     }
 }

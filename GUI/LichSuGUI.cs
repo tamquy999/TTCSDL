@@ -34,6 +34,7 @@ namespace GUI
             InitializeComponent();
             gridLichSu.DataSource = busLS.getAllLichSu("");
             gridView1.OptionsBehavior.Editable = false;
+            gridView1.Columns["NGAYTIEM"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
             gridView1.RowClick += GridView1_RowClick;
         }
 

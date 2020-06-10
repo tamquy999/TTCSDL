@@ -19,6 +19,12 @@ namespace DAO
 
                 SqlCommand cmd = new SqlCommand("sp_InsertCTT", _conn);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MAPHIEUTIEM", ctt.MAPHIEUTIEM);
+                cmd.Parameters.AddWithValue("@MAVACCINE", ctt.MAVACCINE);
+                cmd.Parameters.AddWithValue("@GIABAN", ctt.GIABAN);
+                cmd.Parameters.AddWithValue("@MUITHU", ctt.MUITHU);
+                cmd.Parameters.AddWithValue("@NGAYNHACLAI", ctt.NGAYNHACLAI);
+                cmd.Parameters.AddWithValue("@LIEULUONG", ctt.LIEULUONG);
                 if(cmd.ExecuteNonQuery() > 0)
                 {
                     return true;

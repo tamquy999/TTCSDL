@@ -87,5 +87,10 @@ namespace GUI
                 btnSearch.PerformClick();
             }
         }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            //btnSearch.PerformClick();
+        }
     }
 }

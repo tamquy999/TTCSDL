@@ -82,6 +82,7 @@
             this.tbSearch.Properties.Appearance.Options.UseFont = true;
             this.tbSearch.Size = new System.Drawing.Size(442, 28);
             this.tbSearch.TabIndex = 6;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
             // 
             // btnSearch

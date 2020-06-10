@@ -15,8 +15,8 @@ namespace DTO
         private string hanSD;
         private string soLo;
         private int soLuongSan;
-        private string chiDinh;
         private int donGia;
+        private string loaiVC;
 
         public string MAVACCINE { get => maVC; set => maVC = value; }
         public string TENVACCINE { get => tenVC; set => tenVC = value; }
@@ -25,15 +25,15 @@ namespace DTO
         public string HANSD { get => hanSD; set => hanSD = value; }
         public string SOLO { get => soLo; set => soLo = value; }
         public int SOLUONGCOSAN { get => soLuongSan; set => soLuongSan = value; }
-        public string CHIDINH { get => chiDinh; set => chiDinh = value; }
         public int DONGIA { get => donGia; set => donGia = value; }
+        public string LOAIVACCINE { get => loaiVC; set => loaiVC = value; }
 
         public DTO_Vaccine()
         {
 
         }
 
-        public DTO_Vaccine(string maVC, string tenVC, string nhaSX, string ngaySX, string hanSD, string soLo, int soLuongSan, string chiDinh, int donGia)
+        public DTO_Vaccine(string maVC, string tenVC, string nhaSX, string ngaySX, string hanSD, string soLo, int soLuongSan, int donGia, string loaiVC)
         {
             this.maVC = maVC;
             this.tenVC = tenVC;
@@ -42,8 +42,8 @@ namespace DTO
             this.hanSD = hanSD;
             this.soLo = soLo;
             this.soLuongSan = soLuongSan;
-            this.chiDinh = chiDinh;
             this.donGia = donGia;
+            this.loaiVC = loaiVC;
         }
     }
 }

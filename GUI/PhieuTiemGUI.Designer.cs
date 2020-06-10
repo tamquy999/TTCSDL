@@ -50,7 +50,7 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.btnReset = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
-            this.btnIn = new DevExpress.XtraEditors.SimpleButton();
+            this.btnList = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddVC = new DevExpress.XtraEditors.SimpleButton();
             this.tbMaVC = new DevExpress.XtraEditors.TextEdit();
             this.tbMuiThu = new DevExpress.XtraEditors.TextEdit();
@@ -59,6 +59,8 @@
             this.btnSubVC = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.tbNhacLai = new DevExpress.XtraEditors.TextEdit();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tbLieuLuong = new DevExpress.XtraEditors.TextEdit();
@@ -68,8 +70,6 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.gridKH = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.tbNhacLai = new DevExpress.XtraEditors.TextEdit();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cbGioiTinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties)).BeginInit();
@@ -90,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbMuiThu.Properties)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNhacLai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbLieuLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
@@ -98,14 +99,13 @@
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNhacLai.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cbGioiTinh
             // 
             this.cbGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbGioiTinh.EditValue = "";
-            this.cbGioiTinh.Location = new System.Drawing.Point(345, 62);
+            this.cbGioiTinh.Location = new System.Drawing.Point(357, 60);
             this.cbGioiTinh.Name = "cbGioiTinh";
             this.cbGioiTinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -113,14 +113,14 @@
             "Nam",
             "Nữ"});
             this.cbGioiTinh.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cbGioiTinh.Size = new System.Drawing.Size(74, 24);
+            this.cbGioiTinh.Size = new System.Drawing.Size(69, 24);
             this.cbGioiTinh.TabIndex = 2;
             // 
             // dtpNgaySinh
             // 
             this.dtpNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpNgaySinh.EditValue = null;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(161, 62);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(161, 60);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -133,7 +133,7 @@
             // lbNgaySinh
             // 
             this.lbNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbNgaySinh.Location = new System.Drawing.Point(50, 65);
+            this.lbNgaySinh.Location = new System.Drawing.Point(50, 63);
             this.lbNgaySinh.Name = "lbNgaySinh";
             this.lbNgaySinh.Size = new System.Drawing.Size(64, 18);
             this.lbNgaySinh.TabIndex = 24;
@@ -144,7 +144,7 @@
             this.tbTienSu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tbTienSu.Location = new System.Drawing.Point(161, 106);
             this.tbTienSu.Name = "tbTienSu";
-            this.tbTienSu.Size = new System.Drawing.Size(258, 24);
+            this.tbTienSu.Size = new System.Drawing.Size(265, 24);
             this.tbTienSu.TabIndex = 3;
             // 
             // lbTienSu
@@ -159,7 +159,7 @@
             // lbGioiTinh
             // 
             this.lbGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbGioiTinh.Location = new System.Drawing.Point(289, 65);
+            this.lbGioiTinh.Location = new System.Drawing.Point(301, 63);
             this.lbGioiTinh.Name = "lbGioiTinh";
             this.lbGioiTinh.Size = new System.Drawing.Size(50, 18);
             this.lbGioiTinh.TabIndex = 20;
@@ -171,7 +171,7 @@
             this.tbTenKH.EditValue = "";
             this.tbTenKH.Location = new System.Drawing.Point(161, 14);
             this.tbTenKH.Name = "tbTenKH";
-            this.tbTenKH.Size = new System.Drawing.Size(258, 24);
+            this.tbTenKH.Size = new System.Drawing.Size(265, 24);
             this.tbTenKH.TabIndex = 0;
             this.tbTenKH.Click += new System.EventHandler(this.tbTenKH_Click);
             this.tbTenKH.Leave += new System.EventHandler(this.tbTenKH_Leave);
@@ -180,29 +180,29 @@
             // 
             this.dtpNgayTiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpNgayTiem.EditValue = null;
-            this.dtpNgayTiem.Location = new System.Drawing.Point(556, 62);
+            this.dtpNgayTiem.Location = new System.Drawing.Point(576, 60);
             this.dtpNgayTiem.Name = "dtpNgayTiem";
             this.dtpNgayTiem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpNgayTiem.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpNgayTiem.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dtpNgayTiem.Size = new System.Drawing.Size(209, 24);
+            this.dtpNgayTiem.Size = new System.Drawing.Size(189, 24);
             this.dtpNgayTiem.TabIndex = 2;
             // 
             // tbMaBS
             // 
             this.tbMaBS.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbMaBS.Location = new System.Drawing.Point(556, 106);
+            this.tbMaBS.Location = new System.Drawing.Point(576, 106);
             this.tbMaBS.Name = "tbMaBS";
-            this.tbMaBS.Size = new System.Drawing.Size(209, 24);
+            this.tbMaBS.Size = new System.Drawing.Size(189, 24);
             this.tbMaBS.TabIndex = 3;
             this.tbMaBS.Leave += new System.EventHandler(this.tbMaBS_Leave);
             // 
             // lbMaBS
             // 
             this.lbMaBS.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbMaBS.Location = new System.Drawing.Point(450, 109);
+            this.lbMaBS.Location = new System.Drawing.Point(451, 109);
             this.lbMaBS.Name = "lbMaBS";
             this.lbMaBS.Size = new System.Drawing.Size(68, 18);
             this.lbMaBS.TabIndex = 10;
@@ -220,7 +220,7 @@
             // lbNgayTiem
             // 
             this.lbNgayTiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbNgayTiem.Location = new System.Drawing.Point(450, 60);
+            this.lbNgayTiem.Location = new System.Drawing.Point(451, 63);
             this.lbNgayTiem.Name = "lbNgayTiem";
             this.lbNgayTiem.Size = new System.Drawing.Size(67, 18);
             this.lbNgayTiem.TabIndex = 2;
@@ -279,7 +279,7 @@
             this.labelTooltipMaKH.AutoSize = true;
             this.labelTooltipMaKH.Font = new System.Drawing.Font("Tahoma", 7F);
             this.labelTooltipMaKH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.labelTooltipMaKH.Location = new System.Drawing.Point(557, 38);
+            this.labelTooltipMaKH.Location = new System.Drawing.Point(574, 38);
             this.labelTooltipMaKH.Name = "labelTooltipMaKH";
             this.labelTooltipMaKH.Size = new System.Drawing.Size(194, 14);
             this.labelTooltipMaKH.TabIndex = 27;
@@ -289,9 +289,9 @@
             // tbMaKH
             // 
             this.tbMaKH.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbMaKH.Location = new System.Drawing.Point(556, 14);
+            this.tbMaKH.Location = new System.Drawing.Point(576, 14);
             this.tbMaKH.Name = "tbMaKH";
-            this.tbMaKH.Size = new System.Drawing.Size(209, 24);
+            this.tbMaKH.Size = new System.Drawing.Size(189, 24);
             this.tbMaKH.TabIndex = 25;
             this.tbMaKH.ToolTip = "Để trống nếu đăng ký mới";
             this.tbMaKH.ToolTipTitle = "Lưu ý";
@@ -329,7 +329,7 @@
             // 
             this.groupControl2.Controls.Add(this.btnReset);
             this.groupControl2.Controls.Add(this.btnThem);
-            this.groupControl2.Controls.Add(this.btnIn);
+            this.groupControl2.Controls.Add(this.btnList);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(828, 3);
             this.groupControl2.Name = "groupControl2";
@@ -361,16 +361,17 @@
             this.btnThem.Text = "Tạo phiếu tiêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // btnIn
+            // btnList
             // 
-            this.btnIn.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnIn.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
-            this.btnIn.Appearance.Options.UseBackColor = true;
-            this.btnIn.Location = new System.Drawing.Point(37, 92);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(154, 35);
-            this.btnIn.TabIndex = 1;
-            this.btnIn.Text = "In phiếu tiêm";
+            this.btnList.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnList.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.btnList.Appearance.Options.UseBackColor = true;
+            this.btnList.Location = new System.Drawing.Point(37, 92);
+            this.btnList.Name = "btnList";
+            this.btnList.Size = new System.Drawing.Size(154, 35);
+            this.btnList.TabIndex = 1;
+            this.btnList.Text = "Xem danh sách";
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // btnAddVC
             // 
@@ -389,7 +390,7 @@
             // tbMaVC
             // 
             this.tbMaVC.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbMaVC.Location = new System.Drawing.Point(94, 3);
+            this.tbMaVC.Location = new System.Drawing.Point(122, 3);
             this.tbMaVC.Name = "tbMaVC";
             this.tbMaVC.Size = new System.Drawing.Size(93, 24);
             this.tbMaVC.TabIndex = 19;
@@ -399,9 +400,9 @@
             // tbMuiThu
             // 
             this.tbMuiThu.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbMuiThu.Location = new System.Drawing.Point(293, 3);
+            this.tbMuiThu.Location = new System.Drawing.Point(311, 3);
             this.tbMuiThu.Name = "tbMuiThu";
-            this.tbMuiThu.Size = new System.Drawing.Size(82, 24);
+            this.tbMuiThu.Size = new System.Drawing.Size(65, 24);
             this.tbMuiThu.TabIndex = 21;
             this.tbMuiThu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbLoaiTiem_KeyDown);
             this.tbMuiThu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMuiThu_KeyPress);
@@ -409,7 +410,7 @@
             // lbMuiThu
             // 
             this.lbMuiThu.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbMuiThu.Location = new System.Drawing.Point(238, 6);
+            this.lbMuiThu.Location = new System.Drawing.Point(253, 6);
             this.lbMuiThu.Name = "lbMuiThu";
             this.lbMuiThu.Size = new System.Drawing.Size(49, 18);
             this.lbMuiThu.TabIndex = 20;
@@ -418,7 +419,7 @@
             // lbMaVC
             // 
             this.lbMaVC.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbMaVC.Location = new System.Drawing.Point(15, 6);
+            this.lbMaVC.Location = new System.Drawing.Point(43, 6);
             this.lbMaVC.Name = "lbMaVC";
             this.lbMaVC.Size = new System.Drawing.Size(73, 18);
             this.lbMaVC.TabIndex = 22;
@@ -450,6 +451,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.tbMuiThu);
             this.panel4.Controls.Add(this.tbNhacLai);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label1);
@@ -458,18 +460,35 @@
             this.panel4.Controls.Add(this.lbMaVC);
             this.panel4.Controls.Add(this.tbMaVC);
             this.panel4.Controls.Add(this.lbMuiThu);
-            this.panel4.Controls.Add(this.tbMuiThu);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(812, 33);
             this.panel4.TabIndex = 7;
             // 
+            // tbNhacLai
+            // 
+            this.tbNhacLai.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbNhacLai.Location = new System.Drawing.Point(665, 3);
+            this.tbNhacLai.Name = "tbNhacLai";
+            this.tbNhacLai.Size = new System.Drawing.Size(56, 24);
+            this.tbNhacLai.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(727, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 18);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "tháng";
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(594, 6);
+            this.label1.Location = new System.Drawing.Point(576, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 18);
             this.label1.TabIndex = 25;
@@ -478,7 +497,7 @@
             // labelControl1
             // 
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl1.Location = new System.Drawing.Point(411, 6);
+            this.labelControl1.Location = new System.Drawing.Point(407, 6);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(65, 18);
             this.labelControl1.TabIndex = 24;
@@ -487,9 +506,9 @@
             // tbLieuLuong
             // 
             this.tbLieuLuong.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbLieuLuong.Location = new System.Drawing.Point(482, 3);
+            this.tbLieuLuong.Location = new System.Drawing.Point(478, 3);
             this.tbLieuLuong.Name = "tbLieuLuong";
-            this.tbLieuLuong.Size = new System.Drawing.Size(78, 24);
+            this.tbLieuLuong.Size = new System.Drawing.Size(65, 24);
             this.tbLieuLuong.TabIndex = 23;
             this.tbLieuLuong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbLieuLuong_KeyDown);
             // 
@@ -512,7 +531,7 @@
             this.gridVaccine.Location = new System.Drawing.Point(8, 77);
             this.gridVaccine.MainView = this.gridView2;
             this.gridVaccine.Name = "gridVaccine";
-            this.gridVaccine.Size = new System.Drawing.Size(1033, 188);
+            this.gridVaccine.Size = new System.Drawing.Size(1041, 188);
             this.gridVaccine.TabIndex = 1;
             this.gridVaccine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -563,24 +582,6 @@
             this.gridView1.OptionsFind.FindNullPrompt = "Nhập để tìm kiếm...";
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // tbNhacLai
-            // 
-            this.tbNhacLai.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbNhacLai.Location = new System.Drawing.Point(686, 3);
-            this.tbNhacLai.Name = "tbNhacLai";
-            this.tbNhacLai.Size = new System.Drawing.Size(56, 24);
-            this.tbNhacLai.TabIndex = 28;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(748, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 18);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "tháng";
-            // 
             // PhieuTiemGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -613,6 +614,7 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNhacLai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbLieuLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
@@ -621,7 +623,6 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNhacLai.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -654,7 +655,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.SimpleButton btnReset;
         private DevExpress.XtraEditors.SimpleButton btnThem;
-        private DevExpress.XtraEditors.SimpleButton btnIn;
+        private DevExpress.XtraEditors.SimpleButton btnList;
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraGrid.GridControl gridVaccine;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;

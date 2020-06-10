@@ -53,10 +53,10 @@ namespace DAO
                     string hanSD = ((DateTime)dataReader[4]).ToString("dd/MM/yyyy");
                     string soLo = dataReader[5].ToString();
                     int soLuongSan = int.Parse(dataReader[6].ToString());
-                    string chiDinh = dataReader[7].ToString();
-                    int donGia = int.Parse(dataReader[8].ToString());
+                    int donGia = int.Parse(dataReader[7].ToString());
+                    string loaiVC = dataReader[8].ToString();
 
-                    return new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, chiDinh, donGia);
+                    return new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, donGia, loaiVC);
                 }
             }
             catch (Exception)
@@ -92,15 +92,15 @@ namespace DAO
                 SqlCommand cmd = new SqlCommand("sp_SearchAllVaccine", _conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@MAVACCINE", "%" + value + "%");
-                cmd.Parameters.AddWithValue("@TENVACCINE", "%" + value + "%");
-                cmd.Parameters.AddWithValue("@NHASX", "%" + value + "%");
-                cmd.Parameters.AddWithValue("@NGAYSX", "%" + value + "%");
-                cmd.Parameters.AddWithValue("@HANSD", "%" + value + "%");
-                cmd.Parameters.AddWithValue("@SOLO", "%" + value + "%");
-                cmd.Parameters.AddWithValue("@SOLUONGCOSAN", "%" + value + "%");
-                cmd.Parameters.AddWithValue("@CHIDINH", "%" + value + "%");
-                cmd.Parameters.AddWithValue("@DONGIA", "%" + value + "%");
+                cmd.Parameters.AddWithValue("@Value", "%" + value + "%");
+                //cmd.Parameters.AddWithValue("@TENVACCINE", "%" + value + "%");
+                //cmd.Parameters.AddWithValue("@NHASX", "%" + value + "%");
+                //cmd.Parameters.AddWithValue("@NGAYSX", "%" + value + "%");
+                //cmd.Parameters.AddWithValue("@HANSD", "%" + value + "%");
+                //cmd.Parameters.AddWithValue("@SOLO", "%" + value + "%");
+                //cmd.Parameters.AddWithValue("@SOLUONGCOSAN", "%" + value + "%");
+                //cmd.Parameters.AddWithValue("@CHIDINH", "%" + value + "%");
+                //cmd.Parameters.AddWithValue("@DONGIA", "%" + value + "%");
 
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -113,10 +113,10 @@ namespace DAO
                     string hanSD = ((DateTime)dataReader[4]).ToString("dd/MM/yyyy");
                     string soLo = dataReader[5].ToString();
                     int soLuongSan = int.Parse(dataReader[6].ToString());
-                    string chiDinh = dataReader[7].ToString();
-                    int donGia = int.Parse(dataReader[8].ToString());
+                    int donGia = int.Parse(dataReader[7].ToString());
+                    string loaiVC = dataReader[8].ToString();
 
-                    DTO_Vaccine vaccine = new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, chiDinh, donGia);
+                    DTO_Vaccine vaccine = new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, donGia, loaiVC);
                     list.Add(vaccine);
                 }
             }

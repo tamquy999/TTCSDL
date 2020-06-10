@@ -55,7 +55,7 @@ namespace GUI
             dtb.Columns.Add("MAVACCINE");
             dtb.Columns.Add("TENVACCINE");
             dtb.Columns.Add("NHASX");
-            dtb.Columns.Add("CHIDINH");
+            dtb.Columns.Add("LOAIVC");
             dtb.Columns.Add("DONGIA");
             for (int i = 0; i < listVC.Count; i++)
             {
@@ -63,7 +63,7 @@ namespace GUI
                 dr["MAVACCINE"] = listVC[i].MAVACCINE;
                 dr["TENVACCINE"] = listVC[i].TENVACCINE;
                 dr["NHASX"] = listVC[i].NHASX;
-                dr["CHIDINH"] = listVC[i].CHIDINH;
+                dr["LOAIVC"] = listVC[i].LOAIVACCINE;
                 dr["DONGIA"] = listVC[i].DONGIA;
                 dtb.Rows.Add(dr);
                 tongTien += listVC[i].DONGIA;
