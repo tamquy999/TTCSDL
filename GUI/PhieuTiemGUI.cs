@@ -118,7 +118,7 @@ namespace GUI
             {
                 if (busVC.IsVCInStock(tbMaVC.Text))
                 {
-                    DTO_ChiTietTiem ctt = new DTO_ChiTietTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaVC.Text, busVC.getVCPrice(tbMaVC.Text),int.Parse(tbMuiThu.Text), dtpNgayTiem.Text, Convert.ToDouble(tbLieuLuong.Text));
+                    DTO_ChiTietTiem ctt = new DTO_ChiTietTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaVC.Text, busVC.getVCPrice(tbMaVC.Text),int.Parse(tbMuiThu.Text), dtpNgayTiem.Text, Convert.ToDouble(tbLieuLuong.Text), int.Parse(tbNhacLai.Text));
 
                     for (int i = 0; i < listCTT.Count; i++)
                     {
@@ -131,6 +131,7 @@ namespace GUI
                             dtb.Columns.Add("GIABAN");
                             dtb.Columns.Add("MUITHU");
                             dtb.Columns.Add("LIEULUONG");
+                            dtb.Columns.Add("NHACLAI"); //số tháng tiêm nhắc lại 
 
                             for (int j = 0; j < listCTT.Count; j++)
                             {
@@ -140,6 +141,7 @@ namespace GUI
                                 dr["GIABAN"] = listCTT[j].GIABAN;
                                 dr["MUITHU"] = listCTT[j].MUITHU;
                                 dr["LIEULUONG"] = listCTT[j].LIEULUONG;
+                                dr["NHACLAI"] = listCTT[j].TIEMNHACLAI;
                                 dtb.Rows.Add(dr);
                             }
 
@@ -158,6 +160,7 @@ namespace GUI
                     dt.Columns.Add("GIABAN");
                     dt.Columns.Add("MUITHU");
                     dt.Columns.Add("LIEULUONG");
+                    dt.Columns.Add("NHACLAI");
 
                     for (int i = 0; i < listCTT.Count; i++)
                     {
@@ -167,6 +170,7 @@ namespace GUI
                         dr["GIABAN"] = listCTT[i].GIABAN;
                         dr["MUITHU"] = listCTT[i].MUITHU;
                         dr["LIEULUONG"] = listCTT[i].LIEULUONG;
+                        dr["NHACLAI"] = listCTT[i].TIEMNHACLAI;
                         dt.Rows.Add(dr);
                     }
 
@@ -193,6 +197,7 @@ namespace GUI
             dt.Columns.Add("GIABAN");
             dt.Columns.Add("MUITHU");
             dt.Columns.Add("LIEULUONG");
+            dt.Columns.Add("NHACLAI");
 
             for (int i = 0; i < listCTT.Count; i++)
             {
@@ -202,7 +207,8 @@ namespace GUI
                 dr["GIABAN"] = listCTT[i].GIABAN;
                 dr["MUITHU"] = listCTT[i].MUITHU;
                 dr["LIEULUONG"] = listCTT[i].LIEULUONG;
-                dt.Rows.Add(dr);
+                dr["NHACLAI"] = listCTT[i].TIEMNHACLAI;
+                dt.Rows.Add(dr); 
             }
 
             gridVaccine.DataSource = dt;
@@ -261,21 +267,7 @@ namespace GUI
             tbMaVC.Text = "";
             tbMuiThu.Text = "";
             tbLieuLuong.Text = "";
-        }
-
-        private void tbTienSu_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpNgaySinh_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbTenKH_EditValueChanged(object sender, EventArgs e)
-        {
-
+            tbNhacLai.Text = "";
         }
 
         private void tbMaKH_Click(object sender, EventArgs e)

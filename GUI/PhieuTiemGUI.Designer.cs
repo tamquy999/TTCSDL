@@ -128,7 +128,6 @@
             this.dtpNgaySinh.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dtpNgaySinh.Size = new System.Drawing.Size(122, 24);
             this.dtpNgaySinh.TabIndex = 1;
-            this.dtpNgaySinh.EditValueChanged += new System.EventHandler(this.dtpNgaySinh_EditValueChanged);
             // 
             // lbNgaySinh
             // 
@@ -146,7 +145,6 @@
             this.tbTienSu.Name = "tbTienSu";
             this.tbTienSu.Size = new System.Drawing.Size(258, 24);
             this.tbTienSu.TabIndex = 3;
-            this.tbTienSu.EditValueChanged += new System.EventHandler(this.tbTienSu_EditValueChanged);
             // 
             // lbTienSu
             // 
@@ -174,7 +172,6 @@
             this.tbTenKH.Name = "tbTenKH";
             this.tbTenKH.Size = new System.Drawing.Size(254, 24);
             this.tbTenKH.TabIndex = 0;
-            this.tbTenKH.EditValueChanged += new System.EventHandler(this.tbTenKH_EditValueChanged);
             this.tbTenKH.Click += new System.EventHandler(this.tbTenKH_Click);
             this.tbTenKH.Leave += new System.EventHandler(this.tbTenKH_Leave);
             // 
