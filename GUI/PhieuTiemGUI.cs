@@ -114,11 +114,11 @@ namespace GUI
 
         private void btnAddVC_Click(object sender, EventArgs e)
         {
-            if (tbMaVC.Text != "" && tbLoaiTiem.Text != "" && tbLieuLuong.Text != "")
+            if (tbMaVC.Text != "" && tbMuiThu.Text != "" && tbLieuLuong.Text != "")
             {
                 if (busVC.IsVCInStock(tbMaVC.Text))
                 {
-                    DTO_ChiTietTiem ctt = new DTO_ChiTietTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaVC.Text, busVC.getVCPrice(tbMaVC.Text), tbLoaiTiem.Text, dtpNgayTiem.Text, Convert.ToDouble(tbLieuLuong.Text));
+                    DTO_ChiTietTiem ctt = new DTO_ChiTietTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaVC.Text, busVC.getVCPrice(tbMaVC.Text),int.Parse(tbMuiThu.Text), dtpNgayTiem.Text, Convert.ToDouble(tbLieuLuong.Text));
 
                     for (int i = 0; i < listCTT.Count; i++)
                     {
@@ -129,7 +129,7 @@ namespace GUI
                             dtb.Columns.Add("MAVACCINE");
                             dtb.Columns.Add("TENVACCINE");
                             dtb.Columns.Add("GIABAN");
-                            dtb.Columns.Add("LOAITIEMCHUNG");
+                            dtb.Columns.Add("MUITHU");
                             dtb.Columns.Add("LIEULUONG");
 
                             for (int j = 0; j < listCTT.Count; j++)
@@ -138,7 +138,7 @@ namespace GUI
                                 dr["MAVACCINE"] = listCTT[j].MAVACCINE;
                                 dr["TENVACCINE"] = busVC.getVCName(listCTT[j].MAVACCINE);
                                 dr["GIABAN"] = listCTT[j].GIABAN;
-                                dr["LOAITIEMCHUNG"] = listCTT[j].LOAITIEMCHUNG;
+                                dr["MUITHU"] = listCTT[j].MUITHU;
                                 dr["LIEULUONG"] = listCTT[j].LIEULUONG;
                                 dtb.Rows.Add(dr);
                             }
@@ -156,7 +156,7 @@ namespace GUI
                     dt.Columns.Add("MAVACCINE");
                     dt.Columns.Add("TENVACCINE");
                     dt.Columns.Add("GIABAN");
-                    dt.Columns.Add("LOAITIEMCHUNG");
+                    dt.Columns.Add("MUITHU");
                     dt.Columns.Add("LIEULUONG");
 
                     for (int i = 0; i < listCTT.Count; i++)
@@ -165,7 +165,7 @@ namespace GUI
                         dr["MAVACCINE"] = listCTT[i].MAVACCINE;
                         dr["TENVACCINE"] = busVC.getVCName(listCTT[i].MAVACCINE);
                         dr["GIABAN"] = listCTT[i].GIABAN;
-                        dr["LOAITIEMCHUNG"] = listCTT[i].LOAITIEMCHUNG;
+                        dr["MUITHU"] = listCTT[i].MUITHU;
                         dr["LIEULUONG"] = listCTT[i].LIEULUONG;
                         dt.Rows.Add(dr);
                     }
@@ -191,7 +191,7 @@ namespace GUI
             dt.Columns.Add("MAVACCINE");
             dt.Columns.Add("TENVACCINE");
             dt.Columns.Add("GIABAN");
-            dt.Columns.Add("LOAITIEMCHUNG");
+            dt.Columns.Add("MUITHU");
             dt.Columns.Add("LIEULUONG");
 
             for (int i = 0; i < listCTT.Count; i++)
@@ -200,7 +200,7 @@ namespace GUI
                 dr["MAVACCINE"] = listCTT[i].MAVACCINE;
                 dr["TENVACCINE"] = busVC.getVCName(listCTT[i].MAVACCINE);
                 dr["GIABAN"] = listCTT[i].GIABAN;
-                dr["LOAITIEMCHUNG"] = listCTT[i].LOAITIEMCHUNG;
+                dr["MUITHU"] = listCTT[i].MUITHU;
                 dr["LIEULUONG"] = listCTT[i].LIEULUONG;
                 dt.Rows.Add(dr);
             }
@@ -259,7 +259,7 @@ namespace GUI
             tbMaBS.Text = "";
             tbMaKH.Text = "";
             tbMaVC.Text = "";
-            tbLoaiTiem.Text = "";
+            tbMuiThu.Text = "";
             tbLieuLuong.Text = "";
         }
 
@@ -301,6 +301,23 @@ namespace GUI
             if(tbTenKH.Text == "")
             {
                 tbTenKH.Text = "Họ và Tên";
+            }
+        }
+
+        //only accept number in textbox
+        private void tbMuiThu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbNhacLai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
