@@ -17,5 +17,11 @@ namespace BUS
         {
             return dao.GetAllHoaDonINTIME(NgayDau, NgayCuoi);
         }
+
+
+        public DataTable GetCountLoaiVC()
+        {
+            return dao.GetCountLoaiVC();
+        }
     }
 }

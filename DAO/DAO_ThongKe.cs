@@ -11,6 +11,8 @@ namespace DAO
     //Class to make connect sqlcmd for thongke
     public class DAO_ThongKe : DBProvider
     {
+        #region DoanhThu
+
         /// <summary>
         /// Get NgayThu + TongTien tat ca hoa don
         /// </summary>
@@ -78,17 +80,35 @@ namespace DAO
             return dt;
         }
 
+        #endregion
 
 
-        #region ChuanHoaStringNgayThang
+        #region LoaiVC
 
-        public string ChuanHoaNgayThang( string input)
+        public DataTable GetCountLoaiVC()
         {
-            
-           return input;
+            DataTable dt = new DataTable();
+            SqlDataReader rd;
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_CountVCTheoLoaiVC",_conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                dt.Load(rd);
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return dt;
         }
-
-
         #endregion
     }
 }
