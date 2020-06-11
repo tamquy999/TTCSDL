@@ -22,6 +22,7 @@ namespace BUS
         {
             return dao.InsertHD(hd);
         }
+
         public string NextMaHD()
         {
             string MAHD = dao.GetLastestMaHD().Trim();
@@ -32,6 +33,26 @@ namespace BUS
                 MAHD += "0";
             MAHD += (hdIndex).ToString();
             return MAHD;
+        }
+
+        public DataTable GetALlHoaDonInfo()
+        {
+            return dao.GetALlHoaDonInfo();
+        }
+
+        public string GetMaPhieuTiemFromHD(string maHD)
+        {
+            return dao.GetMaPhieuTiemFromHD(maHD);
+        }
+
+        public bool DeleteHoaDon(string maHD)
+        {
+            return dao.DeleteHoaDon(maHD);
+        }
+
+        public bool UpdateHoaDonInfo(DTO_HoaDonInfo hdif)
+        {
+            return dao.UpdateHoaDonInfo(hdif);
         }
     }
 }

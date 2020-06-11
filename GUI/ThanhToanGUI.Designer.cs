@@ -33,7 +33,7 @@
             this.gridVC = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.btnIn = new DevExpress.XtraEditors.SimpleButton();
+            this.btnList = new DevExpress.XtraEditors.SimpleButton();
             this.btnThanhToan = new DevExpress.XtraEditors.SimpleButton();
             this.btnReset = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -153,7 +153,7 @@
             // groupControl4
             // 
             this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl4.Controls.Add(this.btnIn);
+            this.groupControl4.Controls.Add(this.btnList);
             this.groupControl4.Controls.Add(this.btnThanhToan);
             this.groupControl4.Controls.Add(this.btnReset);
             this.groupControl4.Location = new System.Drawing.Point(317, 506);
@@ -162,18 +162,18 @@
             this.groupControl4.TabIndex = 9;
             this.groupControl4.Text = "Thao tác";
             // 
-            // btnIn
+            // btnList
             // 
-            this.btnIn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIn.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
-            this.btnIn.Appearance.Options.UseBackColor = true;
-            this.btnIn.Location = new System.Drawing.Point(17, 120);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(145, 48);
-            this.btnIn.TabIndex = 8;
-            this.btnIn.Text = "In hoá đơn";
-            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            this.btnList.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.btnList.Appearance.Options.UseBackColor = true;
+            this.btnList.Location = new System.Drawing.Point(17, 120);
+            this.btnList.Name = "btnList";
+            this.btnList.Size = new System.Drawing.Size(145, 48);
+            this.btnList.TabIndex = 8;
+            this.btnList.Text = "Danh sách hoá đơn";
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // btnThanhToan
             // 
@@ -647,7 +647,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl16;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.LabelControl labelControl12;
-        private DevExpress.XtraEditors.SimpleButton btnIn;
+        private DevExpress.XtraEditors.SimpleButton btnList;
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.LabelControl labelControl19;

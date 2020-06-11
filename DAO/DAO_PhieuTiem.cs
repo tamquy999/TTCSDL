@@ -157,5 +157,75 @@ namespace DAO
             }
             return "";
         }
+
+        public bool DeletePhieuTiem(string MaPT)
+        {
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_DeletePhieuTiem", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MAPHIEUTIEM", MaPT);
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return false;
+        }
+
+        public DataTable GetAllPhieuTiemInfo()
+        {
+            SqlDataReader rd;
+            DataTable dt = new DataTable();
+
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand("sp_GetPhieuTiemsInfo", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            rd = cmd.ExecuteReader();
+            dt.Load(rd);
+            _conn.Close();
+
+            return dt;
+        }
+
+        public bool UpdatePhieuTiemInfo(DTO_PhieuTiemInfo ptif)
+        {
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_UpdatePhieuTiemInfo", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MAPHIEUTIEM", ptif.MaPT);
+                cmd.Parameters.AddWithValue("@NGAYTIEM", ptif.NgayTiem);
+                cmd.Parameters.AddWithValue("@TENKH", ptif.TenKH);
+                cmd.Parameters.AddWithValue("@NGAYSINH", ptif.NgaySinh);
+                cmd.Parameters.AddWithValue("@GIOITINH", ptif.GioiTinh);
+                cmd.Parameters.AddWithValue("@TIEUSU", ptif.TieuSu); 
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return false;
+        }
     }
 }

@@ -42,6 +42,11 @@ namespace GUI
             gridView1.FocusedRowChanged += GridView1_FocusedRowChanged;
         }
 
+        public void RefreshGrid()
+        {
+            gridVaccine.DataSource = busVC.getAllVaccine();
+        }
+
         private void GridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             //tbGia.Text = gridView1.GetRowCellValue(e.FocusedRowHandle, "DONGIA").ToString();

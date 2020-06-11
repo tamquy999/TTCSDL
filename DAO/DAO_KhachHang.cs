@@ -70,15 +70,29 @@ namespace DAO
         {
             try
             {
+                //_conn.Open();
+
+                //string SQL = @"INSERT INTO KHACHHANG 
+                //                ( MAKH, TENKH, NGAYSINH, GIOITINH, TIEUSU, MAGH )
+                //                VALUES
+                //                ( @MAKH, @TENKH, @NGAYSINH, @GIOITINH, @TIEUSU, @MAGH )";
+
+                //SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                //cmd.Parameters.AddWithValue("@MAKH", kh.MAKH);
+                //cmd.Parameters.AddWithValue("@TENKH", kh.TENKH);
+                //cmd.Parameters.AddWithValue("@NGAYSINH", kh.NGAYSINH);
+                //cmd.Parameters.AddWithValue("@GIOITINH", kh.GIOITINH);
+                //cmd.Parameters.AddWithValue("@TIEUSU", kh.TIEUSU);
+                //cmd.Parameters.AddWithValue("@MAGH", DBNull.Value);
+
+                //if (cmd.ExecuteNonQuery() > 0)
+                //    return true;
+
                 _conn.Open();
 
-                string SQL = @"INSERT INTO KHACHHANG 
-                                ( MAKH, TENKH, NGAYSINH, GIOITINH, TIEUSU, MAGH )
-                                VALUES
-                                ( @MAKH, @TENKH, @NGAYSINH, @GIOITINH, @TIEUSU, @MAGH )";
-
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
-
+                SqlCommand cmd = new SqlCommand("sp_InsertKH", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@MAKH", kh.MAKH);
                 cmd.Parameters.AddWithValue("@TENKH", kh.TENKH);
                 cmd.Parameters.AddWithValue("@NGAYSINH", kh.NGAYSINH);

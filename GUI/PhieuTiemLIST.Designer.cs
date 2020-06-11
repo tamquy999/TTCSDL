@@ -37,6 +37,7 @@
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnReset = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHelp = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridPT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -53,7 +54,7 @@
             this.gridPT.Location = new System.Drawing.Point(2, 33);
             this.gridPT.MainView = this.gridView1;
             this.gridPT.Name = "gridPT";
-            this.gridPT.Size = new System.Drawing.Size(938, 341);
+            this.gridPT.Size = new System.Drawing.Size(938, 342);
             this.gridPT.TabIndex = 0;
             this.gridPT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -64,6 +65,9 @@
             this.gridView1.GridControl = this.gridPT;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
+            this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
+            this.gridView1.Click += new System.EventHandler(this.gridView1_Click);
             // 
             // groupControl1
             // 
@@ -73,7 +77,7 @@
             this.groupControl1.Controls.Add(this.gridPT);
             this.groupControl1.Location = new System.Drawing.Point(4, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(942, 376);
+            this.groupControl1.Size = new System.Drawing.Size(942, 377);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "Danh sách phiếu tiêm";
             // 
@@ -82,11 +86,11 @@
             this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.Controls.Add(this.gridVC);
-            this.groupControl2.Location = new System.Drawing.Point(4, 383);
+            this.groupControl2.Location = new System.Drawing.Point(4, 384);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(942, 260);
             this.groupControl2.TabIndex = 5;
-            this.groupControl2.Text = "Danh sách vaccine sử dụng";
+            this.groupControl2.Text = "Danh sách vaccine đã sử dụng";
             // 
             // gridVC
             // 
@@ -103,51 +107,67 @@
             // 
             this.gridView2.GridControl = this.gridVC;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.Editable = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(24, 662);
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExit.Location = new System.Drawing.Point(24, 665);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(94, 29);
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Thoát";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
             this.btnSave.Appearance.Options.UseBackColor = true;
-            this.btnSave.Location = new System.Drawing.Point(834, 662);
+            this.btnSave.Location = new System.Drawing.Point(833, 665);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Lưu";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnReset
             // 
+            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReset.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
             this.btnReset.Appearance.Options.UseBackColor = true;
-            this.btnReset.Location = new System.Drawing.Point(724, 662);
+            this.btnReset.Location = new System.Drawing.Point(724, 665);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(94, 29);
             this.btnReset.TabIndex = 6;
             this.btnReset.Text = "Đặt lại";
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Location = new System.Drawing.Point(680, 665);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(29, 29);
+            this.btnHelp.TabIndex = 7;
+            this.btnHelp.Text = "?";
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // PhieuTiemLIST
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 712);
+            this.ClientSize = new System.Drawing.Size(950, 713);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
-            this.MinimizeBox = false;
             this.Name = "PhieuTiemLIST";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Danh sách phiếu tiêm";
+            this.Text = "Cập nhật danh sách phiếu tiêm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PhieuTiemLIST_FormClosing);
             this.Load += new System.EventHandler(this.PhieuTiemLIST_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridPT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -172,5 +192,6 @@
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnReset;
+        private DevExpress.XtraEditors.SimpleButton btnHelp;
     }
 }

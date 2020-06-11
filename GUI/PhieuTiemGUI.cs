@@ -47,6 +47,8 @@ namespace GUI
             gridView2.RowClick += GridView2_RowClick;
             gridView1.RowClick += GridView1_RowClick;
 
+
+
             GridLocalizer.Active = new MyGridLocalizer();
 
             InitAutoCompeteTextBox();

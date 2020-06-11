@@ -44,9 +44,11 @@
     <Compile Include="DTO_ChiTietTiem.cs" />
     <Compile Include="DTO_GiamHo.cs" />
     <Compile Include="DTO_HoaDon.cs" />
+    <Compile Include="DTO_HoaDonInfo.cs" />
     <Compile Include="DTO_KhachHang.cs" />
     <Compile Include="DTO_LichSu.cs" />
     <Compile Include="DTO_PhieuTiem.cs" />
+    <Compile Include="DTO_PhieuTiemInfo.cs" />
     <Compile Include="DTO_Vaccine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DTO_ThuNgan.cs" />

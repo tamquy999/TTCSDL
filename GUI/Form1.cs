@@ -19,6 +19,7 @@ namespace GUI
           public DTO_ThuNgan thungan;
 
           ThanhToanGUI ttGUI;
+          VaccineGUI vcGUI;
 
           public Form1(string maTN)
           {
@@ -30,13 +31,14 @@ namespace GUI
                //ThanhToanGUI.Instance.Dock = DockStyle.Fill;
 
                ttGUI = new ThanhToanGUI(thungan);
+               vcGUI = new VaccineGUI();
                container.Controls.Add(ttGUI);
+               container.Controls.Add(vcGUI);
                ttGUI.Dock = DockStyle.Fill;
-
+               vcGUI.Dock = DockStyle.Fill;
+               
                container.Controls.Add(LichSuGUI.Instance);
                LichSuGUI.Instance.Dock = DockStyle.Fill;
-               container.Controls.Add(VaccineGUI.Instance);
-               VaccineGUI.Instance.Dock = DockStyle.Fill;
                container.Controls.Add(PhieuTiemGUI.Instance);
                PhieuTiemGUI.Instance.Dock = DockStyle.Fill;
                container.Controls.Add(ThongKeGUI.Instance);
@@ -62,7 +64,9 @@ namespace GUI
 
           private void aceVaccine_Click(object sender, EventArgs e)
           {
-               VaccineGUI.Instance.BringToFront();
+               //VaccineGUI.Instance.BringToFront();
+               vcGUI.BringToFront();
+               vcGUI.RefreshGrid();
           }
 
           private void acePhieuTiem_Click(object sender, EventArgs e)

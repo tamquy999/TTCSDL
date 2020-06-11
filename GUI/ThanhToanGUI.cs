@@ -123,7 +123,7 @@ namespace GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if (tbTenNGH.Text != "" && tbDiaChiNGH.Text != "" && tbSdtNGH.Text != "")
+            if (tbTenNGH.Text != "" && tbDiaChiNGH.Text != "" && tbSdtNGH.Text != "" && tbMaPT.Text != "" && tbChieuKhau.Text != "" && dtpNgayTao.Text != "" && tbTongTien.Text != "" && tbMaGH.Text != "" && tbPhaiTra.Text != "" && tbKhachDua.Text != "" && tbTraLai.Text != "")
             {
                 if (tbMaGH.Text == "")
                 {
@@ -133,18 +133,24 @@ namespace GUI
                 {
                     busGH.InsertNGH(new DTO_GiamHo(tbMaGH.Text, tbTenNGH.Text, tbDiaChiNGH.Text, tbSdtNGH.Text));
                 }
-            }
-            if (tbMaPT.Text != "" && tbChieuKhau.Text != "" && dtpNgayTao.Text != "" && tbTongTien.Text != "" && tbMaGH.Text != "")
-            {
+
                 busHD.InsertHD(new DTO_HoaDon(busHD.NextMaHD(), Convert.ToDouble(tbChieuKhau.Text), dtpNgayTao.DateTime.ToString("yyyy-MM-dd"), Convert.ToInt32(tbTongTien.Text), this.thuNgan.MATHUNGAN, tbMaGH.Text, tbMaPT.Text));
+
+                busGH.AddMaGHtoKH(tbMaGH.Text);
+                MessageBoxEx.Show("Thanh toán thành công");
+                
             }
-            busGH.AddMaGHtoKH(tbMaGH.Text);
-            MessageBoxEx.Show("Thanh toán thành công");
+            else
+            {
+                MessageBoxEx.Show("Bạn chưa nhập đủ thông tin");
+            }
+
         }
 
-        private void btnIn_Click(object sender, EventArgs e)
+        private void btnList_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(thuNgan.MATHUNGAN);
-;        }
+            ThanhToanLIST ttList = new ThanhToanLIST();
+            ttList.ShowDialog();
+        }
     }
 }

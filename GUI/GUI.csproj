@@ -96,6 +96,12 @@
     <Compile Include="ThanhToanGUI.Designer.cs">
       <DependentUpon>ThanhToanGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThanhToanLIST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThanhToanLIST.Designer.cs">
+      <DependentUpon>ThanhToanLIST.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThongKeGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </Compile>
     <EmbeddedResource Include="ThanhToanGUI.resx">
       <DependentUpon>ThanhToanGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThanhToanLIST.resx">
+      <DependentUpon>ThanhToanLIST.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongKeGUI.resx">
       <DependentUpon>ThongKeGUI.cs</DependentUpon>

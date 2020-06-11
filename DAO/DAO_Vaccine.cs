@@ -30,45 +30,6 @@ namespace DAO
 
             return dt;
         }
-
-        public DTO_Vaccine getVaccineFromID(string maVC)
-        {
-            
-            try
-            {
-                _conn.Open();
-                //string query = "SELECT * FROM VACCINE WHERE	MAVACCINE = @MAVACCINE";
-                //SqlCommand cmd = new SqlCommand(query, _conn);
-
-                SqlCommand cmd = new SqlCommand("sp_GetAllVaccine", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@MAVACCINE", maVC);
-
-                SqlDataReader dataReader = cmd.ExecuteReader();
-                if (dataReader.Read())
-                {
-                    string tenVC = dataReader[1].ToString();
-                    string nhaSX = dataReader[2].ToString();
-                    string ngaySX = ((DateTime)dataReader[3]).ToString("dd/MM/yyyy");
-                    string hanSD = ((DateTime)dataReader[4]).ToString("dd/MM/yyyy");
-                    string soLo = dataReader[5].ToString();
-                    int soLuongSan = int.Parse(dataReader[6].ToString());
-                    int donGia = int.Parse(dataReader[7].ToString());
-                    string loaiVC = dataReader[8].ToString();
-
-                    return new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, donGia, loaiVC);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                _conn.Close();
-            }
-            return null;
-        }
         
         public List<DTO_Vaccine> SearchAll(string value)
         {

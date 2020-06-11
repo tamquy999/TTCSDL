@@ -44,5 +44,20 @@ namespace BUS
         {
             return dao.GetTenKHFromPHIEUTIEM(maPT);
         }
+
+        public bool DeletePhieuTiem(string MaPT)
+        {
+            return dao.DeletePhieuTiem(MaPT);
+        }
+
+        public DataTable GetAllPhieuTiemInfo()
+        {
+            return dao.GetAllPhieuTiemInfo();
+        }
+
+        public bool UpdatePhieuTiemInfo(DTO_PhieuTiemInfo ptif)
+        {
+            return dao.UpdatePhieuTiemInfo(ptif);
+        }
     }
 }

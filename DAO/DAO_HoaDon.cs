@@ -24,13 +24,30 @@ namespace DAO
         {
             try
             {
+                //_conn.Open();
+
+                //SqlCommand cmd = new SqlCommand();
+                //cmd.CommandText = @"INSERT INTO HOADON
+                //                ( MAHOADON, CHIETKHAU, NGAYTHU, TONGTIEN, MAGH, MATHUNGAN, MAPHIEUTIEM )
+                //                VALUES
+                //                ( @MAHOADON, @CHIETKHAU, @NGAYTHU, @TONGTIEN, @MAGH, @MATHUNGAN, @MAPHIEUTIEM )";
+                //cmd.Parameters.AddWithValue("@MAHOADON", hd.MaHD);
+                //cmd.Parameters.AddWithValue("@CHIETKHAU", hd.ChietKhau);
+                //cmd.Parameters.AddWithValue("@NGAYTHU", hd.NgayThu);
+                //cmd.Parameters.AddWithValue("@TONGTIEN", hd.TongTien);
+                //cmd.Parameters.AddWithValue("@MAGH", hd.MaGH);
+                //cmd.Parameters.AddWithValue("@MATHUNGAN", hd.MaTN);
+                //cmd.Parameters.AddWithValue("@MAPHIEUTIEM", hd.MaPT);
+                //cmd.Connection = _conn;
+
+                //if (cmd.ExecuteNonQuery() > 0)
+                //    return true;
+
+
                 _conn.Open();
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = @"INSERT INTO HOADON
-                                ( MAHOADON, CHIETKHAU, NGAYTHU, TONGTIEN, MAGH, MATHUNGAN, MAPHIEUTIEM )
-                                VALUES
-                                ( @MAHOADON, @CHIETKHAU, @NGAYTHU, @TONGTIEN, @MAGH, @MATHUNGAN, @MAPHIEUTIEM )";
+                SqlCommand cmd = new SqlCommand("sp_InsertHD", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@MAHOADON", hd.MaHD);
                 cmd.Parameters.AddWithValue("@CHIETKHAU", hd.ChietKhau);
                 cmd.Parameters.AddWithValue("@NGAYTHU", hd.NgayThu);
@@ -38,7 +55,6 @@ namespace DAO
                 cmd.Parameters.AddWithValue("@MAGH", hd.MaGH);
                 cmd.Parameters.AddWithValue("@MATHUNGAN", hd.MaTN);
                 cmd.Parameters.AddWithValue("@MAPHIEUTIEM", hd.MaPT);
-                cmd.Connection = _conn;
 
                 if (cmd.ExecuteNonQuery() > 0)
                     return true;
@@ -76,6 +92,91 @@ namespace DAO
                 throw;
             }
             return null;
+        }
+
+        public DataTable GetALlHoaDonInfo()
+        {
+            SqlDataReader rd;
+            DataTable dt = new DataTable();
+
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand("sp_GetAllHoaDonInfo", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            rd = cmd.ExecuteReader();
+            dt.Load(rd);
+            _conn.Close();
+
+            return dt;
+        }
+
+        public string GetMaPhieuTiemFromHD(string maHD)
+        {
+            SqlDataReader rd;
+            DataTable dt = new DataTable();
+
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand("sp_GetMaPhieuTiemFromHD", _conn);
+            cmd.Parameters.AddWithValue("@MAHOADON", maHD);
+            cmd.CommandType = CommandType.StoredProcedure;
+            rd = cmd.ExecuteReader();
+            dt.Load(rd);
+            _conn.Close();
+
+            return dt.Rows[0][0].ToString();
+        }
+
+        public bool DeleteHoaDon(string maHD)
+        {
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_DeleteHoaDon", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MAHOADON", maHD);
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return false;
+        }
+
+        public bool UpdateHoaDonInfo(DTO_HoaDonInfo hdif)
+        {
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_UpdateHoaDonInfo", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MAHOADON", hdif.MaHD);
+                cmd.Parameters.AddWithValue("@NGAYTHU", hdif.NgayThu);
+                cmd.Parameters.AddWithValue("@NGUOIGH", hdif.NguoiGH);
+                cmd.Parameters.AddWithValue("@DIACHI", hdif.DiaChi);
+                cmd.Parameters.AddWithValue("@SDT", hdif.Sdt);
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return false;
         }
     }
 }
