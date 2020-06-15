@@ -49,6 +49,14 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.chartControlLoaiVC = new DevExpress.XtraCharts.ChartControl();
             this.chartControlMostVC = new DevExpress.XtraCharts.ChartControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.dateEditVCDau = new DevExpress.XtraEditors.DateEdit();
+            this.dateEditVCCuoi = new DevExpress.XtraEditors.DateEdit();
+            this.simpleButtonGiam = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonTang = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.cbBoxEditSoMostVC = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditCuoi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditCuoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDau.Properties.CalendarTimeProperties)).BeginInit();
@@ -65,6 +73,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartControlMostVC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditVCDau.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditVCDau.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditVCCuoi.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditVCCuoi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbBoxEditSoMostVC.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dateEditCuoi
@@ -171,17 +184,20 @@
             // chartControlLoaiVC
             // 
             this.chartControlLoaiVC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.chartControlLoaiVC.Legend.Direction = DevExpress.XtraCharts.LegendDirection.BottomToTop;
             this.chartControlLoaiVC.Legend.Name = "Default Legend";
             this.chartControlLoaiVC.Legend.Tag = "";
             this.chartControlLoaiVC.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControlLoaiVC.Location = new System.Drawing.Point(558, 396);
+            this.chartControlLoaiVC.Location = new System.Drawing.Point(0, 395);
             this.chartControlLoaiVC.Name = "chartControlLoaiVC";
             doughnutSeriesLabel1.TextPattern = "{A}:{V}";
             series2.Label = doughnutSeriesLabel1;
             series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series2.Name = "BDLoaiVC";
+            series2.SeriesPointsSortingKey = DevExpress.XtraCharts.SeriesPointKey.Value_1;
+            series2.ToolTipEnabled = DevExpress.Utils.DefaultBoolean.True;
+            series2.ToolTipPointPattern = "{A}: {V}";
             doughnutSeriesView1.HoleRadiusPercent = 40;
             seriesTitle1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             seriesTitle1.Text = "Tỷ trọng vaccine theo từng loại";
@@ -191,7 +207,7 @@
             series2.View = doughnutSeriesView1;
             this.chartControlLoaiVC.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series2};
-            this.chartControlLoaiVC.Size = new System.Drawing.Size(497, 369);
+            this.chartControlLoaiVC.Size = new System.Drawing.Size(497, 370);
             this.chartControlLoaiVC.TabIndex = 0;
             // 
             // chartControlMostVC
@@ -205,22 +221,134 @@
             this.chartControlMostVC.Diagram = xyDiagram2;
             this.chartControlMostVC.Legend.Name = "Default Legend";
             this.chartControlMostVC.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControlMostVC.Location = new System.Drawing.Point(0, 396);
+            this.chartControlMostVC.Location = new System.Drawing.Point(497, 395);
             this.chartControlMostVC.Name = "chartControlMostVC";
             series3.Name = "BDCmostVC";
             this.chartControlMostVC.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series3};
-            this.chartControlMostVC.Size = new System.Drawing.Size(559, 327);
+            this.chartControlMostVC.Size = new System.Drawing.Size(557, 342);
             this.chartControlMostVC.TabIndex = 8;
-            chartTitle2.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle2.Text = "TOP 5 Vaccine dùng nhiều";
+            chartTitle2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle2.Text = "Top Vaccine dùng nhiều";
             this.chartControlMostVC.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle2});
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelControl4.Location = new System.Drawing.Point(524, 741);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(81, 18);
+            this.labelControl4.TabIndex = 9;
+            this.labelControl4.Text = "Thống kê từ";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelControl5.Location = new System.Drawing.Point(742, 741);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(25, 18);
+            this.labelControl5.TabIndex = 10;
+            this.labelControl5.Text = "đến";
+            // 
+            // dateEditVCDau
+            // 
+            this.dateEditVCDau.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dateEditVCDau.EditValue = null;
+            this.dateEditVCDau.Location = new System.Drawing.Point(611, 738);
+            this.dateEditVCDau.Name = "dateEditVCDau";
+            this.dateEditVCDau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditVCDau.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditVCDau.Size = new System.Drawing.Size(125, 24);
+            this.dateEditVCDau.TabIndex = 11;
+            this.dateEditVCDau.EditValueChanged += new System.EventHandler(this.dateEditVCDau_EditValueChanged);
+            // 
+            // dateEditVCCuoi
+            // 
+            this.dateEditVCCuoi.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dateEditVCCuoi.EditValue = null;
+            this.dateEditVCCuoi.Location = new System.Drawing.Point(773, 738);
+            this.dateEditVCCuoi.Name = "dateEditVCCuoi";
+            this.dateEditVCCuoi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditVCCuoi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditVCCuoi.Size = new System.Drawing.Size(125, 24);
+            this.dateEditVCCuoi.TabIndex = 12;
+            this.dateEditVCCuoi.EditValueChanged += new System.EventHandler(this.dateEditVCCuoi_EditValueChanged);
+            // 
+            // simpleButtonGiam
+            // 
+            this.simpleButtonGiam.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.simpleButtonGiam.Appearance.Options.UseFont = true;
+            this.simpleButtonGiam.Location = new System.Drawing.Point(0, 42);
+            this.simpleButtonGiam.Name = "simpleButtonGiam";
+            this.simpleButtonGiam.Size = new System.Drawing.Size(35, 35);
+            this.simpleButtonGiam.TabIndex = 13;
+            this.simpleButtonGiam.Text = "<";
+            this.simpleButtonGiam.Click += new System.EventHandler(this.simpleButtonGiam_Click);
+            // 
+            // simpleButtonTang
+            // 
+            this.simpleButtonTang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButtonTang.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.simpleButtonTang.Appearance.Options.UseFont = true;
+            this.simpleButtonTang.Location = new System.Drawing.Point(1020, 42);
+            this.simpleButtonTang.Name = "simpleButtonTang";
+            this.simpleButtonTang.Size = new System.Drawing.Size(35, 35);
+            this.simpleButtonTang.TabIndex = 14;
+            this.simpleButtonTang.Text = ">";
+            this.simpleButtonTang.Click += new System.EventHandler(this.simpleButtonTang_Click);
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelControl6.Location = new System.Drawing.Point(904, 741);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(48, 18);
+            this.labelControl6.TabIndex = 15;
+            this.labelControl6.Text = "Hiển thị";
+            // 
+            // cbBoxEditSoMostVC
+            // 
+            this.cbBoxEditSoMostVC.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cbBoxEditSoMostVC.Location = new System.Drawing.Point(958, 738);
+            this.cbBoxEditSoMostVC.Name = "cbBoxEditSoMostVC";
+            this.cbBoxEditSoMostVC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbBoxEditSoMostVC.Properties.Items.AddRange(new object[] {
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"});
+            this.cbBoxEditSoMostVC.Size = new System.Drawing.Size(62, 24);
+            this.cbBoxEditSoMostVC.TabIndex = 16;
+            this.cbBoxEditSoMostVC.SelectedIndexChanged += new System.EventHandler(this.cbBoxEditSoMostVC_SelectedIndexChanged);
             // 
             // ThongKeGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbBoxEditSoMostVC);
+            this.Controls.Add(this.labelControl6);
+            this.Controls.Add(this.simpleButtonTang);
+            this.Controls.Add(this.simpleButtonGiam);
+            this.Controls.Add(this.dateEditVCCuoi);
+            this.Controls.Add(this.dateEditVCDau);
+            this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.chartControlMostVC);
             this.Controls.Add(this.chartControlLoaiVC);
             this.Controls.Add(this.simpleButton1);
@@ -249,6 +377,11 @@
             ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlMostVC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditVCDau.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditVCDau.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditVCCuoi.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditVCCuoi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbBoxEditSoMostVC.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +398,13 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraCharts.ChartControl chartControlLoaiVC;
         private DevExpress.XtraCharts.ChartControl chartControlMostVC;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.DateEdit dateEditVCDau;
+        private DevExpress.XtraEditors.DateEdit dateEditVCCuoi;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonGiam;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonTang;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.ComboBoxEdit cbBoxEditSoMostVC;
     }
 }
