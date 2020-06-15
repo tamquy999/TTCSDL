@@ -107,8 +107,6 @@ namespace GUI
             GridView view = sender as GridView;
             GridHitInfo hitInfo = view.CalcHitInfo(e.Location);
 
-            
-
             if (hitInfo.InRowCell)
             {
                 view.FocusedRowHandle = hitInfo.RowHandle;
@@ -116,7 +114,11 @@ namespace GUI
                 DXMouseEventArgs.GetMouseArgs(e).Handled = true;
                 if (e.Clicks == 2 && e.Button == System.Windows.Forms.MouseButtons.Left)
                 {
-                    view.ShowEditor();
+                    if (view.FocusedColumn == gridView1.Columns["MAPHIEUTIEM"] || view.FocusedColumn == gridView1.Columns["TENBS"])
+                    {
+
+                    }
+                    else view.ShowEditor();
                 }
                 if (e.Clicks == 1)
                 {

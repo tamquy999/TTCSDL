@@ -31,6 +31,174 @@ namespace DAO
             return dt;
         }
         
+        public List<DTO_Vaccine> SearchByMaVC(string value)
+        {
+
+            List<DTO_Vaccine> list = new List<DTO_Vaccine>();
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_SearchByMaVC", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Value", "%" + value + "%");
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    string maVC = dataReader[0].ToString();
+                    string tenVC = dataReader[1].ToString();
+                    string nhaSX = dataReader[2].ToString();
+                    string ngaySX = ((DateTime)dataReader[3]).ToString("dd/MM/yyyy");
+                    string hanSD = ((DateTime)dataReader[4]).ToString("dd/MM/yyyy");
+                    string soLo = dataReader[5].ToString();
+                    int soLuongSan = int.Parse(dataReader[6].ToString());
+                    int donGia = int.Parse(dataReader[7].ToString());
+                    string loaiVC = dataReader[8].ToString();
+
+                    DTO_Vaccine vaccine = new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, donGia, loaiVC);
+                    list.Add(vaccine);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return list;
+        }
+
+        public List<DTO_Vaccine> SearchByTenVC(string value)
+        {
+
+            List<DTO_Vaccine> list = new List<DTO_Vaccine>();
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_SearchByTenVC", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Value", "%" + value + "%");
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    string maVC = dataReader[0].ToString();
+                    string tenVC = dataReader[1].ToString();
+                    string nhaSX = dataReader[2].ToString();
+                    string ngaySX = ((DateTime)dataReader[3]).ToString("dd/MM/yyyy");
+                    string hanSD = ((DateTime)dataReader[4]).ToString("dd/MM/yyyy");
+                    string soLo = dataReader[5].ToString();
+                    int soLuongSan = int.Parse(dataReader[6].ToString());
+                    int donGia = int.Parse(dataReader[7].ToString());
+                    string loaiVC = dataReader[8].ToString();
+
+                    DTO_Vaccine vaccine = new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, donGia, loaiVC);
+                    list.Add(vaccine);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return list;
+        }
+
+        public List<DTO_Vaccine> SearchByLoaiVC(string value)
+        {
+
+            List<DTO_Vaccine> list = new List<DTO_Vaccine>();
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_SearchByLoaiVC", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Value", "%" + value + "%");
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    string maVC = dataReader[0].ToString();
+                    string tenVC = dataReader[1].ToString();
+                    string nhaSX = dataReader[2].ToString();
+                    string ngaySX = ((DateTime)dataReader[3]).ToString("dd/MM/yyyy");
+                    string hanSD = ((DateTime)dataReader[4]).ToString("dd/MM/yyyy");
+                    string soLo = dataReader[5].ToString();
+                    int soLuongSan = int.Parse(dataReader[6].ToString());
+                    int donGia = int.Parse(dataReader[7].ToString());
+                    string loaiVC = dataReader[8].ToString();
+
+                    DTO_Vaccine vaccine = new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, donGia, loaiVC);
+                    list.Add(vaccine);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return list;
+        }
+
+        public List<DTO_Vaccine> SearchByNhaSX(string value)
+        {
+
+            List<DTO_Vaccine> list = new List<DTO_Vaccine>();
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_SearchByNhaSX", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Value", "%" + value + "%");
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    string maVC = dataReader[0].ToString();
+                    string tenVC = dataReader[1].ToString();
+                    string nhaSX = dataReader[2].ToString();
+                    string ngaySX = ((DateTime)dataReader[3]).ToString("dd/MM/yyyy");
+                    string hanSD = ((DateTime)dataReader[4]).ToString("dd/MM/yyyy");
+                    string soLo = dataReader[5].ToString();
+                    int soLuongSan = int.Parse(dataReader[6].ToString());
+                    int donGia = int.Parse(dataReader[7].ToString());
+                    string loaiVC = dataReader[8].ToString();
+
+                    DTO_Vaccine vaccine = new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, donGia, loaiVC);
+                    list.Add(vaccine);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return list;
+        }
+
         public List<DTO_Vaccine> SearchAll(string value)
         {
 
@@ -38,30 +206,11 @@ namespace DAO
             try
             {
                 _conn.Open();
-                //string query = "SELECT * FROM VACCINE " +
-                //             "WHERE MAVACCINE LIKE @MAVACCINE " +
-                //             "OR TENVACCINE LIKE @TENVACCINE " +
-                //             "OR NHASX LIKE @NHASX " +
-                //             "OR NGAYSX LIKE @NGAYSX " +
-                //             "OR HANSD  LIKE @HANSD " +
-                //             "OR SOLO LIKE @SOLO " +
-                //             "OR SOLUONGCOSAN LIKE @SOLUONGCOSAN " +
-                //             "OR CHIDINH LIKE @CHIDINH " +
-                //             "OR DONGIA LIKE @DONGIA";
-                //SqlCommand cmd = new SqlCommand(query, _conn);
 
                 SqlCommand cmd = new SqlCommand("sp_SearchAllVaccine", _conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@Value", "%" + value + "%");
-                //cmd.Parameters.AddWithValue("@TENVACCINE", "%" + value + "%");
-                //cmd.Parameters.AddWithValue("@NHASX", "%" + value + "%");
-                //cmd.Parameters.AddWithValue("@NGAYSX", "%" + value + "%");
-                //cmd.Parameters.AddWithValue("@HANSD", "%" + value + "%");
-                //cmd.Parameters.AddWithValue("@SOLO", "%" + value + "%");
-                //cmd.Parameters.AddWithValue("@SOLUONGCOSAN", "%" + value + "%");
-                //cmd.Parameters.AddWithValue("@CHIDINH", "%" + value + "%");
-                //cmd.Parameters.AddWithValue("@DONGIA", "%" + value + "%");
 
                 SqlDataReader dataReader = cmd.ExecuteReader();
 

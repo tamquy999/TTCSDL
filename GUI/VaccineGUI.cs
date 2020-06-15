@@ -45,6 +45,9 @@ namespace GUI
         public void RefreshGrid()
         {
             gridVaccine.DataSource = busVC.getAllVaccine();
+            gridView1.BestFitColumns();
+            gridView1.Columns["MAVACCINE"].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            tbSearch.Focus();
         }
 
         private void GridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -61,28 +64,35 @@ namespace GUI
 
         private void VaccineGUI_Load(object sender, EventArgs e)
         {
-            gridVaccine.DataSource = busVC.getAllVaccine();
-            gridView1.BestFitColumns();
-            tbSearch.Focus();
-        }
-
-        private void labelControl3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl1_Click(object sender, EventArgs e)
-        {
-
+            //gridVaccine.DataSource = busVC.getAllVaccine();
+            //gridView1.BestFitColumns();
+            //tbSearch.Focus();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (tbSearch.Text == "")
+            if (tbSearch.Text != "")
             {
-                gridVaccine.DataSource = busVC.getAllVaccine();
+                switch (radioGroup1.SelectedIndex)
+                {
+                    case 1:
+                        gridVaccine.DataSource = busVC.SearchByMaVC(tbSearch.Text);
+                        break;
+                    case 2:
+                        gridVaccine.DataSource = busVC.SearchByTenVC(tbSearch.Text);
+                        break;
+                    case 3:
+                        gridVaccine.DataSource = busVC.SearchByLoaiVC(tbSearch.Text);
+                        break;
+                    case 4:
+                        gridVaccine.DataSource = busVC.SearchByNhaSX(tbSearch.Text);
+                        break;
+                    case 0:
+                        gridVaccine.DataSource = busVC.SearchAll(tbSearch.Text);
+                        break;
+                }
             }
-            else gridVaccine.DataSource = busVC.SearchAll(tbSearch.Text);
+            else gridVaccine.DataSource = busVC.getAllVaccine();
         }
 
         private void tbSearch_KeyDown(object sender, KeyEventArgs e)
@@ -95,7 +105,12 @@ namespace GUI
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            //btnSearch.PerformClick();
+            btnSearch.PerformClick();
+        }
+
+        private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnSearch.PerformClick();
         }
     }
 }

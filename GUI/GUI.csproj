@@ -67,6 +67,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HomeGUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HomeGUI.Designer.cs">
+      <DependentUpon>HomeGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyGridLocalizer.cs" />
     <Compile Include="LichSuGUI.cs">
       <SubType>UserControl</SubType>
@@ -121,6 +127,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeGUI.resx">
+      <DependentUpon>HomeGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LichSuGUI.resx">
       <DependentUpon>LichSuGUI.cs</DependentUpon>
@@ -185,7 +194,19 @@
     <None Include="Resources\privacy.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\vaccine_clicked.png" />
+    <None Include="Resources\vaccine.png" />
+    <None Include="Resources\add_clicked.png" />
+    <None Include="Resources\clock.png" />
+    <None Include="Resources\clock_clicked.png" />
+    <None Include="Resources\pay.png" />
+    <None Include="Resources\pay_clicked.png" />
+    <None Include="Resources\mtavc_banner.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\home_clicked.png" />
     <Content Include="Resources\PROC.txt" />
+    <None Include="Resources\statistics.png" />
+    <None Include="Resources\statistics_clicked.png" />
     <Content Include="Resources\TRIGGER.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

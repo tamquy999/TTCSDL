@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnCheckStatus = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.gridVC = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -71,6 +72,7 @@
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.tbMaGH = new DevExpress.XtraEditors.TextEdit();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbNewNGH = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
@@ -103,6 +105,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.btnCheckStatus);
             this.groupControl1.Controls.Add(this.groupControl5);
             this.groupControl1.Controls.Add(this.groupControl4);
             this.groupControl1.Controls.Add(this.groupControl2);
@@ -119,6 +122,16 @@
             this.groupControl1.Size = new System.Drawing.Size(496, 759);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Thông tin hoá đơn";
+            // 
+            // btnCheckStatus
+            // 
+            this.btnCheckStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCheckStatus.Location = new System.Drawing.Point(411, 51);
+            this.btnCheckStatus.Name = "btnCheckStatus";
+            this.btnCheckStatus.Size = new System.Drawing.Size(66, 21);
+            this.btnCheckStatus.TabIndex = 11;
+            this.btnCheckStatus.Text = "Kiểm tra";
+            this.btnCheckStatus.Click += new System.EventHandler(this.btnCheckStatus_Click);
             // 
             // groupControl5
             // 
@@ -433,7 +446,7 @@
             this.tbMaPT.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tbMaPT.Location = new System.Drawing.Point(143, 51);
             this.tbMaPT.Name = "tbMaPT";
-            this.tbMaPT.Size = new System.Drawing.Size(334, 24);
+            this.tbMaPT.Size = new System.Drawing.Size(262, 24);
             this.tbMaPT.TabIndex = 0;
             this.tbMaPT.Leave += new System.EventHandler(this.tbMaPT_Leave);
             // 
@@ -490,6 +503,7 @@
             // 
             // groupControl3
             // 
+            this.groupControl3.Controls.Add(this.lbNewNGH);
             this.groupControl3.Controls.Add(this.gridNGH);
             this.groupControl3.Controls.Add(this.labelControl5);
             this.groupControl3.Controls.Add(this.tbDiaChiNGH);
@@ -550,6 +564,8 @@
             this.tbMaGH.TabIndex = 2;
             this.tbMaGH.ToolTip = "Bỏ trống nếu đăng ký mới";
             this.tbMaGH.ToolTipTitle = "Lưu ý";
+            this.tbMaGH.Enter += new System.EventHandler(this.tbMaGH_Enter);
+            this.tbMaGH.Leave += new System.EventHandler(this.tbMaGH_Leave);
             // 
             // tableLayoutPanel1
             // 
@@ -565,6 +581,19 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1001, 765);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // lbNewNGH
+            // 
+            this.lbNewNGH.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbNewNGH.AutoSize = true;
+            this.lbNewNGH.Font = new System.Drawing.Font("Tahoma", 7F);
+            this.lbNewNGH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lbNewNGH.Location = new System.Drawing.Point(116, 75);
+            this.lbNewNGH.Name = "lbNewNGH";
+            this.lbNewNGH.Size = new System.Drawing.Size(209, 14);
+            this.lbNewNGH.TabIndex = 28;
+            this.lbNewNGH.Text = "* Để trống nếu là người giám hộ mới";
+            this.lbNewNGH.Visible = false;
             // 
             // ThanhToanGUI
             // 
@@ -653,5 +682,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.TextEdit tbMaGH;
         private DevExpress.XtraEditors.GroupControl groupControl5;
+        private DevExpress.XtraEditors.SimpleButton btnCheckStatus;
+        private System.Windows.Forms.Label lbNewNGH;
     }
 }

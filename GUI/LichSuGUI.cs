@@ -42,9 +42,12 @@ namespace GUI
         {
             dtpNgayTiem.Text = gridView1.GetRowCellValue(e.RowHandle, "NGAYTIEM").ToString().Substring(0, 10);
             tbTenVC.Text = gridView1.GetRowCellValue(e.RowHandle, "TENVACCINE").ToString();
+            tbLoaiVC.Text = gridView1.GetRowCellValue(e.RowHandle, "LOAIVACCINE").ToString();
+            tbNhaSX.Text = gridView1.GetRowCellValue(e.RowHandle, "NHASX").ToString();
+            tbMuiThu.Text = gridView1.GetRowCellValue(e.RowHandle, "MUITHU").ToString();
             tbLieuLuong.Text = gridView1.GetRowCellValue(e.RowHandle, "LIEULUONG").ToString();
+            dtpNhacLai.Text = gridView1.GetRowCellValue(e.RowHandle, "NGAYTIEMNHACLAI").ToString().Substring(0, 10);
             tbDonGia.Text = gridView1.GetRowCellValue(e.RowHandle, "DONGIA").ToString();
-            tbChiDinh.Text = gridView1.GetRowCellValue(e.RowHandle, "CHIDINH").ToString();
         }
 
         private void btnTraCuu_Click(object sender, EventArgs e)

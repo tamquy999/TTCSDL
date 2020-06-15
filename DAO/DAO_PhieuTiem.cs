@@ -88,37 +88,58 @@ namespace DAO
             return false;
         }
 
-        public List<DTO_Vaccine> GetVCFromPHIEUTIEM(string maPT)
-        { 
-            List<DTO_Vaccine> list = new List<DTO_Vaccine>();
+        //public List<DTO_Vaccine> GetVCFromPHIEUTIEM(string maPT)
+        //{ 
+            //List<DTO_Vaccine> list = new List<DTO_Vaccine>();
+            //try
+            //{
+            //    _conn.Open();
+            //    SqlCommand cmd = new SqlCommand("sp_GetVCFromPhieuTiem", _conn);
+            //    cmd.CommandType = CommandType.StoredProcedure;
+
+            //    cmd.Parameters.AddWithValue("@MAPHIEUTIEM", maPT);
+
+            //    SqlDataReader dataReader = cmd.ExecuteReader();
+            //    while (dataReader.Read())
+            //    {
+            //        string maVC = dataReader[0].ToString();
+            //        string tenVC = dataReader[1].ToString();
+            //        string nhaSX = dataReader[2].ToString();
+            //        string ngaySX = ((DateTime)dataReader[3]).ToString("dd/MM/yyyy");
+            //        string hanSD = ((DateTime)dataReader[4]).ToString("dd/MM/yyyy");
+            //        string soLo = dataReader[5].ToString();
+            //        int soLuongSan = int.Parse(dataReader[6].ToString());
+            //        int donGia = int.Parse(dataReader[7].ToString());
+            //        string loaiVC = dataReader[8].ToString();
+
+            //        DTO_Vaccine vaccine = new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, donGia, loaiVC);
+            //        list.Add(vaccine);
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    throw;
+            //}
+            //finally
+            //{
+            //    _conn.Close();
+            //}
+            //return list;
+        //}
+
+        public DataTable GetVCFromPHIEUTIEM(string maPT)
+        {
+            SqlDataReader rd;
+            DataTable dt = new DataTable();
+
             try
             {
                 _conn.Open();
-                string query = @"SELECT vc.*
-                            FROM dbo.PHIEUTIEM pt INNER JOIN dbo.CHITIETTIEM ctt INNER JOIN dbo.VACCINE vc
-                            ON vc.MAVACCINE = ctt.MAVACCINE
-                            ON ctt.MAPHIEUTIEM = pt.MAPHIEUTIEM
-                            WHERE ctt.MAPHIEUTIEM = @MAPHIEUTIEM";
-                SqlCommand cmd = new SqlCommand(query, _conn);
-
+                SqlCommand cmd = new SqlCommand("sp_GetVCFromPhieuTiem", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@MAPHIEUTIEM", maPT);
-
-                SqlDataReader dataReader = cmd.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    string maVC = dataReader[0].ToString();
-                    string tenVC = dataReader[1].ToString();
-                    string nhaSX = dataReader[2].ToString();
-                    string ngaySX = ((DateTime)dataReader[3]).ToString("dd/MM/yyyy");
-                    string hanSD = ((DateTime)dataReader[4]).ToString("dd/MM/yyyy");
-                    string soLo = dataReader[5].ToString();
-                    int soLuongSan = int.Parse(dataReader[6].ToString());
-                    int donGia = int.Parse(dataReader[7].ToString());
-                    string loaiVC = dataReader[8].ToString();
-
-                    DTO_Vaccine vaccine = new DTO_Vaccine(maVC, tenVC, nhaSX, ngaySX, hanSD, soLo, soLuongSan, donGia, loaiVC);
-                    list.Add(vaccine);
-                }
+                rd = cmd.ExecuteReader();
+                dt.Load(rd);
             }
             catch (Exception)
             {
@@ -128,7 +149,8 @@ namespace DAO
             {
                 _conn.Close();
             }
-            return list;
+
+            return dt;
         }
 
         public string GetTenKHFromPHIEUTIEM(string maPT)
@@ -188,12 +210,22 @@ namespace DAO
             SqlDataReader rd;
             DataTable dt = new DataTable();
 
-            _conn.Open();
-            SqlCommand cmd = new SqlCommand("sp_GetPhieuTiemsInfo", _conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            rd = cmd.ExecuteReader();
-            dt.Load(rd);
-            _conn.Close();
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_GetPhieuTiemsInfo", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                dt.Load(rd);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
 
             return dt;
         }
@@ -225,6 +257,28 @@ namespace DAO
                 _conn.Close();
             }
 
+            return false;
+        }
+
+        public bool CheckPaymentStatus(string maPT)
+        {
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand("sp_CheckPaymentStatus", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@MAPHIEUTIEM", maPT);
+
+            SqlParameter retParam = cmd.Parameters.Add("@ReturnVal", SqlDbType.Int);
+            retParam.Direction = ParameterDirection.ReturnValue;
+
+            cmd.ExecuteNonQuery();
+            _conn.Close();
+
+            int retVal = Convert.ToInt32(retParam.Value);
+
+            if (retVal == 1)
+            {
+                return true;
+            }
             return false;
         }
     }

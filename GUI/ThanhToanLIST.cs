@@ -121,7 +121,11 @@ namespace GUI
                 DXMouseEventArgs.GetMouseArgs(e).Handled = true;
                 if (e.Clicks == 2 && e.Button == System.Windows.Forms.MouseButtons.Left)
                 {
-                    view.ShowEditor();
+                    if (view.FocusedColumn == gridView1.Columns["MAHOADON"] || view.FocusedColumn == gridView1.Columns["TONGTIEN"] || view.FocusedColumn == gridView1.Columns["CHIETKHAU"] || view.FocusedColumn == gridView1.Columns["KHACHHANG"] || view.FocusedColumn == gridView1.Columns["THUNGAN"])
+                    {
+
+                    }
+                    else view.ShowEditor();
                 }
                 if (e.Clicks == 1)
                 {

@@ -50,26 +50,27 @@ namespace GUI
         {
             int tongTien = 0;
 
-            listVC = busPT.GetVCFromPHIEUTIEM(tbMaPT.Text);
-            DataTable dtb = new DataTable();
-            dtb.Columns.Add("MAVACCINE");
-            dtb.Columns.Add("TENVACCINE");
-            dtb.Columns.Add("NHASX");
-            dtb.Columns.Add("LOAIVC");
-            dtb.Columns.Add("DONGIA");
-            for (int i = 0; i < listVC.Count; i++)
-            {
-                DataRow dr = dtb.NewRow();
-                dr["MAVACCINE"] = listVC[i].MAVACCINE;
-                dr["TENVACCINE"] = listVC[i].TENVACCINE;
-                dr["NHASX"] = listVC[i].NHASX;
-                dr["LOAIVC"] = listVC[i].LOAIVACCINE;
-                dr["DONGIA"] = listVC[i].DONGIA;
-                dtb.Rows.Add(dr);
-                tongTien += listVC[i].DONGIA;
-            }
+            //listVC = busPT.GetVCFromPHIEUTIEM(tbMaPT.Text);
+            //DataTable dtb = new DataTable();
+            //dtb.Columns.Add("MAVACCINE");
+            //dtb.Columns.Add("TENVACCINE");
+            //dtb.Columns.Add("NHASX");
+            //dtb.Columns.Add("LOAIVC");
+            //dtb.Columns.Add("DONGIA");
+            //for (int i = 0; i < listVC.Count; i++)
+            //{
+            //    DataRow dr = dtb.NewRow();
+            //    dr["MAVACCINE"] = listVC[i].MAVACCINE;
+            //    dr["TENVACCINE"] = listVC[i].TENVACCINE;
+            //    dr["NHASX"] = listVC[i].NHASX;
+            //    dr["LOAIVC"] = listVC[i].LOAIVACCINE;
+            //    dr["DONGIA"] = listVC[i].DONGIA;
+            //    dtb.Rows.Add(dr);
+            //    tongTien += listVC[i].DONGIA;
+            //}
 
-            gridVC.DataSource = dtb;
+            gridVC.DataSource = busPT.GetVCFromPHIEUTIEM(tbMaPT.Text);
+            gridView1.BestFitColumns();
             tbTenKH.Text = busPT.GetTenKHFromPHIEUTIEM(tbMaPT.Text);
 
             tbTongTien.Text = tongTien.ToString();
@@ -151,6 +152,29 @@ namespace GUI
         {
             ThanhToanLIST ttList = new ThanhToanLIST();
             ttList.ShowDialog();
+        }
+
+        private void btnCheckStatus_Click(object sender, EventArgs e)
+        {
+            if (tbMaPT.Text != "")
+            {
+                if (busPT.CheckPaymentStatus(tbMaPT.Text))
+                {
+                    MessageBoxEx.Show("Đã thanh toán");
+                }
+                else MessageBoxEx.Show("Chưa thanh toán");
+            }
+            else MessageBoxEx.Show("ChƯa nhập thông tin");
+        }
+
+        private void tbMaGH_Enter(object sender, EventArgs e)
+        {
+            lbNewNGH.Visible = true;
+        }
+
+        private void tbMaGH_Leave(object sender, EventArgs e)
+        {
+            lbNewNGH.Visible = false;
         }
     }
 }

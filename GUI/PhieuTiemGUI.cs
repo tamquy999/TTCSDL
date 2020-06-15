@@ -54,6 +54,12 @@ namespace GUI
             InitAutoCompeteTextBox();
         }
 
+        public void RefreshGrid()
+        {
+            gridKH.DataSource = busKH.getAllKH();
+            gridView1.Columns["MAKH"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+        }
+
         private void InitAutoCompeteTextBox()
         {
             //tbMaVC autocomplete test
@@ -110,8 +116,8 @@ namespace GUI
 
         private void PhieuTiemGUI_Load(object sender, EventArgs e)
         {
-            gridKH.DataSource = busKH.getAllKH();
-            gridView1.Columns["MAKH"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            //gridKH.DataSource = busKH.getAllKH();
+            //gridView1.Columns["MAKH"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
         }
 
         private void btnAddVC_Click(object sender, EventArgs e)

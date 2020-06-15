@@ -43,6 +43,7 @@
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
+            this.aceHome = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
@@ -51,10 +52,10 @@
             // container
             // 
             this.container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.container.Location = new System.Drawing.Point(236, 37);
-            this.container.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
+            this.container.Location = new System.Drawing.Point(207, 37);
+            this.container.Margin = new System.Windows.Forms.Padding(2, 6, 2, 6);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(1064, 863);
+            this.container.Size = new System.Drawing.Size(1093, 863);
             this.container.TabIndex = 0;
             // 
             // fluentDesignFormControl1
@@ -103,17 +104,18 @@
             this.accordionControl1.Appearance.Item.Normal.Options.UseFont = true;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.aceHome,
             this.aceVaccine,
             this.aceLichSu,
             this.acePhieuTiem,
             this.aceThanhToan,
             this.aceThongKe});
             this.accordionControl1.Location = new System.Drawing.Point(0, 37);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(2, 6, 2, 6);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
             this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
-            this.accordionControl1.Size = new System.Drawing.Size(236, 863);
+            this.accordionControl1.Size = new System.Drawing.Size(207, 863);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             this.accordionControl1.ElementClick += new DevExpress.XtraBars.Navigation.ElementClickEventHandler(this.accordionControl1_ElementClick);
@@ -121,7 +123,7 @@
             // aceVaccine
             // 
             this.aceVaccine.Height = 10;
-            this.aceVaccine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceVaccine.ImageOptions.Image")));
+            this.aceVaccine.ImageOptions.Image = global::GUI.Properties.Resources.vaccine;
             this.aceVaccine.Name = "aceVaccine";
             this.aceVaccine.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aceVaccine.Text = " Quản lý vaccine";
@@ -130,7 +132,7 @@
             // aceLichSu
             // 
             this.aceLichSu.Height = 10;
-            this.aceLichSu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceLichSu.ImageOptions.Image")));
+            this.aceLichSu.ImageOptions.Image = global::GUI.Properties.Resources.clock;
             this.aceLichSu.Name = "aceLichSu";
             this.aceLichSu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aceLichSu.Text = " Lịch sử tiêm";
@@ -140,7 +142,7 @@
             // 
             this.acePhieuTiem.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.acePhieuTiem.Appearance.Normal.Options.UseFont = true;
-            this.acePhieuTiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("acePhieuTiem.ImageOptions.Image")));
+            this.acePhieuTiem.ImageOptions.Image = global::GUI.Properties.Resources.add;
             this.acePhieuTiem.Name = "acePhieuTiem";
             this.acePhieuTiem.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.acePhieuTiem.Text = " Tạo phiếu tiêm";
@@ -149,7 +151,7 @@
             // aceThanhToan
             // 
             this.aceThanhToan.Height = 10;
-            this.aceThanhToan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceThanhToan.ImageOptions.Image")));
+            this.aceThanhToan.ImageOptions.Image = global::GUI.Properties.Resources.pay;
             this.aceThanhToan.Name = "aceThanhToan";
             this.aceThanhToan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aceThanhToan.Text = " Thanh toán";
@@ -157,7 +159,7 @@
             // 
             // aceThongKe
             // 
-            this.aceThongKe.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceThongKe.ImageOptions.Image")));
+            this.aceThongKe.ImageOptions.Image = global::GUI.Properties.Resources.statistics;
             this.aceThongKe.Name = "aceThongKe";
             this.aceThongKe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aceThongKe.Text = " Thống kê";
@@ -170,22 +172,30 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(162, 100);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(5);
+            this.simpleButton1.Location = new System.Drawing.Point(202, 125);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(148, 45);
+            this.simpleButton1.Size = new System.Drawing.Size(185, 56);
             this.simpleButton1.TabIndex = 3;
             this.simpleButton1.Text = "simpleButton1";
             // 
             // toggleSwitch1
             // 
-            this.toggleSwitch1.Location = new System.Drawing.Point(161, 144);
-            this.toggleSwitch1.Margin = new System.Windows.Forms.Padding(5);
+            this.toggleSwitch1.Location = new System.Drawing.Point(201, 180);
+            this.toggleSwitch1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.toggleSwitch1.Name = "toggleSwitch1";
             this.toggleSwitch1.Properties.OffText = "Off";
             this.toggleSwitch1.Properties.OnText = "On";
-            this.toggleSwitch1.Size = new System.Drawing.Size(149, 25);
+            this.toggleSwitch1.Size = new System.Drawing.Size(186, 25);
             this.toggleSwitch1.TabIndex = 3;
+            // 
+            // aceHome
+            // 
+            this.aceHome.ImageOptions.Image = global::GUI.Properties.Resources.home;
+            this.aceHome.Name = "aceHome";
+            this.aceHome.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceHome.Text = " Trang chủ";
+            this.aceHome.Click += new System.EventHandler(this.aceHome_Click);
             // 
             // Form1
             // 
@@ -229,6 +239,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
           private DevExpress.XtraBars.Navigation.AccordionControlElement aceThongKe;
-     }
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceHome;
+    }
 }
 

@@ -35,7 +35,12 @@ namespace BUS
             return dao.InsertPhieuTiem(pt);
         }
 
-        public List<DTO_Vaccine> GetVCFromPHIEUTIEM(string maPT)
+        //public List<DTO_Vaccine> GetVCFromPHIEUTIEM(string maPT)
+        //{
+        //    return dao.GetVCFromPHIEUTIEM(maPT);
+        //}
+
+        public DataTable GetVCFromPHIEUTIEM(string maPT)
         {
             return dao.GetVCFromPHIEUTIEM(maPT);
         }
@@ -58,6 +63,11 @@ namespace BUS
         public bool UpdatePhieuTiemInfo(DTO_PhieuTiemInfo ptif)
         {
             return dao.UpdatePhieuTiemInfo(ptif);
+        }
+
+        public bool CheckPaymentStatus(string maPT)
+        {
+            return dao.CheckPaymentStatus(maPT);
         }
     }
 }
