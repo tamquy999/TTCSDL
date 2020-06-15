@@ -56,6 +56,9 @@ namespace GUI
         private void Form1_Load(object sender, EventArgs e)
         {
             //acePhieuTiem_Click(sender, e);
+            accordionControl1.Elements[0].Image = Resources.home_clicked;
+            accordionControl1.Elements[0].Appearance.Normal.ForeColor = Color.FromArgb(31, 187, 166);
+            accordionControl1.Elements[0].Appearance.Hovered.ForeColor = Color.FromArgb(31, 187, 166);
             HomeGUI.Instance.BringToFront();
         }
 

@@ -188,5 +188,67 @@ namespace GUI
         {
             LoadDataToChartMostVC();
         }
+
+
+        #region LongClick
+
+        DateTime sw;
+        bool buttonUp = false;
+        const int holdButtonDuration = 500;
+
+        private void simpleButtonGiam_MouseDown(object sender, MouseEventArgs e)
+        {
+            buttonUp = false;
+            sw = DateTime.Now;
+            while (e.Button == MouseButtons.Left && e.Clicks == 1 && (buttonUp == false && (DateTime.Now - sw).TotalMilliseconds < holdButtonDuration))
+                Application.DoEvents();
+            if ((DateTime.Now - sw).TotalMilliseconds < holdButtonDuration)
+                simpleButtonGiam.PerformClick();
+            else
+                timerGiam.Start();
+        }
+
+        private void simpleButtonGiam_MouseUp(object sender, MouseEventArgs e)
+        {
+            buttonUp = true;
+        }
+
+        private void simpleButtonTang_MouseDown(object sender, MouseEventArgs e)
+        {
+            buttonUp = false;
+            sw = DateTime.Now;
+            while (e.Button == MouseButtons.Left && e.Clicks == 1 && (buttonUp == false && (DateTime.Now - sw).TotalMilliseconds < holdButtonDuration))
+                Application.DoEvents();
+            if ((DateTime.Now - sw).TotalMilliseconds < holdButtonDuration)
+                simpleButtonTang.PerformClick();
+            else
+                timerTang.Start();
+        }
+
+        private void simpleButtonTang_MouseUp(object sender, MouseEventArgs e)
+        {
+            buttonUp = true;
+        }
+
+        private void timerGiam_Tick(object sender, EventArgs e)
+        {
+            if (buttonUp != true)
+            {
+                simpleButtonGiam.PerformClick();
+            }
+            else timerGiam.Stop();
+        }
+
+        private void timerTang_Tick(object sender, EventArgs e)
+        {
+            if (buttonUp != true)
+            {
+                simpleButtonTang.PerformClick();
+            }
+            else timerTang.Stop();
+        }
+        
+        #endregion
+
     }
 }
