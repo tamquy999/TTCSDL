@@ -23,5 +23,10 @@ namespace BUS
         {
             return dao.GetCountLoaiVC();
         }
+
+        public DataTable GetMostUsedVaccineIn(string NgayDau, string NgayCuoi)
+        {
+            return dao.GetMostUsedVC(NgayDau, NgayCuoi);
+        }
     }
 }
