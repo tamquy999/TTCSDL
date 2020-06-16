@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace GUI
@@ -29,9 +30,6 @@ namespace GUI
             thungan = new DTO_ThuNgan(maTN, busTN.getTenThuNgan(maTN));
             barStaticItem.Caption = "Xin chào " + thungan.HOTEN;
 
-            //container.Controls.Add(ThanhToanGUI.Instance);
-            //ThanhToanGUI.Instance.Dock = DockStyle.Fill;
-
             ttGUI = new ThanhToanGUI(thungan);
             container.Controls.Add(ttGUI);
             ttGUI.Dock = DockStyle.Fill;
@@ -46,11 +44,12 @@ namespace GUI
 
             container.Controls.Add(LichSuGUI.Instance);
             LichSuGUI.Instance.Dock = DockStyle.Fill;
+
             container.Controls.Add(ThongKeGUI.Instance);
             ThongKeGUI.Instance.Dock = DockStyle.Fill;
+
             container.Controls.Add(HomeGUI.Instance);
             HomeGUI.Instance.Dock = DockStyle.Fill;
-            HomeGUI.Instance.BringToFront();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -64,7 +63,6 @@ namespace GUI
 
         private void aceThanhToan_Click(object sender, EventArgs e)
         {
-            //ThanhToanGUI.Instance.BringToFront();
             ttGUI.BringToFront();
         }
 
@@ -75,21 +73,14 @@ namespace GUI
 
         private void aceVaccine_Click(object sender, EventArgs e)
         {
-            //VaccineGUI.Instance.BringToFront();
             vcGUI.RefreshGrid();
             vcGUI.BringToFront();
         }
 
         private void acePhieuTiem_Click(object sender, EventArgs e)
         {
-            //PhieuTiemGUI.Instance.BringToFront();
             ptGUI.RefreshGrid();
             ptGUI.BringToFront();
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
         }
 
         private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
@@ -157,6 +148,11 @@ namespace GUI
             }
             e.Element.Appearance.Normal.ForeColor = Color.FromArgb(31, 187, 166);
             e.Element.Appearance.Hovered.ForeColor = Color.FromArgb(31, 187, 166);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
     }

@@ -79,7 +79,7 @@
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
             this.btnSearch.Appearance.Options.UseBackColor = true;
-            this.btnSearch.Location = new System.Drawing.Point(839, 46);
+            this.btnSearch.Location = new System.Drawing.Point(837, 46);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(142, 28);
             this.btnSearch.TabIndex = 6;
@@ -88,9 +88,9 @@
             // 
             // radioGroup1
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(5, 48);
+            this.radioGroup1.Location = new System.Drawing.Point(8, 46);
             this.radioGroup1.Name = "radioGroup1";
-            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
             this.radioGroup1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.radioGroup1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
@@ -100,7 +100,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Tên"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Loại"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Nhà sx")});
-            this.radioGroup1.Size = new System.Drawing.Size(476, 24);
+            this.radioGroup1.Size = new System.Drawing.Size(476, 29);
             this.radioGroup1.TabIndex = 8;
             this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
             // 

@@ -30,11 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.container = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
+            this.progressPanel = new DevExpress.XtraWaitForm.ProgressPanel();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem = new DevExpress.XtraBars.BarStaticItem();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
+            this.aceHome = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceVaccine = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceLichSu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acePhieuTiem = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -43,7 +45,7 @@
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
-            this.aceHome = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
@@ -51,12 +53,31 @@
             // 
             // container
             // 
+            this.container.Controls.Add(this.progressPanel);
             this.container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.container.Location = new System.Drawing.Point(207, 37);
             this.container.Margin = new System.Windows.Forms.Padding(2, 6, 2, 6);
             this.container.Name = "container";
             this.container.Size = new System.Drawing.Size(1093, 863);
             this.container.TabIndex = 0;
+            // 
+            // progressPanel
+            // 
+            this.progressPanel.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.progressPanel.Appearance.Options.UseBackColor = true;
+            this.progressPanel.BarAnimationElementThickness = 2;
+            this.progressPanel.Caption = "Vui lòng đợi";
+            this.progressPanel.ContentAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.progressPanel.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.progressPanel.Description = "Đang tải...";
+            this.progressPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressPanel.Location = new System.Drawing.Point(0, 0);
+            this.progressPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.progressPanel.Name = "progressPanel";
+            this.progressPanel.Size = new System.Drawing.Size(1093, 863);
+            this.progressPanel.TabIndex = 0;
+            this.progressPanel.Text = "progressPanel1";
+            this.progressPanel.Visible = false;
             // 
             // fluentDesignFormControl1
             // 
@@ -120,6 +141,14 @@
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             this.accordionControl1.ElementClick += new DevExpress.XtraBars.Navigation.ElementClickEventHandler(this.accordionControl1_ElementClick);
             // 
+            // aceHome
+            // 
+            this.aceHome.ImageOptions.Image = global::GUI.Properties.Resources.home;
+            this.aceHome.Name = "aceHome";
+            this.aceHome.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceHome.Text = " Trang chủ";
+            this.aceHome.Click += new System.EventHandler(this.aceHome_Click);
+            // 
             // aceVaccine
             // 
             this.aceVaccine.Height = 10;
@@ -173,7 +202,7 @@
             // simpleButton1
             // 
             this.simpleButton1.Location = new System.Drawing.Point(202, 125);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(6);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(185, 56);
             this.simpleButton1.TabIndex = 3;
@@ -182,20 +211,12 @@
             // toggleSwitch1
             // 
             this.toggleSwitch1.Location = new System.Drawing.Point(201, 180);
-            this.toggleSwitch1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.toggleSwitch1.Margin = new System.Windows.Forms.Padding(6);
             this.toggleSwitch1.Name = "toggleSwitch1";
             this.toggleSwitch1.Properties.OffText = "Off";
             this.toggleSwitch1.Properties.OnText = "On";
             this.toggleSwitch1.Size = new System.Drawing.Size(186, 25);
             this.toggleSwitch1.TabIndex = 3;
-            // 
-            // aceHome
-            // 
-            this.aceHome.ImageOptions.Image = global::GUI.Properties.Resources.home;
-            this.aceHome.Name = "aceHome";
-            this.aceHome.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.aceHome.Text = " Trang chủ";
-            this.aceHome.Click += new System.EventHandler(this.aceHome_Click);
             // 
             // Form1
             // 
@@ -217,6 +238,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
@@ -240,6 +262,7 @@
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
           private DevExpress.XtraBars.Navigation.AccordionControlElement aceThongKe;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceHome;
+        private DevExpress.XtraWaitForm.ProgressPanel progressPanel;
     }
 }
 
