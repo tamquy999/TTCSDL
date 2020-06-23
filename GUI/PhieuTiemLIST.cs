@@ -114,7 +114,7 @@ namespace GUI
                 DXMouseEventArgs.GetMouseArgs(e).Handled = true;
                 if (e.Clicks == 2 && e.Button == System.Windows.Forms.MouseButtons.Left)
                 {
-                    if (view.FocusedColumn == gridView1.Columns["MAPHIEUTIEM"] || view.FocusedColumn == gridView1.Columns["TENBS"])
+                    if (view.FocusedColumn == gridView1.Columns["MAPHIEUTIEM"] || view.FocusedColumn == gridView1.Columns["MAKH"] || view.FocusedColumn == gridView1.Columns["TENBS"])
                     {
 
                     }

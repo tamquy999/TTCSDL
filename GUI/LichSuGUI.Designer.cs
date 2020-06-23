@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gridLichSu = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -35,23 +36,24 @@
             this.btnTraCuu = new DevExpress.XtraEditors.SimpleButton();
             this.tbMaKH = new DevExpress.XtraEditors.TextEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.dtpNhacLai = new DevExpress.XtraEditors.DateEdit();
             this.dtpNgayTiem = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.tbMuiThu = new DevExpress.XtraEditors.TextEdit();
+            this.tbLoaiVC = new DevExpress.XtraEditors.TextEdit();
             this.tbDonGia = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.tbNhaSX = new DevExpress.XtraEditors.TextEdit();
             this.tbLieuLuong = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.tbTenVC = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tbLoaiVC = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.tbNhaSX = new DevExpress.XtraEditors.TextEdit();
-            this.tbMuiThu = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.dtpNhacLai = new DevExpress.XtraEditors.DateEdit();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridLichSu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -59,17 +61,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbMaKH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNhacLai.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNhacLai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMuiThu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbLoaiVC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDonGia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNhaSX.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbLieuLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTenVC.Properties)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbLoaiVC.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNhaSX.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbMuiThu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpNhacLai.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpNhacLai.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridLichSu
@@ -160,6 +163,20 @@
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "Chi tiết lần tiêm";
             // 
+            // dtpNhacLai
+            // 
+            this.dtpNhacLai.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dtpNhacLai.EditValue = null;
+            this.dtpNhacLai.Location = new System.Drawing.Point(476, 138);
+            this.dtpNhacLai.Name = "dtpNhacLai";
+            this.dtpNhacLai.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpNhacLai.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpNhacLai.Properties.ReadOnly = true;
+            this.dtpNhacLai.Size = new System.Drawing.Size(229, 24);
+            this.dtpNhacLai.TabIndex = 13;
+            // 
             // dtpNgayTiem
             // 
             this.dtpNgayTiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -170,8 +187,27 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpNgayTiem.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpNgayTiem.Properties.ReadOnly = true;
             this.dtpNgayTiem.Size = new System.Drawing.Size(227, 24);
             this.dtpNgayTiem.TabIndex = 13;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl9.Location = new System.Drawing.Point(383, 55);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(49, 18);
+            this.labelControl9.TabIndex = 11;
+            this.labelControl9.Text = "Mũi thứ";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl7.Location = new System.Drawing.Point(383, 141);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(87, 18);
+            this.labelControl7.TabIndex = 11;
+            this.labelControl7.Text = "Ngày nhắc lại";
             // 
             // labelControl6
             // 
@@ -182,11 +218,31 @@
             this.labelControl6.TabIndex = 11;
             this.labelControl6.Text = "Loại vaccine";
             // 
+            // tbMuiThu
+            // 
+            this.tbMuiThu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbMuiThu.Location = new System.Drawing.Point(474, 52);
+            this.tbMuiThu.Name = "tbMuiThu";
+            this.tbMuiThu.Properties.ReadOnly = true;
+            this.tbMuiThu.Size = new System.Drawing.Size(231, 24);
+            this.tbMuiThu.TabIndex = 8;
+            // 
+            // tbLoaiVC
+            // 
+            this.tbLoaiVC.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbLoaiVC.Location = new System.Drawing.Point(129, 138);
+            this.tbLoaiVC.Name = "tbLoaiVC";
+            this.tbLoaiVC.Properties.ReadOnly = true;
+            this.tbLoaiVC.Size = new System.Drawing.Size(227, 24);
+            this.tbLoaiVC.TabIndex = 8;
+            // 
             // tbDonGia
             // 
             this.tbDonGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbDonGia.EditValue = "";
             this.tbDonGia.Location = new System.Drawing.Point(474, 181);
             this.tbDonGia.Name = "tbDonGia";
+            this.tbDonGia.Properties.ReadOnly = true;
             this.tbDonGia.Size = new System.Drawing.Size(231, 24);
             this.tbDonGia.TabIndex = 8;
             // 
@@ -199,13 +255,32 @@
             this.labelControl5.TabIndex = 9;
             this.labelControl5.Text = "Đơn giá";
             // 
+            // tbNhaSX
+            // 
+            this.tbNhaSX.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbNhaSX.Location = new System.Drawing.Point(129, 181);
+            this.tbNhaSX.Name = "tbNhaSX";
+            this.tbNhaSX.Properties.ReadOnly = true;
+            this.tbNhaSX.Size = new System.Drawing.Size(227, 24);
+            this.tbNhaSX.TabIndex = 6;
+            // 
             // tbLieuLuong
             // 
             this.tbLieuLuong.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tbLieuLuong.Location = new System.Drawing.Point(474, 95);
             this.tbLieuLuong.Name = "tbLieuLuong";
+            this.tbLieuLuong.Properties.ReadOnly = true;
             this.tbLieuLuong.Size = new System.Drawing.Size(231, 24);
             this.tbLieuLuong.TabIndex = 6;
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl8.Location = new System.Drawing.Point(36, 184);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(88, 18);
+            this.labelControl8.TabIndex = 7;
+            this.labelControl8.Text = "Nhà sản xuất";
             // 
             // labelControl4
             // 
@@ -221,6 +296,7 @@
             this.tbTenVC.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tbTenVC.Location = new System.Drawing.Point(129, 95);
             this.tbTenVC.Name = "tbTenVC";
+            this.tbTenVC.Properties.ReadOnly = true;
             this.tbTenVC.Size = new System.Drawing.Size(227, 24);
             this.tbTenVC.TabIndex = 4;
             // 
@@ -257,70 +333,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1049, 230);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // tbLoaiVC
-            // 
-            this.tbLoaiVC.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbLoaiVC.Location = new System.Drawing.Point(129, 138);
-            this.tbLoaiVC.Name = "tbLoaiVC";
-            this.tbLoaiVC.Size = new System.Drawing.Size(227, 24);
-            this.tbLoaiVC.TabIndex = 8;
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl7.Location = new System.Drawing.Point(383, 141);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(87, 18);
-            this.labelControl7.TabIndex = 11;
-            this.labelControl7.Text = "Ngày nhắc lại";
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl8.Location = new System.Drawing.Point(36, 184);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(88, 18);
-            this.labelControl8.TabIndex = 7;
-            this.labelControl8.Text = "Nhà sản xuất";
-            // 
-            // tbNhaSX
-            // 
-            this.tbNhaSX.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbNhaSX.Location = new System.Drawing.Point(129, 181);
-            this.tbNhaSX.Name = "tbNhaSX";
-            this.tbNhaSX.Size = new System.Drawing.Size(227, 24);
-            this.tbNhaSX.TabIndex = 6;
-            // 
-            // tbMuiThu
-            // 
-            this.tbMuiThu.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbMuiThu.Location = new System.Drawing.Point(474, 52);
-            this.tbMuiThu.Name = "tbMuiThu";
-            this.tbMuiThu.Size = new System.Drawing.Size(231, 24);
-            this.tbMuiThu.TabIndex = 8;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl9.Location = new System.Drawing.Point(383, 55);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(49, 18);
-            this.labelControl9.TabIndex = 11;
-            this.labelControl9.Text = "Mũi thứ";
-            // 
-            // dtpNhacLai
-            // 
-            this.dtpNhacLai.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dtpNhacLai.EditValue = null;
-            this.dtpNhacLai.Location = new System.Drawing.Point(476, 138);
-            this.dtpNhacLai.Name = "dtpNhacLai";
-            this.dtpNhacLai.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpNhacLai.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpNhacLai.Size = new System.Drawing.Size(229, 24);
-            this.dtpNhacLai.TabIndex = 13;
-            // 
             // LichSuGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -338,17 +350,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNhacLai.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNhacLai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgayTiem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMuiThu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbLoaiVC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDonGia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNhaSX.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbLieuLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTenVC.Properties)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tbLoaiVC.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNhaSX.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbMuiThu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpNhacLai.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpNhacLai.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -379,5 +392,6 @@
         private DevExpress.XtraEditors.TextEdit tbMuiThu;
         private DevExpress.XtraEditors.TextEdit tbNhaSX;
         private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }
