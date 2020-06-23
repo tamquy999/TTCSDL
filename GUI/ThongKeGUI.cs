@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraReports.UI;
 
 namespace GUI
 {
@@ -247,8 +248,32 @@ namespace GUI
             }
             else timerTang.Stop();
         }
-        
+
         #endregion
 
+        //Xuat Bao Cao Thong Ke
+        private void ButtonReportTK_Click(object sender, EventArgs e)
+        {
+            string NgayDau = dateEditDau.DateTime.ToString("dd/MM/yyyy");
+            string NgayCuoi = dateEditCuoi.DateTime.ToString("dd/MM/yyyy");
+
+            DataTable dt = new DataTable();
+
+            ThongKeRP ReportTK = new ThongKeRP(NgayDau, NgayCuoi, dt, tedTongDoanhThu.Text.ToString());
+
+            
+
+            //set data source:
+            ReportTK.DataSource = dt;
+
+
+            
+            //set print to preview
+            ReportPrintTool rpTKtool = new ReportPrintTool(ReportTK);
+
+            
+            rpTKtool.ShowPreview();
+
+        }
     }
 }
