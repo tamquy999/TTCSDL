@@ -21,7 +21,8 @@ namespace GUI
         BUS_Vaccine busVC = new BUS_Vaccine();
         BUS_PhieuTiem busPT = new BUS_PhieuTiem();
 
-        List<DTO_Vaccine> listVC = new List<DTO_Vaccine>();
+        //List<DTO_Vaccine> listVC = new List<DTO_Vaccine>();
+        DataTable listVC = new DataTable();
 
         DTO_ThuNgan thuNgan;
 
@@ -68,6 +69,12 @@ namespace GUI
             //    dtb.Rows.Add(dr);
             //    tongTien += listVC[i].DONGIA;
             //}
+
+            listVC = busPT.GetVCFromPHIEUTIEM(tbMaPT.Text);
+            for (int i = 0; i < listVC.Rows.Count; i++)
+            {
+                tongTien += Convert.ToInt32(listVC.Rows[i][7]); // cot thu 7 la DONGIA
+            }
 
             gridVC.DataSource = busPT.GetVCFromPHIEUTIEM(tbMaPT.Text);
             gridView1.BestFitColumns();
