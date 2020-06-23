@@ -131,7 +131,7 @@ namespace GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if (tbTenNGH.Text != "" && tbDiaChiNGH.Text != "" && tbSdtNGH.Text != "" && tbMaPT.Text != "" && tbChieuKhau.Text != "" && dtpNgayTao.Text != "" && tbTongTien.Text != "" && tbMaGH.Text != "" && tbPhaiTra.Text != "" && tbKhachDua.Text != "" && tbTraLai.Text != "")
+            if (tbTenNGH.Text != "" && tbDiaChiNGH.Text != "" && tbSdtNGH.Text != "" && tbMaPT.Text != "" && tbChieuKhau.Text != "" && dtpNgayTao.Text != "" && tbTongTien.Text != "" && tbPhaiTra.Text != "" && tbKhachDua.Text != "" && tbTraLai.Text != "")
             {
                 if (tbMaGH.Text == "")
                 {
