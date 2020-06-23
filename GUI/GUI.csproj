@@ -75,6 +75,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HoaDonRP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HoaDonRP.Designer.cs">
+      <DependentUpon>HoaDonRP.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HoaDonRP.resx">
+      <DependentUpon>HoaDonRP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeGUI.resx">
       <DependentUpon>HomeGUI.cs</DependentUpon>
