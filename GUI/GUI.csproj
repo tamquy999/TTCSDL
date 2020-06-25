@@ -75,11 +75,20 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HoaDonCreator.cs" />
     <Compile Include="HoaDonRP.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="HoaDonRP.Designer.cs">
       <DependentUpon>HoaDonRP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDon_DataSet.cs">
+      <DependentUpon>HoaDon_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDon_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoaDon_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="HomeGUI.cs">
       <SubType>UserControl</SubType>
@@ -194,6 +203,17 @@
       <DependentUpon>VaccineGUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="HoaDon_DataSet.xsc">
+      <DependentUpon>HoaDon_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HoaDon_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoaDon_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="HoaDon_DataSet.xss">
+      <DependentUpon>HoaDon_DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
