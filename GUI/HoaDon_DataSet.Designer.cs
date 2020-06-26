@@ -28,8 +28,6 @@ namespace GUI {
         
         private VaccineDataTable tableVaccine;
         
-        private global::System.Data.DataRelation relationHoaDon_Vaccine;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -220,7 +218,6 @@ namespace GUI {
                     this.tableVaccine.InitVars();
                 }
             }
-            this.relationHoaDon_Vaccine = this.Relations["HoaDon_Vaccine"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -235,10 +232,6 @@ namespace GUI {
             base.Tables.Add(this.tableHoaDon);
             this.tableVaccine = new VaccineDataTable();
             base.Tables.Add(this.tableVaccine);
-            this.relationHoaDon_Vaccine = new global::System.Data.DataRelation("HoaDon_Vaccine", new global::System.Data.DataColumn[] {
-                        this.tableHoaDon.MaHoaDonColumn}, new global::System.Data.DataColumn[] {
-                        this.tableVaccine.MaHoaDonColumn}, false);
-            this.Relations.Add(this.relationHoaDon_Vaccine);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -511,7 +504,7 @@ namespace GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public HoaDonRow AddHoaDonRow(string MaHoaDon, string TenKH, string DiaChi, string SDT, string TenBacSi, string NgayThu, string ChietKhau, string TenThuNgan, string MaThuNgan, string NgayTiem, string TongTien, string _ThanhTien) {
+            public HoaDonRow AddHoaDonRow(string MaHoaDon, string TenKH, string DiaChi, string SDT, string TenBacSi, string NgayThu, double ChietKhau, string TenThuNgan, string MaThuNgan, string NgayTiem, double TongTien, double _ThanhTien) {
                 HoaDonRow rowHoaDonRow = ((HoaDonRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MaHoaDon,
@@ -584,7 +577,7 @@ namespace GUI {
                 base.Columns.Add(this.columnTenBacSi);
                 this.columnNgayThu = new global::System.Data.DataColumn("NgayThu", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNgayThu);
-                this.columnChietKhau = new global::System.Data.DataColumn("ChietKhau", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnChietKhau = new global::System.Data.DataColumn("ChietKhau", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnChietKhau);
                 this.columnTenThuNgan = new global::System.Data.DataColumn("TenThuNgan", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTenThuNgan);
@@ -592,9 +585,9 @@ namespace GUI {
                 base.Columns.Add(this.columnMaThuNgan);
                 this.columnNgayTiem = new global::System.Data.DataColumn("NgayTiem", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNgayTiem);
-                this.columnTongTien = new global::System.Data.DataColumn("TongTien", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTongTien = new global::System.Data.DataColumn("TongTien", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTongTien);
-                this.column_ThanhTien = new global::System.Data.DataColumn("_ThanhTien", typeof(string), null, global::System.Data.MappingType.Element);
+                this.column_ThanhTien = new global::System.Data.DataColumn("_ThanhTien", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column_ThanhTien);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("HoaDonKey1", new global::System.Data.DataColumn[] {
                                 this.columnMaHoaDon}, true));
@@ -843,16 +836,13 @@ namespace GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VaccineRow AddVaccineRow(string TenVC, string DonGia, string MaVC, HoaDonRow parentHoaDonRowByHoaDon_Vaccine) {
+            public VaccineRow AddVaccineRow(string TenVC, double DonGia, string MaVC, string MaHoaDon) {
                 VaccineRow rowVaccineRow = ((VaccineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TenVC,
                         DonGia,
                         MaVC,
-                        null};
-                if ((parentHoaDonRowByHoaDon_Vaccine != null)) {
-                    columnValuesArray[3] = parentHoaDonRowByHoaDon_Vaccine[0];
-                }
+                        MaHoaDon};
                 rowVaccineRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVaccineRow);
                 return rowVaccineRow;
@@ -893,7 +883,7 @@ namespace GUI {
             private void InitClass() {
                 this.columnTenVC = new global::System.Data.DataColumn("TenVC", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTenVC);
-                this.columnDonGia = new global::System.Data.DataColumn("DonGia", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDonGia = new global::System.Data.DataColumn("DonGia", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDonGia);
                 this.columnMaVC = new global::System.Data.DataColumn("MaVC", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMaVC);
@@ -1137,10 +1127,10 @@ namespace GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ChietKhau {
+            public double ChietKhau {
                 get {
                     try {
-                        return ((string)(this[this.tableHoaDon.ChietKhauColumn]));
+                        return ((double)(this[this.tableHoaDon.ChietKhauColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'ChietKhau\' in table \'HoaDon\' is DBNull.", e);
@@ -1201,10 +1191,10 @@ namespace GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string TongTien {
+            public double TongTien {
                 get {
                     try {
-                        return ((string)(this[this.tableHoaDon.TongTienColumn]));
+                        return ((double)(this[this.tableHoaDon.TongTienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'TongTien\' in table \'HoaDon\' is DBNull.", e);
@@ -1217,10 +1207,10 @@ namespace GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string _ThanhTien {
+            public double _ThanhTien {
                 get {
                     try {
-                        return ((string)(this[this.tableHoaDon._ThanhTienColumn]));
+                        return ((double)(this[this.tableHoaDon._ThanhTienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'_ThanhTien\' in table \'HoaDon\' is DBNull.", e);
@@ -1362,17 +1352,6 @@ namespace GUI {
             public void Set_ThanhTienNull() {
                 this[this.tableHoaDon._ThanhTienColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VaccineRow[] GetVaccineRows() {
-                if ((this.Table.ChildRelations["HoaDon_Vaccine"] == null)) {
-                    return new VaccineRow[0];
-                }
-                else {
-                    return ((VaccineRow[])(base.GetChildRows(this.Table.ChildRelations["HoaDon_Vaccine"])));
-                }
-            }
         }
         
         /// <summary>
@@ -1402,10 +1381,10 @@ namespace GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DonGia {
+            public double DonGia {
                 get {
                     try {
-                        return ((string)(this[this.tableVaccine.DonGiaColumn]));
+                        return ((double)(this[this.tableVaccine.DonGiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'DonGia\' in table \'Vaccine\' is DBNull.", e);
@@ -1440,17 +1419,6 @@ namespace GUI {
                 }
                 set {
                     this[this.tableVaccine.MaHoaDonColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public HoaDonRow HoaDonRow {
-                get {
-                    return ((HoaDonRow)(this.GetParentRow(this.Table.ParentRelations["HoaDon_Vaccine"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["HoaDon_Vaccine"]);
                 }
             }
             

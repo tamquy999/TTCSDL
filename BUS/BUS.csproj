@@ -48,6 +48,7 @@
     <Compile Include="BUS_LichSu.cs" />
     <Compile Include="BUS_Login.cs" />
     <Compile Include="BUS_PhieuTiem.cs" />
+    <Compile Include="BUS_RPHoaDon.cs" />
     <Compile Include="BUS_ThongKe.cs" />
     <Compile Include="BUS_ThuNgan.cs" />
     <Compile Include="BUS_Vaccine.cs" />
