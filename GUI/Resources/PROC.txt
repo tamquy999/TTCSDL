@@ -367,3 +367,91 @@ BEGIN
 	ORDER BY NGAYTHU ASC
 END
 
+
+--//////////////////////////////////////////////////////////////////////////
+
+-- Cac PROC Report cho ThanhToan:
+
+--get Thong Tin tu Hoa Don bang MaHoaDon
+go
+CREATE PROC spRP_getInforHoaDon (@maHD CHAR(10))
+AS
+BEGIN	
+	SELECT 
+		CHIETKHAU AS 'ChietKhau', 
+		NGAYTHU AS 'NgayThu', 
+		TONGTIEN AS 'TongTien',
+		MAPHIEUTIEM AS 'MaPhieuTiem',
+		MATHUNGAN AS 'MaThuNgan'
+	FROM dbo.HOADON
+	WHERE MAHOADON = @maHD
+END
+GO
+
+--Get Thong Tin GiamHo cho Hoa don bang MaHD:
+GO 
+CREATE PROC spRP_GetInforNGH(@maHD CHAR(10))
+AS
+BEGIN
+	SELECT HOTEN AS 'HoTen', DIACHI AS 'DiaChi', SDT AS 'SDT'
+	FROM	dbo.NGUOIGIAMHO INNER JOIN dbo.HOADON ON HOADON.MAGH = NGUOIGIAMHO.MAGH
+	WHERE
+	(
+		MAHOADON = @maHD
+	)
+END
+GO
+
+--Get Ngay Tiem bang Ma Phieu Tiem
+GO
+CREATE PROC spRP_GetNgayTiem(@maPhieuTiem CHAR(10))
+AS
+BEGIN
+	SELECT NGAYTIEM AS 'NgayTiem'
+	FROM dbo.PHIEUTIEM
+	WHERE MAPHIEUTIEM = @maPhieuTiem
+END
+GO
+
+--Get Ten Bac Si bang Ma Phieu Tiem:
+GO
+CREATE PROC spRP_GetTenBS(@maPhieuTiem CHAR(10))
+AS
+BEGIN
+SELECT HOTEN AS 'HoTenBS'
+FROM dbo.BACSY INNER JOIN dbo.PHIEUTIEM ON PHIEUTIEM.MABS = BACSY.MABS
+WHERE MAPHIEUTIEM = @maPhieuTiem
+END
+GO
+
+--Get MaVaccine tu Ma Phieu Tiem:
+GO
+CREATE PROC spRP_GetMaVC(@maPhieuTiem CHAR(10))
+AS
+BEGIN
+	SELECT DISTINCT MAVACCINE AS 'MaVC'
+	FROM dbo.CHITIETTIEM 
+	WHERE MAPHIEUTIEM = @maPhieuTiem
+END
+GO
+
+--Get Ten Cua Vaccine va Don Gia bang MaVC:
+GO
+CREATE PROC spRP_GetTen_GiaVC (@maVC CHAR(10))
+AS
+BEGIN
+    SELECT TENVACCINE AS 'TenVC', DONGIA AS 'DonGiaVC'
+	FROM dbo.VACCINE
+	WHERE MAVACCINE = @maVC
+END
+
+
+--get Ten Thu Ngan bang MaThuNgan:
+GO
+CREATE PROC spRP_GetTenThuNgan (@maTN CHAR(10))
+AS
+BEGIN
+    SELECT HOTEN AS 'HoTenTN'
+	FROM dbo.THUNGAN
+	WHERE MATHUNGAN = @maTN 
+END
