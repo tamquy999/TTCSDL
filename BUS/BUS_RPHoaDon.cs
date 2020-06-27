@@ -110,6 +110,24 @@ namespace BUS
             return TenTN;
         }
 
+        /// <summary>
+        /// Hàm này trả về 1 string tên của người đc tiêm là : Khách hàng(bệnh nhân)
+        /// </summary>
+        /// <param name="MaPhieuTiem"></param>
+        /// <returns></returns>
+        public string RP_GetTenBenhNhan(string MaPhieuTiem)
+        {
+            DataTable dt = dao.RP_getTenBenhNhan(MaPhieuTiem);
 
+            string TenBN = "";
+
+            if(dt.Rows.Count == 1)
+            {
+                DataRow row = dt.Rows[0];
+                TenBN = row["TenBN"].ToString().Trim();
+            }
+
+            return TenBN;
+        }
     }
 }

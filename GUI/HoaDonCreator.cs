@@ -27,11 +27,13 @@ namespace GUI
 
         public bool NhapDuLieuHoaDonVaoDataSet()
         {
-            string TenKH, DiaChi, SDT, TenBS, TenTN, MaTN, NgayThu, NgayTiem;
+            string TenKH, DiaChi, SDT, TenBS, TenTN, MaTN, NgayThu, NgayTiem, TenBenhNhan;
             double ChietKhau, TongTien, _ThanhTien;
 
             //Biến ẩn trên report:
             string MaPhieuTiem = "";
+
+            
 
             //***************************************************************
             #region ChietKhau, NgayThu, TongTien, MaPhieuTiem, MaThuNgan
@@ -105,6 +107,13 @@ namespace GUI
             }
             #endregion
 
+            #region Lấy Tên Bệnh Nhân bằng mã phiếu tiêm
+
+            TenBenhNhan = busRP.RP_GetTenBenhNhan(MaPhieuTiem);
+
+
+            #endregion
+
 
             #region Add record to HoaDon Table in Dataset:
 
@@ -122,7 +131,8 @@ namespace GUI
                     MaTN,
                     NgayTiem,
                     TongTien,
-                    _ThanhTien
+                    _ThanhTien,
+                    TenBenhNhan
                 });
 
 
@@ -168,6 +178,8 @@ namespace GUI
             RP.DataSource = ds;
             RP.DataMember = ds.Vaccine.TableName;
             NhapDuLieuHoaDonVaoDataSet();
+
+            
             
 
             ReportPrintTool ViewRP = new ReportPrintTool(RP);

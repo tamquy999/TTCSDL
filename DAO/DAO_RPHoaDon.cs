@@ -256,6 +256,38 @@ namespace DAO
             return dt;
         }
 
+        /// <summary>
+        /// Hàm này trả về DataTable có tên của Khách Hàng (bệnh nhân): TenBN
+        /// </summary>
+        /// <param name="maPhieuTiem"></param>
+        /// <returns></returns>
+        public DataTable RP_getTenBenhNhan(string maPhieuTiem)
+        {
+            DataTable dt = new DataTable();
+            SqlDataReader rd;
 
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand("spRP_GetTenBenhNhan", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@maPhieuTiem", maPhieuTiem);
+
+                rd = cmd.ExecuteReader();
+
+                dt.Load(rd);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return dt;
+        }
     }
 }
