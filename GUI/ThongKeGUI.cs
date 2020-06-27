@@ -257,22 +257,9 @@ namespace GUI
             string NgayDau = dateEditDau.DateTime.ToString("dd/MM/yyyy");
             string NgayCuoi = dateEditCuoi.DateTime.ToString("dd/MM/yyyy");
 
-            DataTable dt = new DataTable();
-
-            ThongKeRP ReportTK = new ThongKeRP(NgayDau, NgayCuoi, dt, tedTongDoanhThu.Text.ToString());
-
-            
-
-            //set data source:
-            ReportTK.DataSource = dt;
+           
 
 
-            
-            //set print to preview
-            ReportPrintTool rpTKtool = new ReportPrintTool(ReportTK);
-
-            
-            rpTKtool.ShowPreview();
 
         }
     }

@@ -142,11 +142,10 @@
     <Compile Include="ThongKeGUI.Designer.cs">
       <DependentUpon>ThongKeGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThongKeRP.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ThongKeRP.Designer.cs">
-      <DependentUpon>ThongKeRP.cs</DependentUpon>
+    <Compile Include="ThongKe_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThongKe_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="VaccineGUI.cs">
       <SubType>UserControl</SubType>
@@ -195,10 +194,6 @@
     <EmbeddedResource Include="ThongKeGUI.resx">
       <DependentUpon>ThongKeGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThongKeRP.resx">
-      <DependentUpon>ThongKeRP.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="VaccineGUI.resx">
       <DependentUpon>VaccineGUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +218,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ThongKe_DataSet.xsc">
+      <DependentUpon>ThongKe_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ThongKe_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ThongKe_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ThongKe_DataSet.xss">
+      <DependentUpon>ThongKe_DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">

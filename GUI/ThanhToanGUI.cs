@@ -151,16 +151,16 @@ namespace GUI
                 busGH.AddMaGHtoKH(tbMaGH.Text);
                 MessageBoxEx.Show("Thanh toán thành công");
 
-                
+                //Xuất Hóa đơn ra file:
+                HoaDonCreator HoaDonCreator = new HoaDonCreator(NextMaHD);
+                HoaDonCreator.ShowReportHoaDon();
             }
             else
             {
                 MessageBoxEx.Show("Bạn chưa nhập đủ thông tin");
             }
 
-            //Xuất ra file PDF hóa đơn:
-            HoaDonCreator HoaDonCreator = new HoaDonCreator("HD002995");
-            HoaDonCreator.ShowReportHoaDon();
+            
 
         }
 
