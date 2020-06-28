@@ -142,6 +142,12 @@
     <Compile Include="ThongKeGUI.Designer.cs">
       <DependentUpon>ThongKeGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThongKeRP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThongKeRP.Designer.cs">
+      <DependentUpon>ThongKeRP.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThongKe_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ThongKeGUI.resx">
       <DependentUpon>ThongKeGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeRP.resx">
+      <DependentUpon>ThongKeRP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VaccineGUI.resx">
       <DependentUpon>VaccineGUI.cs</DependentUpon>
