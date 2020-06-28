@@ -58,5 +58,10 @@ namespace BUS
             return dao.IsVCInStock(maVC);
         }
 
+        public int GetSoLuongConLai(string maVC)
+        {
+            return dao.GetSoLuongConLai(maVC);
+        }
+
     }
 }

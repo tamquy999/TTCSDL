@@ -315,6 +315,29 @@ namespace DAO
             return false;
         }
 
+        public int GetSoLuongConLai(string maVC)
+        {
+            string query = "SELECT SOLUONGCOSAN FROM VACCINE WHERE MAVACCINE = @MAVACCINE";
+            SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+            da.SelectCommand.Parameters.AddWithValue("@MAVACCINE", maVC);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return Convert.ToInt32(dt.Rows[0][0]);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return 0;
+        }
+
 
     }
 }

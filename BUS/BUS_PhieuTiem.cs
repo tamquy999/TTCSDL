@@ -69,5 +69,10 @@ namespace BUS
         {
             return dao.CheckPaymentStatus(maPT);
         }
+
+        public DataTable GetReportInfo(string maPT)
+        {
+            return dao.GetReportInfo(maPT);
+        }
     }
 }

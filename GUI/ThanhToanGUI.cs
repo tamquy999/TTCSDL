@@ -73,7 +73,7 @@ namespace GUI
             listVC = busPT.GetVCFromPHIEUTIEM(tbMaPT.Text);
             for (int i = 0; i < listVC.Rows.Count; i++)
             {
-                tongTien += Convert.ToInt32(listVC.Rows[i][7]); // cot thu 7 la DONGIA
+                tongTien += Convert.ToInt32(listVC.Rows[i][7]) * (int)Math.Ceiling(Convert.ToDouble(listVC.Rows[i][5])); // cot 7 la DONGIA, cot 5 la LIEULUONG
             }
 
             gridVC.DataSource = busPT.GetVCFromPHIEUTIEM(tbMaPT.Text);

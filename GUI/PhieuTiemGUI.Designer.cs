@@ -188,7 +188,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpNgayTiem.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dtpNgayTiem.Size = new System.Drawing.Size(189, 24);
-            this.dtpNgayTiem.TabIndex = 2;
+            this.dtpNgayTiem.TabIndex = 5;
             // 
             // tbMaBS
             // 
@@ -196,7 +196,7 @@
             this.tbMaBS.Location = new System.Drawing.Point(576, 106);
             this.tbMaBS.Name = "tbMaBS";
             this.tbMaBS.Size = new System.Drawing.Size(189, 24);
-            this.tbMaBS.TabIndex = 3;
+            this.tbMaBS.TabIndex = 6;
             this.tbMaBS.Leave += new System.EventHandler(this.tbMaBS_Leave);
             // 
             // lbMaBS
@@ -292,7 +292,7 @@
             this.tbMaKH.Location = new System.Drawing.Point(576, 14);
             this.tbMaKH.Name = "tbMaKH";
             this.tbMaKH.Size = new System.Drawing.Size(189, 24);
-            this.tbMaKH.TabIndex = 25;
+            this.tbMaKH.TabIndex = 4;
             this.tbMaKH.ToolTip = "Để trống nếu đăng ký mới";
             this.tbMaKH.ToolTipTitle = "Lưu ý";
             this.tbMaKH.Click += new System.EventHandler(this.tbMaKH_Click);
@@ -383,7 +383,7 @@
             this.btnAddVC.Location = new System.Drawing.Point(111, 2);
             this.btnAddVC.Name = "btnAddVC";
             this.btnAddVC.Size = new System.Drawing.Size(77, 29);
-            this.btnAddVC.TabIndex = 23;
+            this.btnAddVC.TabIndex = 1;
             this.btnAddVC.Text = "+";
             this.btnAddVC.Click += new System.EventHandler(this.btnAddVC_Click);
             // 
@@ -393,8 +393,7 @@
             this.tbMaVC.Location = new System.Drawing.Point(122, 3);
             this.tbMaVC.Name = "tbMaVC";
             this.tbMaVC.Size = new System.Drawing.Size(93, 24);
-            this.tbMaVC.TabIndex = 19;
-            this.tbMaVC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMaVC_KeyDown);
+            this.tbMaVC.TabIndex = 0;
             this.tbMaVC.Leave += new System.EventHandler(this.tbMaVC_Leave);
             // 
             // tbMuiThu
@@ -403,8 +402,7 @@
             this.tbMuiThu.Location = new System.Drawing.Point(311, 3);
             this.tbMuiThu.Name = "tbMuiThu";
             this.tbMuiThu.Size = new System.Drawing.Size(65, 24);
-            this.tbMuiThu.TabIndex = 21;
-            this.tbMuiThu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbLoaiTiem_KeyDown);
+            this.tbMuiThu.TabIndex = 1;
             this.tbMuiThu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMuiThu_KeyPress);
             // 
             // lbMuiThu
@@ -435,7 +433,7 @@
             this.btnSubVC.Location = new System.Drawing.Point(34, 2);
             this.btnSubVC.Name = "btnSubVC";
             this.btnSubVC.Size = new System.Drawing.Size(77, 29);
-            this.btnSubVC.TabIndex = 17;
+            this.btnSubVC.TabIndex = 0;
             this.btnSubVC.Text = "-";
             this.btnSubVC.Click += new System.EventHandler(this.btnSubVC_Click);
             // 
@@ -472,7 +470,9 @@
             this.tbNhacLai.Location = new System.Drawing.Point(665, 3);
             this.tbNhacLai.Name = "tbNhacLai";
             this.tbNhacLai.Size = new System.Drawing.Size(56, 24);
-            this.tbNhacLai.TabIndex = 28;
+            this.tbNhacLai.TabIndex = 3;
+            this.tbNhacLai.EditValueChanged += new System.EventHandler(this.tbNhacLai_EditValueChanged);
+            this.tbNhacLai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNhacLai_KeyPress);
             // 
             // label2
             // 
@@ -509,8 +509,8 @@
             this.tbLieuLuong.Location = new System.Drawing.Point(478, 3);
             this.tbLieuLuong.Name = "tbLieuLuong";
             this.tbLieuLuong.Size = new System.Drawing.Size(65, 24);
-            this.tbLieuLuong.TabIndex = 23;
-            this.tbLieuLuong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbLieuLuong_KeyDown);
+            this.tbLieuLuong.TabIndex = 2;
+            this.tbLieuLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLieuLuong_KeyPress);
             // 
             // groupControl4
             // 

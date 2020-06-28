@@ -62,7 +62,6 @@ namespace GUI
 
         private void InitAutoCompeteTextBox()
         {
-            //tbMaVC autocomplete test
             AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
             DataTable dt = busVC.getAllVaccine();
 
@@ -85,14 +84,6 @@ namespace GUI
         }
 
         private void tbLoaiTiem_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnAddVC.PerformClick();
-            }
-        }
-
-        private void tbLieuLuong_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -126,65 +117,74 @@ namespace GUI
             {
                 if (busVC.IsVCInStock(tbMaVC.Text))
                 {
-                    DTO_ChiTietTiem ctt = new DTO_ChiTietTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaVC.Text, busVC.getVCPrice(tbMaVC.Text), int.Parse(tbMuiThu.Text), dtpNgayTiem.DateTime.AddMonths(Convert.ToInt32(tbNhacLai.Text)).ToString("yyyy-MM-dd"), Convert.ToDouble(tbLieuLuong.Text));
-
-                    for (int i = 0; i < listCTT.Count; i++)
+                    if (Convert.ToDouble(tbLieuLuong.Text) <= busVC.GetSoLuongConLai(tbMaVC.Text))
                     {
-                        if (ctt.MAVACCINE == listCTT[i].MAVACCINE)
+                        DTO_ChiTietTiem ctt = new DTO_ChiTietTiem(busPhieuTiem.NextMAPHIEUTIEM(), tbMaVC.Text, busVC.getVCPrice(tbMaVC.Text), int.Parse(tbMuiThu.Text), dtpNgayTiem.DateTime.AddMonths(Convert.ToInt32(tbNhacLai.Text)).ToString("yyyy-MM-dd"), Convert.ToDouble(tbLieuLuong.Text));
+
+                        for (int i = 0; i < listCTT.Count; i++)
                         {
-                            listCTT[i].LIEULUONG += ctt.LIEULUONG; 
-                            DataTable dtb = new DataTable();
-                            dtb.Columns.Add("MAVACCINE");
-                            dtb.Columns.Add("TENVACCINE");
-                            dtb.Columns.Add("GIABAN");
-                            dtb.Columns.Add("MUITHU");
-                            dtb.Columns.Add("LIEULUONG");
-                            dtb.Columns.Add("NGAYNHACLAI");
-
-                            for (int j = 0; j < listCTT.Count; j++)
+                            if (ctt.MAVACCINE == listCTT[i].MAVACCINE)
                             {
-                                DataRow dr = dtb.NewRow();
-                                dr["MAVACCINE"] = listCTT[j].MAVACCINE;
-                                dr["TENVACCINE"] = busVC.getVCName(listCTT[j].MAVACCINE);
-                                dr["GIABAN"] = listCTT[j].GIABAN;
-                                dr["MUITHU"] = listCTT[j].MUITHU;
-                                dr["LIEULUONG"] = listCTT[j].LIEULUONG;
-                                dr["NGAYNHACLAI"] = listCTT[j].NGAYNHACLAI;
-                                dtb.Rows.Add(dr);
+                                if (Convert.ToDouble(tbLieuLuong.Text) <= busVC.GetSoLuongConLai(tbMaVC.Text) - listCTT[i].LIEULUONG)
+                                {
+                                    listCTT[i].LIEULUONG += ctt.LIEULUONG;
+                                    DataTable dtb = new DataTable();
+                                    dtb.Columns.Add("MAVACCINE");
+                                    dtb.Columns.Add("TENVACCINE");
+                                    dtb.Columns.Add("GIABAN");
+                                    dtb.Columns.Add("MUITHU");
+                                    dtb.Columns.Add("LIEULUONG");
+                                    dtb.Columns.Add("NGAYNHACLAI");
+
+                                    for (int j = 0; j < listCTT.Count; j++)
+                                    {
+                                        DataRow dr = dtb.NewRow();
+                                        dr["MAVACCINE"] = listCTT[j].MAVACCINE;
+                                        dr["TENVACCINE"] = busVC.getVCName(listCTT[j].MAVACCINE);
+                                        dr["GIABAN"] = listCTT[j].GIABAN;
+                                        dr["MUITHU"] = listCTT[j].MUITHU;
+                                        dr["LIEULUONG"] = listCTT[j].LIEULUONG;
+                                        dr["NGAYNHACLAI"] = listCTT[j].NGAYNHACLAI;
+                                        dtb.Rows.Add(dr);
+                                    }
+
+                                    gridVaccine.DataSource = dtb;
+                                    gridView2.BestFitColumns();
+                                }
+                                else MessageBoxEx.Show("Liều lượng vừa nhập lớn hơn số lượng trong kho. Vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                return;
                             }
-
-                            gridVaccine.DataSource = dtb;
-                            gridView2.BestFitColumns();
-
-                            return;
                         }
+
+                        listCTT.Add(ctt);
+
+                        DataTable dt = new DataTable();
+                        dt.Columns.Add("MAVACCINE");
+                        dt.Columns.Add("TENVACCINE");
+                        dt.Columns.Add("GIABAN");
+                        dt.Columns.Add("MUITHU");
+                        dt.Columns.Add("LIEULUONG");
+                        dt.Columns.Add("NGAYNHACLAI");
+
+                        for (int i = 0; i < listCTT.Count; i++)
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["MAVACCINE"] = listCTT[i].MAVACCINE;
+                            dr["TENVACCINE"] = busVC.getVCName(listCTT[i].MAVACCINE);
+                            dr["GIABAN"] = listCTT[i].GIABAN;
+                            dr["MUITHU"] = listCTT[i].MUITHU;
+                            dr["LIEULUONG"] = listCTT[i].LIEULUONG;
+                            dr["NGAYNHACLAI"] = listCTT[i].NGAYNHACLAI;
+                            dt.Rows.Add(dr);
+                        }
+
+                        gridVaccine.DataSource = dt;
+                        gridView2.BestFitColumns();
                     }
-                    
-                    listCTT.Add(ctt);
-
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("MAVACCINE");
-                    dt.Columns.Add("TENVACCINE");
-                    dt.Columns.Add("GIABAN");
-                    dt.Columns.Add("MUITHU");
-                    dt.Columns.Add("LIEULUONG");
-                    dt.Columns.Add("NGAYNHACLAI");
-
-                    for (int i = 0; i < listCTT.Count; i++)
-                    {
-                        DataRow dr = dt.NewRow();
-                        dr["MAVACCINE"] = listCTT[i].MAVACCINE;
-                        dr["TENVACCINE"] = busVC.getVCName(listCTT[i].MAVACCINE);
-                        dr["GIABAN"] = listCTT[i].GIABAN;
-                        dr["MUITHU"] = listCTT[i].MUITHU;
-                        dr["LIEULUONG"] = listCTT[i].LIEULUONG;
-                        dr["NGAYNHACLAI"] = listCTT[i].NGAYNHACLAI;
-                        dt.Rows.Add(dr);
-                    }
-
-                    gridVaccine.DataSource = dt;
-                    gridView2.BestFitColumns();
+                    else MessageBoxEx.Show("Liều lượng vừa nhập lớn hơn số lượng trong kho. Vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else MessageBoxEx.Show("Vaccine với mã \"" + tbMaVC.Text + "\" đã hết hoặc không tồn tại. Vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else return;
         }
@@ -225,6 +225,8 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            string MaPT = busPhieuTiem.NextMAPHIEUTIEM();
+
             if (listCTT.Count > 0 && tbTenKH.Text != "" && dtpNgaySinh.Text != "" && tbTienSu.Text != "" && tbMaBS.Text != "" && cbGioiTinh.Text != "")
             {
                 if (tbMaKH.Text == "")
@@ -239,7 +241,7 @@ namespace GUI
 
                 gridKH.DataSource = busKH.getAllKH();
 
-                if (busPhieuTiem.InsertPhieuTiem(new DTO_PhieuTiem(busPhieuTiem.NextMAPHIEUTIEM(), dtpNgayTiem.DateTime.ToString("yyyy-MM-dd"), tbMaKH.Text, tbMaBS.Text)))
+                if (busPhieuTiem.InsertPhieuTiem(new DTO_PhieuTiem(MaPT, dtpNgayTiem.DateTime.ToString("yyyy-MM-dd"), tbMaKH.Text, tbMaBS.Text)))
                 {
                     for (int i = 0; i < listCTT.Count; i++)
                     {
@@ -275,6 +277,10 @@ namespace GUI
 
 
             //gridKH.DataSource = busKH.getAllKH();
+
+            PhieuTiemRP_Provider ptRP = new PhieuTiemRP_Provider(MaPT);
+            ptRP.ShowReport();
+
         }
 
         private void tbMaVC_Leave(object sender, EventArgs e)
@@ -289,13 +295,17 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            if (MessageBoxEx.Show("Mọi thay đổi chưa lưu sẽ bị mất. Bạn có muốn đặt lại?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
             gridKH.DataSource = busKH.getAllKH();
             gridVaccine.DataSource = null;
             listCTT.Clear();
             tbTenKH.Text = "";
             tbTienSu.Text = "";
             dtpNgaySinh.Text = "";
-            dtpNgayTiem.Text = "";
+            dtpNgayTiem.Text = DateTime.Now.ToString("dd/MM/yyyy");
             cbGioiTinh.Text = "";
             tbMaBS.Text = "";
             tbMaKH.Text = "";
@@ -325,10 +335,6 @@ namespace GUI
 
         private void tbTenKH_Leave(object sender, EventArgs e)
         {
-            if(tbTenKH.Text == "")
-            {
-                tbTenKH.Text = "Họ và Tên";
-            }
         }
 
         //only accept number in textbox
@@ -339,7 +345,13 @@ namespace GUI
                 e.Handled = true;
             }
         }
-
+        private void tbLieuLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
         private void tbNhacLai_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -348,10 +360,16 @@ namespace GUI
             }
         }
 
+
         private void btnList_Click(object sender, EventArgs e)
         {
             PhieuTiemLIST pt = new PhieuTiemLIST();
             pt.ShowDialog();
+        }
+
+        private void tbNhacLai_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

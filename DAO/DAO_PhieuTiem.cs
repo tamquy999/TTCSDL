@@ -281,5 +281,31 @@ namespace DAO
             }
             return false;
         }
+
+        public DataTable GetReportInfo(string maPT)
+        {
+            SqlDataReader rd;
+            DataTable dt = new DataTable();
+
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_GetPhieuTiemReportInfo", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MAPT", maPT);
+                rd = cmd.ExecuteReader();
+                dt.Load(rd);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return dt;
+        }
     }
 }
