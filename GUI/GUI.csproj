@@ -75,6 +75,21 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HoaDonCreator.cs" />
+    <Compile Include="HoaDonRP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HoaDonRP.Designer.cs">
+      <DependentUpon>HoaDonRP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDon_DataSet.cs">
+      <DependentUpon>HoaDon_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDon_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoaDon_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="HomeGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -142,6 +157,17 @@
     <Compile Include="ThongKeGUI.Designer.cs">
       <DependentUpon>ThongKeGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThongKeRP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThongKeRP.Designer.cs">
+      <DependentUpon>ThongKeRP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKe_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThongKe_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="VaccineGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -150,6 +176,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HoaDonRP.resx">
+      <DependentUpon>HoaDonRP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeGUI.resx">
       <DependentUpon>HomeGUI.cs</DependentUpon>
@@ -189,10 +218,24 @@
     <EmbeddedResource Include="ThongKeGUI.resx">
       <DependentUpon>ThongKeGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeRP.resx">
+      <DependentUpon>ThongKeRP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VaccineGUI.resx">
       <DependentUpon>VaccineGUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="HoaDon_DataSet.xsc">
+      <DependentUpon>HoaDon_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HoaDon_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoaDon_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="HoaDon_DataSet.xss">
+      <DependentUpon>HoaDon_DataSet.xsd</DependentUpon>
+    </None>
     <None Include="PhieuTiemRP_Dataset.xsc">
       <DependentUpon>PhieuTiemRP_Dataset.xsd</DependentUpon>
     </None>
@@ -213,6 +256,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ThongKe_DataSet.xsc">
+      <DependentUpon>ThongKe_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ThongKe_DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ThongKe_DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ThongKe_DataSet.xss">
+      <DependentUpon>ThongKe_DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">

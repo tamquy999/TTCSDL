@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DAO
 {
@@ -140,6 +141,37 @@ namespace DAO
 
             return dt;
         }
+
+        #endregion
+
+        #region Report Thong Ke
+
+        public DataTable GetInforReportTK (string NgayDau, string NgayCuoi)
+        {
+            DataTable dt = new DataTable();
+
+            SqlDataReader rd;
+            try
+            {
+                _conn.Open();
+
+
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+
+
+            return dt;
+        }
+
 
         #endregion
     }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraReports.UI;
 
 namespace GUI
 {
@@ -247,8 +248,19 @@ namespace GUI
             }
             else timerTang.Stop();
         }
-        
+
         #endregion
 
+        //Xuat Bao Cao Thong Ke
+        private void ButtonReportTK_Click(object sender, EventArgs e)
+        {
+            string NgayDau = dateEditDau.DateTime.ToString("dd/MM/yyyy");
+            string NgayCuoi = dateEditCuoi.DateTime.ToString("dd/MM/yyyy");
+
+           
+
+
+
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace GUI
         BUS_HoaDon busHD = new BUS_HoaDon();
         BUS_Vaccine busVC = new BUS_Vaccine();
         BUS_PhieuTiem busPT = new BUS_PhieuTiem();
+        
 
         //List<DTO_Vaccine> listVC = new List<DTO_Vaccine>();
         DataTable listVC = new DataTable();
@@ -142,16 +143,24 @@ namespace GUI
                     busGH.InsertNGH(new DTO_GiamHo(tbMaGH.Text, tbTenNGH.Text, tbDiaChiNGH.Text, tbSdtNGH.Text));
                 }
 
-                busHD.InsertHD(new DTO_HoaDon(busHD.NextMaHD(), Convert.ToDouble(tbChieuKhau.Text), dtpNgayTao.DateTime.ToString("yyyy-MM-dd"), Convert.ToInt32(tbTongTien.Text), this.thuNgan.MATHUNGAN, tbMaGH.Text, tbMaPT.Text));
+                //Lấy mã Hóa đơn:
+                string NextMaHD = busHD.NextMaHD();
+
+                busHD.InsertHD(new DTO_HoaDon(NextMaHD, Convert.ToDouble(tbChieuKhau.Text), dtpNgayTao.DateTime.ToString("yyyy-MM-dd"), Convert.ToInt32(tbTongTien.Text), this.thuNgan.MATHUNGAN, tbMaGH.Text, tbMaPT.Text));
 
                 busGH.AddMaGHtoKH(tbMaGH.Text);
                 MessageBoxEx.Show("Thanh toán thành công");
-                
+
+                //Xuất Hóa đơn ra file:
+                HoaDonCreator HoaDonCreator = new HoaDonCreator(NextMaHD);
+                HoaDonCreator.ShowReportHoaDon();
             }
             else
             {
                 MessageBoxEx.Show("Bạn chưa nhập đủ thông tin");
             }
+
+            
 
         }
 
