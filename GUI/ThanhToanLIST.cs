@@ -24,12 +24,14 @@ namespace GUI
         BUS_HoaDon busHD = new BUS_HoaDon();
         BUS_PhieuTiem busPT = new BUS_PhieuTiem();
 
+        string MaHD;
+
         public ThanhToanLIST()
         {
             InitializeComponent();
-
-
             DisableResetAndSaveButton();
+            btnXuat.Enabled = false;
+            btnXuat.Appearance.BackColor = Color.White;
         }
 
         private void DisableResetAndSaveButton()
@@ -129,8 +131,11 @@ namespace GUI
                 }
                 if (e.Clicks == 1)
                 {
+                    btnXuat.Enabled = true;
+                    btnXuat.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
                     int[] selectedRowHandles = view.GetSelectedRows();
-                    string maPT = busHD.GetMaPhieuTiemFromHD(view.GetRowCellValue(selectedRowHandles[0], "MAHOADON").ToString());
+                    MaHD = view.GetRowCellValue(selectedRowHandles[0], "MAHOADON").ToString();
+                    string maPT = busHD.GetMaPhieuTiemFromHD(MaHD);
                     gridVC.DataSource = busPT.GetVCFromPHIEUTIEM(maPT);
                 }
             }
@@ -147,6 +152,7 @@ namespace GUI
                 deletedMaHD.Add(s);
                 EnableResetAndSaveButton();
                 view.DeleteSelectedRows();
+                gridVC.DataSource = null;
                 e.Handled = true;
             }
         }
@@ -179,6 +185,12 @@ namespace GUI
             editedHD.Add(hdif);
 
             EnableResetAndSaveButton();
+        }
+
+        private void btnXuat_Click(object sender, EventArgs e)
+        {
+            HoaDonCreator HoaDonCreator = new HoaDonCreator(MaHD);
+            HoaDonCreator.ShowReportHoaDon();
         }
     }
 }

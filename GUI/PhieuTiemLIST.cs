@@ -24,10 +24,14 @@ namespace GUI
 
         BUS_PhieuTiem busPT = new BUS_PhieuTiem();
 
+        string MaPT;
+
         public PhieuTiemLIST()
         {
             InitializeComponent();
             DisableResetAndSaveButton();
+            btnXuat.Enabled = false;
+            btnXuat.Appearance.BackColor = Color.White;
         }
 
         private void DisableResetAndSaveButton()
@@ -46,7 +50,7 @@ namespace GUI
             btnReset.Enabled = true;
             btnSave.Enabled = true;
             btnSave.Text = "Lưu";
-            btnSave.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            btnSave.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
             btnReset.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
         }
 
@@ -68,6 +72,7 @@ namespace GUI
                 deletedMaPT.Add(s);
                 EnableResetAndSaveButton();
                 view.DeleteSelectedRows();
+                gridVC.DataSource = null;
                 e.Handled = true;
             }
         }
@@ -107,6 +112,8 @@ namespace GUI
             GridView view = sender as GridView;
             GridHitInfo hitInfo = view.CalcHitInfo(e.Location);
 
+
+
             if (hitInfo.InRowCell)
             {
                 view.FocusedRowHandle = hitInfo.RowHandle;
@@ -122,7 +129,10 @@ namespace GUI
                 }
                 if (e.Clicks == 1)
                 {
+                    btnXuat.Enabled = true;
+                    btnXuat.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
                     int[] selectedRowHandles = view.GetSelectedRows();
+                    MaPT = view.GetRowCellValue(selectedRowHandles[0], "MAPHIEUTIEM").ToString();
                     gridVC.DataSource = busPT.GetVCFromPHIEUTIEM(view.GetRowCellValue(selectedRowHandles[0], "MAPHIEUTIEM").ToString());
                 }
             }
@@ -186,6 +196,12 @@ namespace GUI
             DTO_PhieuTiemInfo ptif = new DTO_PhieuTiemInfo(maPT, ngayTiem, tenKH, ngaySinh, gioiTinh, tieuSu);
             editedPT.Add(ptif);
             EnableResetAndSaveButton();
+        }
+
+        private void btnXuat_Click(object sender, EventArgs e)
+        {
+            PhieuTiemRP_Provider ptRP = new PhieuTiemRP_Provider(MaPT);
+            ptRP.ShowReport();
         }
     }
 }

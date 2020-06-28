@@ -38,6 +38,7 @@
             this.btnReset = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnXuat = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVC)).BeginInit();
@@ -112,7 +113,7 @@
             // btnHelp
             // 
             this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHelp.Location = new System.Drawing.Point(829, 665);
+            this.btnHelp.Location = new System.Drawing.Point(728, 665);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(29, 29);
             this.btnHelp.TabIndex = 11;
@@ -124,7 +125,7 @@
             this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReset.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
             this.btnReset.Appearance.Options.UseBackColor = true;
-            this.btnReset.Location = new System.Drawing.Point(873, 665);
+            this.btnReset.Location = new System.Drawing.Point(769, 665);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(94, 29);
             this.btnReset.TabIndex = 8;
@@ -134,9 +135,9 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.btnSave.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
             this.btnSave.Appearance.Options.UseBackColor = true;
-            this.btnSave.Location = new System.Drawing.Point(982, 665);
+            this.btnSave.Location = new System.Drawing.Point(875, 665);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 9;
@@ -153,6 +154,18 @@
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnXuat
+            // 
+            this.btnXuat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXuat.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.btnXuat.Appearance.Options.UseBackColor = true;
+            this.btnXuat.Location = new System.Drawing.Point(981, 665);
+            this.btnXuat.Name = "btnXuat";
+            this.btnXuat.Size = new System.Drawing.Size(94, 29);
+            this.btnXuat.TabIndex = 9;
+            this.btnXuat.Text = "Xuất";
+            this.btnXuat.Click += new System.EventHandler(this.btnXuat_Click);
+            // 
             // ThanhToanLIST
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -161,6 +174,7 @@
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnXuat);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.btnExit);
@@ -192,5 +206,6 @@
         private DevExpress.XtraEditors.SimpleButton btnReset;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnExit;
+        private DevExpress.XtraEditors.SimpleButton btnXuat;
     }
 }

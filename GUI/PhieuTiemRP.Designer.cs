@@ -608,7 +608,7 @@
             // 
             // xrLabel7
             // 
-            this.xrLabel7.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel7.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(584F, 32.99998F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";

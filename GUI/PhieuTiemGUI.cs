@@ -249,7 +249,10 @@ namespace GUI
                         {
                         }
                     }
-                    MessageBox.Show("Thêm thành công");
+                    if (MessageBoxEx.Show("Thêm thành công. Bạn có muốn in phiếu tiêm không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    {
+                        return;
+                    }
                 }
 
                 btnReset.PerformClick();
@@ -295,10 +298,6 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            if (MessageBoxEx.Show("Mọi thay đổi chưa lưu sẽ bị mất. Bạn có muốn đặt lại?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-            {
-                return;
-            }
             gridKH.DataSource = busKH.getAllKH();
             gridVaccine.DataSource = null;
             listCTT.Clear();

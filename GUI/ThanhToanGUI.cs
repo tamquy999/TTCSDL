@@ -50,6 +50,8 @@ namespace GUI
 
         private void tbMaPT_Leave(object sender, EventArgs e)
         {
+            if (tbMaPT.Text == "") return;
+
             int tongTien = 0;
 
             //listVC = busPT.GetVCFromPHIEUTIEM(tbMaPT.Text);
@@ -98,6 +100,7 @@ namespace GUI
             {
                 tbPhaiTra.Text = (Convert.ToInt32(tbTongTien.Text) - Convert.ToInt32(tbTongTien.Text) * Convert.ToDouble(tbChieuKhau.Text)).ToString();
             }
+            else return;
         }
 
         private void tbKhachDua_Leave(object sender, EventArgs e)
@@ -106,6 +109,7 @@ namespace GUI
             {
                 tbTraLai.Text = (Convert.ToInt32(tbKhachDua.Text) - Convert.ToInt32(tbPhaiTra.Text)).ToString();
             }
+            else return;
         }
 
         private void groupControl2_Paint(object sender, PaintEventArgs e)
@@ -174,11 +178,15 @@ namespace GUI
         {
             if (tbMaPT.Text != "")
             {
-                if (busPT.CheckPaymentStatus(tbMaPT.Text))
+                if (busPT.CheckExistance(tbMaPT.Text))
                 {
-                    MessageBoxEx.Show("Đã thanh toán");
+                    if (busPT.CheckPaymentStatus(tbMaPT.Text))
+                    {
+                        MessageBoxEx.Show("Đã thanh toán");
+                    }
+                    else MessageBoxEx.Show("Chưa thanh toán");
                 }
-                else MessageBoxEx.Show("Chưa thanh toán");
+                else MessageBoxEx.Show("Phiếu tiêm không tồn tại");
             }
             else MessageBoxEx.Show("ChƯa nhập thông tin");
         }

@@ -50,7 +50,7 @@ namespace GUI
 
                 MaPhieuTiem = row["MaPhieuTiem"].ToString().Trim();
                 MaTN = row["MaThuNgan"].ToString();
-                NgayThu = row["NgayThu"].ToString();
+                NgayThu = row["NgayThu"].ToString().Substring(0, 10);
             }
             else //Có bug trên DB
             {

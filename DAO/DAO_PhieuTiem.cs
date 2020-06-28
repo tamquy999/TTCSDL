@@ -282,6 +282,29 @@ namespace DAO
             return false;
         }
 
+        public bool CheckExistance(string maPT)
+        {
+            string query = "SELECT * FROM PHIEUTIEM WHERE MAPHIEUTIEM = @MAPHIEUTIEM";
+            SqlDataAdapter da = new SqlDataAdapter(query, _conn);
+            da.SelectCommand.Parameters.AddWithValue("@MAPHIEUTIEM", maPT);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return false;
+        }
+
         public DataTable GetReportInfo(string maPT)
         {
             SqlDataReader rd;

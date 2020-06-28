@@ -70,6 +70,11 @@ namespace BUS
             return dao.CheckPaymentStatus(maPT);
         }
 
+        public bool CheckExistance(string maPT)
+        {
+            return dao.CheckExistance(maPT);
+        }
+
         public DataTable GetReportInfo(string maPT)
         {
             return dao.GetReportInfo(maPT);
