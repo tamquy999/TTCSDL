@@ -47,7 +47,7 @@
             this.chartControlDoanhThu = new DevExpress.XtraCharts.ChartControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.tedTongDoanhThu = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.ButtonReportTK = new DevExpress.XtraEditors.SimpleButton();
             this.chartControlLoaiVC = new DevExpress.XtraCharts.ChartControl();
             this.chartControlMostVC = new DevExpress.XtraCharts.ChartControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -173,16 +173,16 @@
             this.tedTongDoanhThu.ToolTip = "Click để Copy";
             this.tedTongDoanhThu.DoubleClick += new System.EventHandler(this.tedTongDoanhThu_DoubleClick);
             // 
-            // simpleButton1
+            // ButtonReportTK
             // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Location = new System.Drawing.Point(866, 11);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(143, 29);
-            this.simpleButton1.TabIndex = 7;
-            this.simpleButton1.Text = "Xuất báo cáo";
+            this.ButtonReportTK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonReportTK.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.ButtonReportTK.Appearance.Options.UseBackColor = true;
+            this.ButtonReportTK.Location = new System.Drawing.Point(866, 11);
+            this.ButtonReportTK.Name = "ButtonReportTK";
+            this.ButtonReportTK.Size = new System.Drawing.Size(143, 29);
+            this.ButtonReportTK.TabIndex = 7;
+            this.ButtonReportTK.Text = "Xuất báo cáo";
             // 
             // chartControlLoaiVC
             // 
@@ -369,7 +369,7 @@
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.chartControlMostVC);
             this.Controls.Add(this.chartControlLoaiVC);
-            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.ButtonReportTK);
             this.Controls.Add(this.tedTongDoanhThu);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl1);
@@ -411,7 +411,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraCharts.ChartControl chartControlDoanhThu;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton ButtonReportTK;
         private DevExpress.XtraEditors.TextEdit tedTongDoanhThu;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraCharts.ChartControl chartControlLoaiVC;
