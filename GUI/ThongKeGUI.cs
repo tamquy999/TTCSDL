@@ -61,7 +61,7 @@ namespace GUI
             string NgayCuoi = dateEditCuoi.DateTime.ToString("yyyy-MM-dd");
 
             DataTable dt = new DataTable();
-            dt = busThongKe.GetHoaDonInTime(NgayDau, NgayCuoi);
+            dt = busThongKe.GetDoanhThuInTime(NgayDau, NgayCuoi);
             int TongDoanhThu = 0;
             foreach (DataRow row in dt.Rows)
             {
@@ -254,12 +254,13 @@ namespace GUI
         //Xuat Bao Cao Thong Ke
         private void ButtonReportTK_Click(object sender, EventArgs e)
         {
-            string NgayDau = dateEditDau.DateTime.ToString("dd/MM/yyyy");
-            string NgayCuoi = dateEditCuoi.DateTime.ToString("dd/MM/yyyy");
+            string NgayDau = dateEditDau.DateTime.ToString("yyyy-MM-dd");
+            string NgayCuoi = dateEditCuoi.DateTime.ToString("yyyy-MM-dd");
+            string TongDoanhThu = tedTongDoanhThu.Text;
 
-           
+            ThongKeCreator TKCreator = new ThongKeCreator(NgayDau, NgayCuoi, TongDoanhThu,dateEditDau.DateTime.ToString("dd/MM/yyyy"), dateEditCuoi.DateTime.ToString("dd/MM/yyyy"));
 
-
+            TKCreator.ShowThongKeRP();
 
         }
     }

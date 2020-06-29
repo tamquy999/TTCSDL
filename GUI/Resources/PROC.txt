@@ -481,3 +481,36 @@ BEGIN
 	ON bspt.MAPT = ctt.MAPHIEUTIEM
 	ON kh.MAKH = bspt.MAKH
 END
+
+
+--********************
+--Lay ten Loai VC theo ma Loai VC:
+CREATE PROC sp_GetTenLoaiVCTheoMaLoai(@MaLoaiVC CHAR(10))
+AS
+BEGIN
+	SELECT LOAIVACCINE AS 'TenLoaiVC'
+	FROM dbo.LOAIVC
+	WHERE MALOAIVC = @MaLoaiVC
+END
+--Lay Ten Vaccine tu loai VC:
+GO
+CREATE PROC sp_GetTenVCTuMaVC(@MaVC CHAR(10))
+AS
+BEGIN
+	SELECT TENVACCINE AS 'TenVC'
+	FROM dbo.VACCINE
+	WHERE MAVACCINE = @MaVC
+END
+
+
+--Lay Doanh Thu Theo Ngay:
+GO	
+CREATE PROC sp_GetDoanhThuTheoNgayINTIME(@NgayDau DATE, @NgayCuoi DATE)
+AS
+BEGIN
+    SELECT NGAYTHU AS "Ngay", SUM(TONGTIEN) AS "Tien"
+	FROM dbo.HOADON
+	WHERE NGAYTHU BETWEEN @NgayDau AND @NgayCuoi
+	GROUP BY(NGAYTHU)
+	ORDER BY NGAYTHU ASC
+END

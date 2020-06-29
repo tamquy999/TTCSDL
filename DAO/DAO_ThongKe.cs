@@ -174,5 +174,103 @@ namespace DAO
 
 
         #endregion
+
+
+        //Get TenLoaiVC theo MaLoaiVC:
+        public DataTable getTenLoaiVC(string MaLoaiVC)
+        {
+            DataTable dt = new DataTable();
+
+            SqlDataReader rd;
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_GetTenLoaiVCTheoMaLoai", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaLoaiVC", MaLoaiVC);
+
+                rd = cmd.ExecuteReader();
+                dt.Load(rd);
+            }
+            catch (Exception)
+            {
+
+
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+
+            return dt;
+        }
+
+
+        //Get TenVC theo MaVC:
+        public DataTable getTenVC(string MaVC)
+        {
+            DataTable dt = new DataTable();
+
+            SqlDataReader rd;
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_GetTenVCTuMaVC", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaVC", MaVC);
+
+                rd = cmd.ExecuteReader();
+                dt.Load(rd);
+            }
+            catch (Exception)
+            {
+
+
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+
+            return dt;
+        }
+
+
+        //Fix bug:
+        public DataTable GetDoanhThuINTIME(string NgayDau, string NgayCuoi)
+        {
+            DataTable dt = new DataTable();
+            SqlDataReader rd;
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_GetDoanhThuTheoNgayINTIME", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@NgayDau", NgayDau);
+                cmd.Parameters.AddWithValue("@NgayCuoi", NgayCuoi);
+                rd = cmd.ExecuteReader();
+                dt.Load(rd);
+
+            }
+            catch (Exception)
+            {
+
+
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return dt;
+        }
     }
 }

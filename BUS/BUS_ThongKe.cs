@@ -18,6 +18,10 @@ namespace BUS
             return dao.GetAllHoaDonINTIME(NgayDau, NgayCuoi);
         }
 
+        public DataTable GetDoanhThuInTime(string NgayDau, string NgayCuoi)
+        {
+            return dao.GetDoanhThuINTIME(NgayDau, NgayCuoi);
+        }
 
         public DataTable GetCountLoaiVC()
         {
@@ -27,6 +31,38 @@ namespace BUS
         public DataTable GetMostUsedVaccineIn(string NgayDau, string NgayCuoi)
         {
             return dao.GetMostUsedVC(NgayDau, NgayCuoi);
+        }
+
+        public string GetTenLoaiVCTheoMaLoaiVC(string MaLoaiVC)
+        {
+            string TenLoaiVC = "";
+
+            DataTable dt = dao.getTenLoaiVC(MaLoaiVC);
+
+            if(dt.Rows.Count >= 1)
+            {
+                DataRow row = dt.Rows[0];
+                TenLoaiVC = row["TenLoaiVC"].ToString();
+            }
+
+            return TenLoaiVC;
+        }
+
+
+
+        public string GetTenVCTheoMaVC(string MaVC)
+        {
+            string TenVC = "";
+
+            DataTable dt = dao.getTenVC(MaVC);
+
+            if (dt.Rows.Count >= 1)
+            {
+                DataRow row = dt.Rows[0];
+                TenVC = row["TenVC"].ToString();
+            }
+
+            return TenVC;
         }
     }
 }
