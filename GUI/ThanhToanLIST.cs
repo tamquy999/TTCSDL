@@ -50,7 +50,7 @@ namespace GUI
             btnReset.Enabled = true;
             btnSave.Enabled = true;
             btnSave.Text = "Lưu";
-            btnSave.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            btnSave.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
             btnReset.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger;
         }
 
