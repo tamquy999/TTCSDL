@@ -96,7 +96,7 @@ namespace GUI
 
         private void tbChieuKhau_Leave(object sender, EventArgs e)
         {
-            if (tbTongTien.Text != "" && tbTongTien.Text != "")
+            if (tbChieuKhau.Text != "" && tbTongTien.Text != "")
             {
                 tbPhaiTra.Text = (Convert.ToInt32(tbTongTien.Text) - Convert.ToInt32(tbTongTien.Text) * Convert.ToDouble(tbChieuKhau.Text)).ToString();
             }
