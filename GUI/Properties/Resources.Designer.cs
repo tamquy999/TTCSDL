@@ -203,6 +203,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap vaccine {
             get {
                 object obj = ResourceManager.GetObject("vaccine", resourceCulture);
@@ -216,6 +226,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap vaccine_clicked {
             get {
                 object obj = ResourceManager.GetObject("vaccine_clicked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vial {
+            get {
+                object obj = ResourceManager.GetObject("vial", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

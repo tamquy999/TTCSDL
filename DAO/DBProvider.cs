@@ -21,7 +21,17 @@ namespace DAO
         {
             string hashedPass = HashPass(pass);
 
-            string query = "SELECT * FROM THUNGAN WHERE MATHUNGAN = '" + user + "' AND PASSWORD = '" + hashedPass + "'";
+            string query;
+
+            if (user.Contains("TN"))
+            {
+                query = "SELECT * FROM THUNGAN WHERE MATHUNGAN = '" + user + "' AND PASSWORD = '" + hashedPass + "'";
+            }
+            else
+            {
+                query = "SELECT * FROM BACSY WHERE MABS = '" + user + "' AND MATKHAU = '" + hashedPass + "'";
+            }
+
             SqlDataAdapter da = new SqlDataAdapter(query, _conn);
             
             DataTable dt = new DataTable();

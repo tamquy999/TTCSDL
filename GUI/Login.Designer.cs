@@ -64,7 +64,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.Properties.Appearance.Options.UseFont = true;
-            this.tbPassword.Properties.PasswordChar = '*';
+            this.tbPassword.Properties.PasswordChar = '●';
             this.tbPassword.Size = new System.Drawing.Size(323, 34);
             this.tbPassword.TabIndex = 1;
             this.tbPassword.EditValueChanged += new System.EventHandler(this.tbPassword_EditValueChanged);

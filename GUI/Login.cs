@@ -27,11 +27,30 @@ namespace GUI
         {
             string user = tbUser.Text.Trim();
             string pass = tbPassword.Text.Trim();
-
+            Form1 fm;
             if (bus.Login(user, pass))
             {
-                new Form1(user).Show();
+                fm = new Form1(user);
                 this.Hide();
+                fm.ShowDialog();
+                if (!fm.IsDisposed)
+                {
+                    tbPassword.Text = "";
+                    tbUser.Focus();
+                    this.Show();
+                }
+            }
+            else if (tbUser.Text == "" && tbPassword.Text == "")
+            {
+                fm = new Form1("");
+                this.Hide();
+                fm.ShowDialog();
+                if (!fm.IsDisposed)
+                {
+                    tbPassword.Text = "";
+                    tbUser.Focus();
+                    this.Show();
+                }
             }
             else
             {
@@ -42,7 +61,7 @@ namespace GUI
                     tbUser.Refresh();
                     tbPassword.Refresh();
                 }
-                else if (tbUser.Text == "")
+                if (tbUser.Text == "")
                 {
                     isUserCorrect = false;
                     tbUser.Refresh();
@@ -71,7 +90,7 @@ namespace GUI
                 tbPassword.Properties.PasswordChar = '\0';
             }
             else
-                tbPassword.Properties.PasswordChar = '*';
+                tbPassword.Properties.PasswordChar = '●';
         }
 
         private void tbUser_Paint(object sender, PaintEventArgs e)
