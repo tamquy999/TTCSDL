@@ -242,12 +242,12 @@ namespace GUI
 
         private void aceVaccineAD_Click(object sender, EventArgs e)
         {
-
+            AD_QLVaccine.Instance.BringToFront();
         }
 
         private void aceAccountAD_Click(object sender, EventArgs e)
         {
-
+            AD_QLTaiKhoan.Instance.BringToFront();
         }
 
         private void aceThongKeAD_Click(object sender, EventArgs e)
