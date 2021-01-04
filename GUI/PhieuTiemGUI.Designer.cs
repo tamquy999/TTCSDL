@@ -193,6 +193,7 @@
             // tbMaBS
             // 
             this.tbMaBS.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbMaBS.Enabled = false;
             this.tbMaBS.Location = new System.Drawing.Point(576, 106);
             this.tbMaBS.Name = "tbMaBS";
             this.tbMaBS.Size = new System.Drawing.Size(189, 24);
@@ -523,6 +524,7 @@
             this.groupControl4.Size = new System.Drawing.Size(1049, 274);
             this.groupControl4.TabIndex = 8;
             this.groupControl4.Text = "Danh sách vaccine sử dụng";
+            this.groupControl4.Visible = false;
             // 
             // gridVaccine
             // 
@@ -564,10 +566,10 @@
             this.gridKH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridKH.Location = new System.Drawing.Point(3, 465);
+            this.gridKH.Location = new System.Drawing.Point(3, 188);
             this.gridKH.MainView = this.gridView1;
             this.gridKH.Name = "gridKH";
-            this.gridKH.Size = new System.Drawing.Size(1049, 294);
+            this.gridKH.Size = new System.Drawing.Size(1049, 571);
             this.gridKH.TabIndex = 9;
             this.gridKH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});

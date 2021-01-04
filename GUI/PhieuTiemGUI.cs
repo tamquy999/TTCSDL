@@ -227,7 +227,7 @@ namespace GUI
         {
             string MaPT = busPhieuTiem.NextMAPHIEUTIEM();
 
-            if (listCTT.Count > 0 && tbTenKH.Text != "" && dtpNgaySinh.Text != "" && tbTienSu.Text != "" && tbMaBS.Text != "" && cbGioiTinh.Text != "")
+            if (tbTenKH.Text != "" && dtpNgaySinh.Text != "" && tbTienSu.Text != "" && cbGioiTinh.Text != "")
             {
                 if (tbMaKH.Text == "")
                 {
@@ -241,18 +241,19 @@ namespace GUI
 
                 gridKH.DataSource = busKH.getAllKH();
 
-                if (busPhieuTiem.InsertPhieuTiem(new DTO_PhieuTiem(MaPT, dtpNgayTiem.DateTime.ToString("yyyy-MM-dd"), tbMaKH.Text, tbMaBS.Text)))
+                if (busPhieuTiem.InsertPhieuTiem(new DTO_PhieuTiem(MaPT, dtpNgayTiem.DateTime.ToString("yyyy-MM-dd"), tbMaKH.Text, "NULL", 0)))
                 {
-                    for (int i = 0; i < listCTT.Count; i++)
-                    {
-                        if (busCTT.InsertCTT(listCTT[i]))
-                        {
-                        }
-                    }
-                    if (MessageBoxEx.Show("Thêm thành công. Bạn có muốn in phiếu tiêm không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                    {
-                        return;
-                    }
+                    //for (int i = 0; i < listCTT.Count; i++)
+                    //{
+                    //    if (busCTT.InsertCTT(listCTT[i]))
+                    //    {
+                    //    }
+                    //}
+                    //if (MessageBoxEx.Show("Thêm thành công. Bạn có muốn in phiếu tiêm không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    //{
+                    //    return;
+                    //}
+                    MessageBoxEx.Show("Thêm thành công");
                 }
 
                 btnReset.PerformClick();
@@ -281,8 +282,8 @@ namespace GUI
 
             //gridKH.DataSource = busKH.getAllKH();
 
-            PhieuTiemRP_Provider ptRP = new PhieuTiemRP_Provider(MaPT);
-            ptRP.ShowReport();
+            //PhieuTiemRP_Provider ptRP = new PhieuTiemRP_Provider(MaPT);
+            //ptRP.ShowReport();
 
         }
 

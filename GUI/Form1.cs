@@ -23,10 +23,14 @@ namespace GUI
         ThanhToanGUI ttGUI;
         VaccineGUI vcGUI;
         PhieuTiemGUI ptGUI;
+        TiemGUI tiemGUI;
+
+        static public string user;
 
         public Form1(string username)
         {
             InitializeComponent();
+
             if (username.Contains("TN"))
             {
                 acBacSi.Visible = false;
@@ -58,6 +62,10 @@ namespace GUI
                 acKhachHang.Visible = false;
 
                 barStaticItem.Caption = "Bác sĩ";
+
+                tiemGUI = new TiemGUI();
+                container.Controls.Add(tiemGUI);
+                tiemGUI.Dock = DockStyle.Fill;
 
                 vcGUI = new VaccineGUI();
                 container.Controls.Add(vcGUI);
@@ -93,6 +101,7 @@ namespace GUI
                 LichSuGUI.Instance.Dock = DockStyle.Fill;
             }
 
+            user = username;
 
             container.Controls.Add(HomeGUI.Instance);
             HomeGUI.Instance.Dock = DockStyle.Fill;
@@ -220,7 +229,8 @@ namespace GUI
 
         private void aceTiemBS_Click(object sender, EventArgs e)
         {
-
+            //ptGUI.RefreshGrid();
+            tiemGUI.BringToFront();
         }
         #endregion
 

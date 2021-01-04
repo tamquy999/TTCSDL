@@ -15,5 +15,10 @@ namespace BUS
         {
             return dao.InsertCTT(ctt);
         }
+
+        public bool ClearAllCTTFromPT(string maPT)
+        {
+            return dao.ClearAllCTTFromPT(maPT);
+        }
     }
 }
