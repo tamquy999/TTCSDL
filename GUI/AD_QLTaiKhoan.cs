@@ -15,6 +15,20 @@ namespace GUI
 {
     public partial class AD_QLTaiKhoan : DevExpress.XtraEditors.XtraUserControl
     {
+        public static AD_QLTaiKhoan _instance;
+
+        public static AD_QLTaiKhoan Instance
+        {
+            get
+            {
+                if(_instance == null)
+                {
+                    _instance = new AD_QLTaiKhoan();
+                }
+                return _instance;
+            }
+        }
+
         public AD_QLTaiKhoan()
         {
             InitializeComponent();
