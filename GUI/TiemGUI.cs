@@ -53,7 +53,8 @@ namespace GUI
 
         public void RefreshGrid()
         {
-            gridPT.DataSource = busPhieuTiem.GetAllPhieuTiemInfo();
+            //gridPT.DataSource = busPhieuTiem.GetAllPhieuTiemInfo();
+            TiemGUI_Load(this, new EventArgs());
             gridVaccine.DataSource = null;
 
             //tbMaVC.Text = "";
