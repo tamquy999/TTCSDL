@@ -363,8 +363,11 @@ namespace DAO
             try
             {
                 _conn.Open();
-                SqlCommand cmd = new SqlCommand("sp_GetPhieuTiemReportInfo", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                string query = @"select pt.NGAYTIEM, kh.MAKH, kh.TENKH, kh.NGAYSINH, kh.GIOITINH, kh.TIEUSU, bs.HOTEN as TENBS
+                                from KHACHHANG kh join PHIEUTIEM pt join BACSY bs on bs.MABS = pt.MABS on pt.MAKH = kh.MAKH
+                                where pt.MAPHIEUTIEM = @MAPT";
+                SqlCommand cmd = new SqlCommand(query, _conn);
+                cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@MAPT", maPT);
                 rd = cmd.ExecuteReader();
                 dt.Load(rd);
