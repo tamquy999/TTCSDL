@@ -1,6 +1,4 @@
-﻿using BUS;
-using DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -15,18 +13,6 @@ namespace GUI
 {
     public partial class AD_QLVaccine : DevExpress.XtraEditors.XtraUserControl
     {
-        public static AD_QLVaccine _instance;
-        public static AD_QLVaccine Instance
-        {
-            get
-            {
-                if(_instance == null)
-                {
-                    _instance = new AD_QLVaccine();
-                }
-                return _instance;
-            }
-        }
         public AD_QLVaccine()
         {
             InitializeComponent();
