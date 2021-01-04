@@ -24,6 +24,8 @@ namespace GUI
         VaccineGUI vcGUI;
         PhieuTiemGUI ptGUI;
         TiemGUI tiemGUI;
+        AD_QLTaiKhoan adminTKGUI;
+        AD_QLVaccine adminVCGUI;
 
         static public string user;
 
@@ -84,6 +86,16 @@ namespace GUI
 
                 container.Controls.Add(ThongKeGUI.Instance);
                 ThongKeGUI.Instance.Dock = DockStyle.Fill;
+
+
+
+
+                adminTKGUI = new AD_QLTaiKhoan();
+                adminVCGUI = new AD_QLVaccine();
+                container.Controls.Add(adminTKGUI);
+                container.Controls.Add(adminVCGUI);
+                adminTKGUI.Dock = DockStyle.Fill;
+                adminVCGUI.Dock = DockStyle.Fill;
             }
             else
             {
@@ -242,12 +254,12 @@ namespace GUI
 
         private void aceVaccineAD_Click(object sender, EventArgs e)
         {
-            AD_QLVaccine.Instance.BringToFront();
+           adminVCGUI.BringToFront();
         }
 
         private void aceAccountAD_Click(object sender, EventArgs e)
         {
-            AD_QLTaiKhoan.Instance.BringToFront();
+            adminTKGUI.BringToFront();
         }
 
         private void aceThongKeAD_Click(object sender, EventArgs e)
