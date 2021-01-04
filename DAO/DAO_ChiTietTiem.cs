@@ -61,5 +61,32 @@ namespace DAO
 
             return false;
         }
+
+        public bool ClearAllCTTFromPT(string maPT)
+        {
+            try
+            {
+                _conn.Open();
+
+                string SQL = "delete from CHITIETTIEM where MAPHIEUTIEM = @MAPT";
+
+                SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                cmd.Parameters.Add(new SqlParameter("@MAPT", maPT));
+
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return false;
+        }
     }
 }

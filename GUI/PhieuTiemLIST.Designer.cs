@@ -59,6 +59,7 @@
             this.gridPT.TabIndex = 0;
             this.gridPT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridPT.DataSourceChanged += new System.EventHandler(this.gridPT_DataSourceChanged);
             this.gridPT.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.gridPT_ProcessGridKey);
             // 
             // gridView1

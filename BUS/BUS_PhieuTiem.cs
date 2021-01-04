@@ -79,5 +79,15 @@ namespace BUS
         {
             return dao.GetReportInfo(maPT);
         }
+
+        public bool XacNhanDaTiem(string maPT, string maBS)
+        {
+            return dao.XacNhanDaTiem(maPT, maBS);
+        }
+
+        public bool IsPhieutiemDaThanhToan(string maPT)
+        {
+            return dao.IsPhieutiemDaThanhToan(maPT);
+        }
     }
 }

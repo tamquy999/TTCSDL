@@ -203,5 +203,11 @@ namespace GUI
             PhieuTiemRP_Provider ptRP = new PhieuTiemRP_Provider(MaPT);
             ptRP.ShowReport();
         }
+
+        private void gridPT_DataSourceChanged(object sender, EventArgs e)
+        {
+            //this.ActiveControl = this.gridPT;
+            //this.gridView1.FocusedRowHandle = 3;
+        }
     }
 }

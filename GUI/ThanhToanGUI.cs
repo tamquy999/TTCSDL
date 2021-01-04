@@ -188,7 +188,7 @@ namespace GUI
                 }
                 else MessageBoxEx.Show("Phiếu tiêm không tồn tại");
             }
-            else MessageBoxEx.Show("ChƯa nhập thông tin");
+            else MessageBoxEx.Show("Chưa nhập thông tin");
         }
 
         private void tbMaGH_Enter(object sender, EventArgs e)
